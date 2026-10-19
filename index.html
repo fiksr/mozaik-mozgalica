@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="sr" class="h-full bg-slate-100 dark:bg-slate-900">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mozaik Mozgalica - Održavajte Vaš Um Zdravim</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Outfit & Readex Pro -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'Readex Pro', 'sans-serif'],
+                    },
+                    colors: {
+                        serbianBlue: '#0C4A6E',
+                        serbianRed: '#991B1B',
+                        emeraldPrimary: '#059669',
+                        amberAccent: '#D97706',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        .native-app-container {
+            width: 100%;
+            max-width: 480px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #F8FAFC;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-touch {
+            min-height: 52px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.1s ease, background-color 0.15s ease, border-color 0.15s ease;
+        }
+        .btn-touch:active {
+            transform: scale(0.97);
+        }
+
+        *:focus-visible {
+            outline: 4px solid #D97706 !important;
+            outline-offset: 2px;
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="h-full w-full flex items-center justify-center bg-slate-900 text-slate-800 dark:text-slate-100 overflow-hidden">
+
+    <!-- NATIVE APP CONTAINER -->
+    <div class="native-app-container dark:bg-slate-900">
+
+        <!-- Android Native Header Bar -->
+        <header class="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 px-4 py-3 flex items-center justify-between shrink-0 shadow-sm z-30">
+            <div class="flex items-center gap-2.5 cursor-pointer" onclick="switchTab('dashboard')">
+                <div class="w-10 h-10 bg-gradient-to-br from-emerald-600 to-teal-700 text-white rounded-2xl flex items-center justify-center shadow-md text-xl font-black">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+                <div>
+                    <h1 class="text-base font-extrabold text-slate-900 dark:text-white leading-tight flex items-center gap-1">
+                        Mozaik <span class="text-emerald-600 dark:text-emerald-400">Mozgalica</span>
+                    </h1>
+                    <p class="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">Održavajte Vaš Um Zdravim</p>
+                </div>
+            </div>
+
+            <!-- Accessibility Toolbar -->
+            <div class="flex items-center gap-1.5">
+                <!-- Ćirilica / Latinica Toggle -->
+                <button onclick="toggleScript()" id="scriptToggleBtn" class="px-2.5 py-1.5 bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 rounded-xl font-bold text-xs shadow-sm active:bg-amber-200" title="Promeni Pismo (Ћир / Lat)">
+                    <span id="scriptLabel">ЋИР</span>
+                </button>
+                <!-- Text Size Scaler -->
+                <button onclick="toggleFontSize()" class="w-9 h-9 bg-slate-100 dark:bg-slate-700 rounded-xl flex items-center justify-center font-bold text-xs text-slate-700 dark:text-slate-200 active:bg-slate-200">
+                    <i class="fa-solid fa-font"></i><span id="fontLabel" class="text-[9px] ml-0.5">1x</span>
+                </button>
+                <!-- Sound Toggle -->
+                <button onclick="toggleSound()" id="soundBtn" class="w-9 h-9 bg-slate-100 dark:bg-slate-700 rounded-xl flex items-center justify-center text-emerald-600 dark:text-emerald-400 active:bg-slate-200">
+                    <i class="fa-solid fa-volume-high text-sm"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- MAIN SCROLLABLE APP BODY -->
+        <main id="appBody" class="flex-1 overflow-y-auto no-scrollbar p-4 space-y-4">
+
+            <!-- VIEW 1: DASHBOARD HOME -->
+            <section id="view-dashboard" class="space-y-4">
+                
+                <!-- CLEAN WELCOME CARD -->
+                <div class="bg-gradient-to-br from-emerald-800 via-teal-800 to-slate-900 text-white rounded-3xl p-4 shadow-xl relative overflow-hidden">
+                    <div class="relative z-10 space-y-3">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h2 class="text-xl font-extrabold" id="welcomeText">Dobrodošli!</h2>
+                            </div>
+                            <div class="bg-white/15 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded-2xl text-center shrink-0">
+                                <div class="text-amber-300 text-base font-black flex items-center justify-center gap-1">
+                                    <i class="fa-solid fa-fire text-amber-400 animate-pulse"></i> <span id="dashStreak">1</span>
+                                </div>
+                                <div class="text-[9px] uppercase tracking-wider text-emerald-100 font-bold">Dana Niz</div>
+                            </div>
+                        </div>
+
+                        <!-- 2 Workout Routine Buttons (Jutarnji + Večernji) -->
+                        <div class="grid grid-cols-2 gap-2 pt-1">
+                            <button onclick="startDailyWorkout('jutro')" class="btn-touch w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-extrabold text-xs rounded-2xl shadow-lg border-2 border-amber-300 flex flex-col items-center justify-center py-2">
+                                <span class="flex items-center gap-1 text-slate-900 font-black"><i class="fa-solid fa-sun text-amber-200"></i> Jutarnji Trening</span>
+                                <span class="text-[10px] text-slate-900/80 font-semibold">(Slagalica, Broj, KZZ)</span>
+                            </button>
+                            <button onclick="startDailyWorkout('vece')" class="btn-touch w-full bg-gradient-to-r from-teal-600 to-emerald-700 hover:from-teal-700 hover:to-emerald-800 text-white font-extrabold text-xs rounded-2xl shadow-lg border-2 border-emerald-400 flex flex-col items-center justify-center py-2">
+                                <span class="flex items-center gap-1 font-black"><i class="fa-solid fa-moon text-amber-300"></i> Večernji Trening</span>
+                                <span class="text-[10px] text-emerald-100 font-semibold">(Koliko Znaš Srbiju + Spojnice)</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Summary Grid -->
+                <div class="grid grid-cols-3 gap-2.5">
+                    <div class="bg-white dark:bg-slate-800 p-3 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 text-center">
+                        <div class="text-amber-500 text-base mb-0.5"><i class="fa-solid fa-star"></i></div>
+                        <div class="text-lg font-extrabold text-slate-800 dark:text-slate-100" id="dashPoints">0</div>
+                        <div class="text-[10px] text-slate-500 dark:text-slate-400 font-medium">Bodova</div>
+                    </div>
+                    <div class="bg-white dark:bg-slate-800 p-3 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 text-center">
+                        <div class="text-emerald-500 text-base mb-0.5"><i class="fa-solid fa-circle-check"></i></div>
+                        <div class="text-lg font-extrabold text-slate-800 dark:text-slate-100" id="dashGames">0</div>
+                        <div class="text-[10px] text-slate-500 dark:text-slate-400 font-medium">Kvizova</div>
+                    </div>
+                    <div class="bg-white dark:bg-slate-800 p-3 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 text-center">
+                        <div class="text-amber-500 text-base mb-0.5"><i class="fa-solid fa-award"></i></div>
+                        <div class="text-xs font-extrabold text-slate-800 dark:text-slate-100 truncate" id="dashRank">Šampion Slagalice</div>
+                        <div class="text-[10px] text-slate-500 dark:text-slate-400 font-medium">Titula</div>
+                    </div>
+                </div>
+
+                <!-- LEADERBOARD BUTTON -->
+                <button onclick="switchTab('stats')" class="btn-touch w-full bg-white dark:bg-slate-800 p-3.5 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 flex items-center justify-between font-bold text-xs text-slate-800 dark:text-slate-200 active:border-amber-400">
+                    <span class="flex items-center gap-2.5">
+                        <div class="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-300 flex items-center justify-center text-sm font-extrabold">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <span>Vidi Rang Listu Ostalih Takmičara</span>
+                    </span>
+                    <i class="fa-solid fa-chevron-right text-slate-400 text-xs"></i>
+                </button>
+
+                <!-- Game Selection Cards -->
+                <div class="space-y-3">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                        <i class="fa-solid fa-tv text-emerald-600"></i> Izaberite Kviz
+                    </h3>
+
+                    <!-- 1. TV Slagalica -->
+                    <button onclick="startSlagalicaGame()" class="btn-touch w-full bg-white dark:bg-slate-800 p-3.5 rounded-2xl shadow-sm border-2 border-emerald-100 dark:border-slate-700 active:border-emerald-500 text-left flex items-center gap-3.5">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 flex items-center justify-center text-xl shrink-0 font-black">
+                            <i class="fa-solid fa-font"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white truncate">TV Slagalica (Reč Dana)</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 truncate">Sastavite najdužu reč od slova</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-slate-300 text-xs"></i>
+                    </button>
+
+                    <!-- 2. Moj Broj -->
+                    <button onclick="startMojBrojGame()" class="btn-touch w-full bg-white dark:bg-slate-800 p-3.5 rounded-2xl shadow-sm border-2 border-sky-100 dark:border-slate-700 active:border-sky-500 text-left flex items-center gap-3.5">
+                        <div class="w-12 h-12 rounded-xl bg-sky-100 dark:bg-sky-900/50 text-sky-700 dark:text-sky-300 flex items-center justify-center text-xl shrink-0 font-black">
+                            <i class="fa-solid fa-calculator"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white truncate">Moj Broj</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 truncate">Kombinujte brojeve do cilja</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-slate-300 text-xs"></i>
+                    </button>
+
+                    <!-- 3. Asocijacije -->
+                    <button onclick="startAsocijacijeGame()" class="btn-touch w-full bg-white dark:bg-slate-800 p-3.5 rounded-2xl shadow-sm border-2 border-amber-100 dark:border-slate-700 active:border-amber-500 text-left flex items-center gap-3.5">
+                        <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300 flex items-center justify-center text-xl shrink-0 font-black">
+                            <i class="fa-solid fa-table-cells"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white truncate">Asocijacije</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 truncate">Otvarajte polja i otkrijte rešenje</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-slate-300 text-xs"></i>
+                    </button>
+
+                    <!-- 4. Spojnice -->
+                    <button onclick="startSpojniceGame()" class="btn-touch w-full bg-white dark:bg-slate-800 p-3.5 rounded-2xl shadow-sm border-2 border-purple-100 dark:border-slate-700 active:border-purple-500 text-left flex items-center gap-3.5">
+                        <div class="w-12 h-12 rounded-xl bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 flex items-center justify-center text-xl shrink-0 font-black">
+                            <i class="fa-solid fa-diagram-project"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white truncate">Spojnice (2 Runde, ~10 Parova)</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 truncate">Spojite pisce, reke, gradove i poslovice</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-slate-300 text-xs"></i>
+                    </button>
+
+                    <!-- 5. Ko Zna Zna -->
+                    <button onclick="startKoZnaZnaGame()" class="btn-touch w-full bg-white dark:bg-slate-800 p-3.5 rounded-2xl shadow-sm border-2 border-indigo-100 dark:border-slate-700 active:border-indigo-500 text-left flex items-center gap-3.5">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 flex items-center justify-center text-xl shrink-0 font-black">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white truncate">Ko Zna Zna (10 Pitanja)</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 truncate">Istorija, geografija, film i nostalgija</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-slate-300 text-xs"></i>
+                    </button>
+
+                    <!-- 6. Koliko Znaš Srbiju? -->
+                    <button onclick="startKolikoZnasSrbijuGame()" class="btn-touch w-full bg-gradient-to-r from-red-50 to-blue-50 dark:from-slate-800 dark:to-slate-800 p-3.5 rounded-2xl shadow-sm border-2 border-red-200 dark:border-slate-700 active:border-red-500 text-left flex items-center gap-3.5">
+                        <div class="w-12 h-12 rounded-xl bg-red-700 text-white flex items-center justify-center text-xl shrink-0 font-black shadow-md">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white truncate flex items-center gap-1.5">
+                                Koliko Znaš Srbiju? <span class="text-xs text-red-600 dark:text-red-400">🇷🇸</span>
+                            </h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 truncate">Manastiri, reke, planine i naša istorija</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-slate-300 text-xs"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- GAME VIEW 1: SLAGALICA -->
+            <section id="view-slagalica" class="hidden space-y-4">
+                <div class="flex items-center justify-between">
+                    <button onclick="switchView('dashboard')" class="px-3 py-1.5 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-bold">
+                        <i class="fa-solid fa-arrow-left mr-1"></i> Nazad
+                    </button>
+                    <span class="text-xs font-extrabold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">TV Slagalica</span>
+                    <button onclick="speakText('Sastavite najdužu reč od ponuđenih slova.')" class="px-2.5 py-1.5 bg-amber-100 text-amber-800 rounded-xl text-xs font-bold">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </button>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 space-y-4 text-center">
+                    <div>
+                        <h3 class="text-base font-extrabold text-slate-900 dark:text-white">Sastavite Najdužu Reč</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Dodirnite slova po redosledu da ih složite</p>
+                    </div>
+
+                    <div id="slagalicaAnswerBox" class="min-h-[56px] p-2 bg-slate-100 dark:bg-slate-900 border-2 border-dashed border-emerald-400 rounded-2xl flex flex-wrap items-center justify-center gap-1.5">
+                        <span class="text-xs text-slate-400 font-medium">Dodirnite slova ispod...</span>
+                    </div>
+
+                    <div id="slagalicaTilesGrid" class="grid grid-cols-6 gap-2 pt-2"></div>
+
+                    <div class="flex items-center gap-2 pt-2">
+                        <button onclick="clearSlagalica()" class="btn-touch flex-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs rounded-xl">
+                            <i class="fa-solid fa-rotate-left mr-1"></i> Obriši
+                        </button>
+                        <button onclick="submitSlagalica()" class="btn-touch flex-[2] bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm rounded-xl shadow-md">
+                            Potvrdi Reč <i class="fa-solid fa-check ml-1"></i>
+                        </button>
+                    </div>
+
+                    <div id="slagalicaResult" class="hidden p-3 rounded-2xl border text-xs font-bold space-y-1"></div>
+                </div>
+            </section>
+
+            <!-- GAME VIEW 2: MOJ BROJ -->
+            <section id="view-mojbroj" class="hidden space-y-4">
+                <div class="flex items-center justify-between">
+                    <button onclick="switchView('dashboard')" class="px-3 py-1.5 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-bold">
+                        <i class="fa-solid fa-arrow-left mr-1"></i> Nazad
+                    </button>
+                    <span class="text-xs font-extrabold text-sky-600 dark:text-sky-400 uppercase tracking-wider">Moj Broj</span>
+                    <button onclick="speakText('Kombinujte ponuđene brojeve i računske operacije da dobijete traženi cilj.')" class="px-2.5 py-1.5 bg-amber-100 text-amber-800 rounded-xl text-xs font-bold">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </button>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 space-y-4 text-center">
+                    <div class="bg-sky-50 dark:bg-sky-950/50 border border-sky-200 dark:border-sky-800 p-3 rounded-2xl">
+                        <div class="text-xs text-sky-700 dark:text-sky-300 font-bold uppercase tracking-wider">Traženi Broj</div>
+                        <div class="text-3xl font-black text-sky-900 dark:text-sky-100 mt-1" id="mojBrojTarget">248</div>
+                    </div>
+
+                    <div class="min-h-[50px] p-2 bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-2xl flex items-center justify-between px-3">
+                        <span id="mojBrojExpression" class="text-sm font-bold text-slate-800 dark:text-slate-100 truncate">...</span>
+                        <span id="mojBrojCurrentVal" class="text-xs font-extrabold px-2 py-1 bg-sky-600 text-white rounded-lg">= 0</span>
+                    </div>
+
+                    <div id="mojBrojTiles" class="flex flex-wrap justify-center gap-2"></div>
+
+                    <div class="grid grid-cols-6 gap-1.5 pt-1">
+                        <button onclick="addMojBrojOp('+')" class="btn-touch min-h-[44px] bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white font-extrabold text-base rounded-xl">+</button>
+                        <button onclick="addMojBrojOp('-')" class="btn-touch min-h-[44px] bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white font-extrabold text-base rounded-xl">-</button>
+                        <button onclick="addMojBrojOp('*')" class="btn-touch min-h-[44px] bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white font-extrabold text-base rounded-xl">×</button>
+                        <button onclick="addMojBrojOp('/')" class="btn-touch min-h-[44px] bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white font-extrabold text-base rounded-xl">÷</button>
+                        <button onclick="addMojBrojOp('(')" class="btn-touch min-h-[44px] bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white font-extrabold text-base rounded-xl">(</button>
+                        <button onclick="addMojBrojOp(')')" class="btn-touch min-h-[44px] bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white font-extrabold text-base rounded-xl">)</button>
+                    </div>
+
+                    <div class="flex gap-2 pt-2">
+                        <button onclick="resetMojBroj()" class="btn-touch flex-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs rounded-xl">Obriši</button>
+                        <button onclick="submitMojBroj()" class="btn-touch flex-[2] bg-sky-600 text-white font-extrabold text-sm rounded-xl shadow-md">Potvrdi Rešenje</button>
+                    </div>
+
+                    <div id="mojBrojResult" class="hidden p-3 rounded-2xl border text-xs font-bold"></div>
+                </div>
+            </section>
+
+            <!-- GAME VIEW 3: ASOCIJACIJE -->
+            <section id="view-asocijacije" class="hidden space-y-3">
+                <div class="flex items-center justify-between">
+                    <button onclick="switchView('dashboard')" class="px-3 py-1.5 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-bold">
+                        <i class="fa-solid fa-arrow-left mr-1"></i> Nazad
+                    </button>
+                    <span class="text-xs font-extrabold text-amber-600 dark:text-amber-400 uppercase tracking-wider">Asocijacije</span>
+                    <button onclick="speakCurrentAssoc()" class="px-2.5 py-1.5 bg-amber-100 text-amber-800 rounded-xl text-xs font-bold">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </button>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 p-3 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 space-y-3">
+                    
+                    <div class="grid grid-cols-2 gap-2">
+                        <!-- Column A -->
+                        <div class="space-y-1">
+                            <div class="text-[11px] font-black text-amber-700 dark:text-amber-400 text-center uppercase">Kolona A</div>
+                            <div id="colA-clues" class="space-y-1"></div>
+                            <input type="text" id="inputA" placeholder="Rešenje A..." class="w-full p-2 text-xs font-bold text-center bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl">
+                            <div class="grid grid-cols-2 gap-1">
+                                <button onclick="checkColSolution('A')" class="btn-touch min-h-[34px] bg-amber-500 hover:bg-amber-600 text-white font-bold text-[11px] rounded-lg">Reši A</button>
+                                <button onclick="revealColSolution('A')" class="btn-touch min-h-[34px] bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-[10px] rounded-lg" title="Prikaži Rešenje Kolone A (5b)">Pomoć</button>
+                            </div>
+                        </div>
+
+                        <!-- Column B -->
+                        <div class="space-y-1">
+                            <div class="text-[11px] font-black text-amber-700 dark:text-amber-400 text-center uppercase">Kolona B</div>
+                            <div id="colB-clues" class="space-y-1"></div>
+                            <input type="text" id="inputB" placeholder="Rešenje B..." class="w-full p-2 text-xs font-bold text-center bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl">
+                            <div class="grid grid-cols-2 gap-1">
+                                <button onclick="checkColSolution('B')" class="btn-touch min-h-[34px] bg-amber-500 hover:bg-amber-600 text-white font-bold text-[11px] rounded-lg">Reši B</button>
+                                <button onclick="revealColSolution('B')" class="btn-touch min-h-[34px] bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-[10px] rounded-lg" title="Prikaži Rešenje Kolone B (5b)">Pomoć</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Final Solution Center Box -->
+                    <div class="bg-amber-50 dark:bg-amber-950/40 p-3 rounded-2xl border-2 border-amber-400 space-y-2 text-center">
+                        <div class="text-xs font-black text-amber-900 dark:text-amber-200 uppercase tracking-wider">Konačno Rešenje</div>
+                        <div id="finalSolutionDisplay" class="hidden text-base font-black text-amber-600 dark:text-amber-300 tracking-widest uppercase"></div>
+                        <div id="finalInputContainer" class="flex gap-1.5">
+                            <input type="text" id="inputFinal" placeholder="Konačno rešenje..." class="flex-1 p-2 text-xs font-bold text-center bg-white dark:bg-slate-900 border border-amber-300 rounded-xl">
+                            <button onclick="checkFinalSolution()" class="btn-touch px-3 min-h-[36px] bg-amber-600 text-white font-black text-xs rounded-xl shadow-md">Potvrdi</button>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <!-- Column C -->
+                        <div class="space-y-1">
+                            <div class="text-[11px] font-black text-amber-700 dark:text-amber-400 text-center uppercase">Kolona C</div>
+                            <div id="colC-clues" class="space-y-1"></div>
+                            <input type="text" id="inputC" placeholder="Rešenje C..." class="w-full p-2 text-xs font-bold text-center bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl">
+                            <div class="grid grid-cols-2 gap-1">
+                                <button onclick="checkColSolution('C')" class="btn-touch min-h-[34px] bg-amber-500 hover:bg-amber-600 text-white font-bold text-[11px] rounded-lg">Reši C</button>
+                                <button onclick="revealColSolution('C')" class="btn-touch min-h-[34px] bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-[10px] rounded-lg" title="Prikaži Rešenje Kolone C (5b)">Pomoć</button>
+                            </div>
+                        </div>
+
+                        <!-- Column D -->
+                        <div class="space-y-1">
+                            <div class="text-[11px] font-black text-amber-700 dark:text-amber-400 text-center uppercase">Kolona D</div>
+                            <div id="colD-clues" class="space-y-1"></div>
+                            <input type="text" id="inputD" placeholder="Rešenje D..." class="w-full p-2 text-xs font-bold text-center bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl">
+                            <div class="grid grid-cols-2 gap-1">
+                                <button onclick="checkColSolution('D')" class="btn-touch min-h-[34px] bg-amber-500 hover:bg-amber-600 text-white font-bold text-[11px] rounded-lg">Reši D</button>
+                                <button onclick="revealColSolution('D')" class="btn-touch min-h-[34px] bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-[10px] rounded-lg" title="Prikaži Rešenje Kolone D (5b)">Pomoć</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Action: Give Up -->
+                    <div class="pt-1 text-center">
+                        <button onclick="giveUpAssoc()" class="btn-touch w-full py-2 bg-rose-100 hover:bg-rose-200 text-rose-800 dark:bg-rose-950/60 dark:text-rose-200 font-bold text-xs rounded-xl border border-rose-300">
+                            <i class="fa-solid fa-flag mr-1"></i> Odustajem - Prikaži Sve Odgovore
+                        </button>
+                    </div>
+
+                    <div id="assocResultBox" class="hidden p-3 rounded-2xl border text-xs font-bold text-center"></div>
+                </div>
+            </section>
+
+            <!-- GAME VIEW 4: SPOJNICE -->
+            <section id="view-spojnice" class="hidden space-y-4">
+                <div class="flex items-center justify-between">
+                    <button onclick="switchView('dashboard')" class="px-3 py-1.5 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-bold">
+                        <i class="fa-solid fa-arrow-left mr-1"></i> Nazad
+                    </button>
+                    <div class="text-xs font-extrabold text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-950 px-3 py-1.5 rounded-xl">
+                        Runda <span id="spojniceCurrentRound">1</span> / 2
+                    </div>
+                    <button onclick="speakText('Spojite tačne parove klikom na stavku s leve i odgovarajući par s desne strane.')" class="px-2.5 py-1.5 bg-amber-100 text-amber-800 rounded-xl text-xs font-bold">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </button>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 space-y-4">
+                    <div class="text-center">
+                        <h3 id="spojniceTitle" class="text-sm font-extrabold text-slate-900 dark:text-white">Povežite Pisce i Njihova Dela</h3>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Izaberite pojam sleva, pa odgovarajući desno</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <div id="spojniceLeftCol" class="space-y-2"></div>
+                        <div id="spojniceRightCol" class="space-y-2"></div>
+                    </div>
+
+                    <div id="spojniceFeedback" class="hidden p-3 rounded-2xl border text-xs font-bold text-center space-y-2">
+                        <div id="spojniceFeedbackMsg"></div>
+                        <button onclick="nextSpojniceRound()" id="spojniceNextBtn" class="btn-touch w-full bg-purple-600 text-white font-extrabold text-xs rounded-xl">
+                            Sledeća Runda Spojnica <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GAME VIEW 5: KO ZNA ZNA -->
+            <section id="view-koznazna" class="hidden space-y-4">
+                <div class="flex items-center justify-between">
+                    <button onclick="switchView('dashboard')" class="px-3 py-1.5 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-bold">
+                        <i class="fa-solid fa-arrow-left mr-1"></i> Nazad
+                    </button>
+                    <div class="text-xs font-extrabold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950 px-3 py-1.5 rounded-xl">
+                        Pitanje <span id="kzzCurrentQ">1</span> / <span id="kzzTotalQ">10</span>
+                    </div>
+                    <button onclick="speakCurrentKzzQuestion()" class="px-2.5 py-1.5 bg-amber-100 text-amber-800 rounded-xl text-xs font-bold">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </button>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 p-5 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 space-y-4">
+                    <div>
+                        <span id="kzzCategory" class="inline-block px-2.5 py-0.5 bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 rounded-full text-[10px] font-bold uppercase tracking-wider">
+                            Opšta Kultura
+                        </span>
+                        <h3 id="kzzQuestionText" class="text-base font-extrabold text-slate-900 dark:text-white mt-2 leading-relaxed">
+                            Učitavanje pitanja...
+                        </h3>
+                    </div>
+
+                    <div id="kzzOptionsContainer" class="space-y-2.5"></div>
+
+                    <div id="kzzFeedbackBox" class="hidden p-4 rounded-2xl border space-y-2">
+                        <div class="flex items-center gap-2 font-bold text-sm" id="kzzFeedbackTitle"></div>
+                        <p class="text-xs text-slate-700 dark:text-slate-300 leading-normal" id="kzzFunFact"></p>
+                        <button onclick="nextKzzQuestion()" class="btn-touch w-full mt-2 bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold text-sm rounded-xl">
+                            Sledeće Pitanje <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GAME VIEW 6: KOLIKO ZNAŠ SRBIJU? -->
+            <section id="view-upoznajsrbiju" class="hidden space-y-4">
+                <div class="flex items-center justify-between">
+                    <button onclick="switchView('dashboard')" class="px-3 py-1.5 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-bold">
+                        <i class="fa-solid fa-arrow-left mr-1"></i> Nazad
+                    </button>
+                    <div class="text-xs font-extrabold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-950 px-3 py-1.5 rounded-xl flex items-center gap-1">
+                        🇷🇸 Srbija <span id="srbCurrentQ">1</span> / 3
+                    </div>
+                    <button onclick="speakCurrentSrbQuestion()" class="px-2.5 py-1.5 bg-amber-100 text-amber-800 rounded-xl text-xs font-bold">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </button>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 p-5 rounded-3xl shadow-sm border-2 border-red-200 dark:border-slate-700 space-y-4">
+                    <div>
+                        <span id="srbCategory" class="inline-block px-2.5 py-0.5 bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-300 rounded-full text-[10px] font-bold uppercase tracking-wider">
+                            Srpski Manastiri & Baština
+                        </span>
+                        <h3 id="srbQuestionText" class="text-base font-extrabold text-slate-900 dark:text-white mt-2 leading-relaxed">
+                            U kom manastiru se nalazi čuvena freska Beli Anđeo?
+                        </h3>
+                    </div>
+
+                    <div id="srbOptionsContainer" class="space-y-2.5"></div>
+
+                    <div id="srbFeedbackBox" class="hidden p-4 rounded-2xl border space-y-2">
+                        <div class="flex items-center gap-2 font-bold text-sm" id="srbFeedbackTitle"></div>
+                        <p class="text-xs text-slate-700 dark:text-slate-300 leading-normal" id="srbFunFact"></p>
+                        <button onclick="nextSrbQuestion()" class="btn-touch w-full mt-2 bg-red-700 hover:bg-red-800 text-white font-extrabold text-sm rounded-xl shadow-md">
+                            Sledeće Pitanje o Srbiji <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW 7: STATISTIKA & RANG LISTA -->
+            <section id="view-stats" class="hidden space-y-4">
+                <h3 class="text-base font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+                    <i class="fa-solid fa-chart-line text-emerald-600"></i> Vaš Kognitivni Napredak
+                </h3>
+                
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-3">
+                    <div class="flex justify-between items-center text-xs">
+                        <span class="text-slate-500 dark:text-slate-400">Ukupno Poena</span>
+                        <span id="tabPoints" class="font-extrabold text-emerald-600 text-sm">0</span>
+                    </div>
+                    <div class="flex justify-between items-center text-xs border-t border-slate-100 dark:border-slate-700 pt-2">
+                        <span class="text-slate-500 dark:text-slate-400">Rešenih Kvizova</span>
+                        <span id="tabGames" class="font-extrabold text-slate-800 dark:text-slate-200 text-sm">0</span>
+                    </div>
+                    <div class="flex justify-between items-center text-xs border-t border-slate-100 dark:border-slate-700 pt-2">
+                        <span class="text-slate-500 dark:text-slate-400">Aktivni Niz (Niz Dana)</span>
+                        <span id="tabStreak" class="font-extrabold text-amber-500 text-sm">1 Dan</span>
+                    </div>
+                </div>
+
+                <!-- Full Leaderboard -->
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-3">
+                    <div class="flex justify-between items-center">
+                        <h4 class="text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+                            <i class="fa-solid fa-trophy text-amber-500"></i> Lista Najboljih Takmičara
+                        </h4>
+                        <span id="userRankBadge" class="px-2.5 py-0.5 bg-amber-100 text-amber-900 rounded-full text-[10px] font-bold">#2</span>
+                    </div>
+                    <div id="fullLeaderboard" class="space-y-2 text-xs font-bold"></div>
+                </div>
+            </section>
+
+            <!-- VIEW 8: PODEŠAVANJA -->
+            <section id="view-settings" class="hidden space-y-4">
+                <h3 class="text-base font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+                    <i class="fa-solid fa-sliders text-emerald-600"></i> Prilagođavanje za Starije
+                </h3>
+
+                <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 divide-y divide-slate-100 dark:divide-slate-700">
+                    <div class="p-4 flex items-center justify-between">
+                        <div>
+                            <div class="text-xs font-bold text-slate-800 dark:text-slate-200">Pismo (Ćirilica / Latinica)</div>
+                            <div class="text-[10px] text-slate-500 dark:text-slate-400">Izaberite omiljeno pismo za čitanje</div>
+                        </div>
+                        <button onclick="toggleScript()" class="px-3 py-1.5 bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 font-bold text-xs rounded-xl">
+                            <span id="settingsScriptText">Ћирилица</span>
+                        </button>
+                    </div>
+
+                    <div class="p-4 flex items-center justify-between">
+                        <div>
+                            <div class="text-xs font-bold text-slate-800 dark:text-slate-200">Veličina Teksta</div>
+                            <div class="text-[10px] text-slate-500 dark:text-slate-400">Uvećajte slova za lakše čitanje</div>
+                        </div>
+                        <button onclick="toggleFontSize()" class="px-3 py-1.5 bg-slate-100 dark:bg-slate-700 text-xs font-bold rounded-xl">
+                            <span id="settingsFontText">Normalno (1x)</span>
+                        </button>
+                    </div>
+
+                    <div class="p-4 flex items-center justify-between">
+                        <div>
+                            <div class="text-xs font-bold text-slate-800 dark:text-slate-200">Kontrast / Tamni Režim</div>
+                            <div class="text-[10px] text-slate-500 dark:text-slate-400">Smanjuje zamaranje očiju</div>
+                        </div>
+                        <button onclick="toggleDarkMode()" class="px-3 py-1.5 bg-slate-100 dark:bg-slate-700 text-xs font-bold rounded-xl">
+                            Promeni Temu
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW 9: FINISH WORKOUT -->
+            <section id="view-complete" class="hidden text-center space-y-4 py-4">
+                <div class="w-16 h-16 mx-auto bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl shadow-md">
+                    <i class="fa-solid fa-trophy text-amber-500 animate-bounce"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-extrabold text-slate-900 dark:text-white" id="completeTitle">Svaka Čast!</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400" id="completeDesc">Odlično ste odradili dnevni trening!</p>
+                </div>
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-2">
+                    <div class="flex justify-between text-xs">
+                        <span class="text-slate-500">Osvojeno Poena:</span>
+                        <span id="completeEarned" class="font-extrabold text-emerald-600">+150</span>
+                    </div>
+                    <div class="flex justify-between text-xs border-t pt-2 border-slate-100 dark:border-slate-700">
+                        <span class="text-slate-500">Ukupan Skor:</span>
+                        <span id="completeTotal" class="font-extrabold text-slate-800 dark:text-slate-200">120</span>
+                    </div>
+                </div>
+                <button onclick="switchView('dashboard')" class="btn-touch w-full bg-emerald-600 text-white font-extrabold text-sm rounded-xl">
+                    Vrati se na Početnu
+                </button>
+            </section>
+
+        </main>
+
+        <!-- BOTTOM TAB NAVIGATION -->
+        <nav class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 px-2 py-2 flex justify-around items-center shrink-0 z-30 shadow-lg">
+            <button onclick="switchTab('dashboard')" id="tab-dashboard" class="flex flex-col items-center justify-center w-16 py-1 rounded-xl text-emerald-600 dark:text-emerald-400 font-bold">
+                <i class="fa-solid fa-house text-lg"></i>
+                <span class="text-[10px] mt-0.5">Početna</span>
+            </button>
+            <button onclick="switchTab('games')" id="tab-games" class="flex flex-col items-center justify-center w-16 py-1 rounded-xl text-slate-400 font-medium">
+                <i class="fa-solid fa-gamepad text-lg"></i>
+                <span class="text-[10px] mt-0.5">Kvizovi</span>
+            </button>
+            <button onclick="switchTab('stats')" id="tab-stats" class="flex flex-col items-center justify-center w-16 py-1 rounded-xl text-slate-400 font-medium">
+                <i class="fa-solid fa-chart-simple text-lg"></i>
+                <span class="text-[10px] mt-0.5">Napredak</span>
+            </button>
+            <button onclick="switchTab('settings')" id="tab-settings" class="flex flex-col items-center justify-center w-16 py-1 rounded-xl text-slate-400 font-medium">
+                <i class="fa-solid fa-gear text-lg"></i>
+                <span class="text-[10px] mt-0.5">Opcije</span>
+            </button>
+        </nav>
+
+    </div>
+
+    <script>
+        // Transliteration Dictionary (Latinica <-> Ćirilica)
+        const latToCirMap = {
+            'DŽ': 'Џ', 'Dž': 'Џ', 'dž': 'џ', 'LJ': 'Љ', 'Lj': 'Љ', 'lj': 'љ', 'NJ': 'Њ', 'Nj': 'Њ', 'nj': 'њ',
+            'A': 'А', 'a': 'а', 'B': 'Б', 'b': 'б', 'V': 'В', 'v': 'в', 'G': 'Г', 'g': 'г', 'D': 'Д', 'd': 'д',
+            'Đ': 'Ђ', 'đ': 'ђ', 'E': 'Е', 'e': 'е', 'Ž': 'Ж', 'ž': 'ж', 'Z': 'З', 'z': 'з', 'I': 'И', 'i': 'и',
+            'J': 'Ј', 'j': 'ј', 'K': 'К', 'k': 'к', 'L': 'Л', 'l': 'л', 'M': 'М', 'm': 'м', 'N': 'Н', 'n': 'н',
+            'O': 'О', 'o': 'о', 'P': 'П', 'p': 'п', 'R': 'Р', 'r': 'р', 'S': 'С', 's': 'с', 'T': 'Т', 't': 'т',
+            'Ć': 'Ћ', 'ć': 'ћ', 'U': 'У', 'u': 'у', 'F': 'Ф', 'f': 'ф', 'H': 'Х', 'h': 'х', 'C': 'Ц', 'c': 'ц',
+            'Č': 'Ч', 'č': 'ч', 'Š': 'Ш', 'š': 'ш'
+        };
+
+        function toCyrillic(str) {
+            if (!str) return '';
+            let res = str;
+            res = res.replace(/DŽ/g, 'Џ').replace(/Dž/g, 'Џ').replace(/dž/g, 'џ');
+            res = res.replace(/LJ/g, 'Љ').replace(/Lj/g, 'Љ').replace(/lj/g, 'љ');
+            res = res.replace(/NJ/g, 'Њ').replace(/Nj/g, 'Њ').replace(/nj/g, 'њ');
+            return res.split('').map(char => latToCirMap[char] || char).join('');
+        }
+
+        // Web Audio Synthesizer
+        let audioCtx = null;
+        let isMuted = false;
+
+        function initAudio() {
+            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+
+        function playSound(type) {
+            if (isMuted) return;
+            try {
+                initAudio();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                const now = audioCtx.currentTime;
+
+                if (type === 'correct') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(523.25, now);
+                    osc.frequency.exponentialRampToValueAtTime(783.99, now + 0.2);
+                    gain.gain.setValueAtTime(0.15, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+                    osc.start(now);
+                    osc.stop(now + 0.35);
+                } else if (type === 'wrong') {
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(220, now);
+                    osc.frequency.exponentialRampToValueAtTime(160, now + 0.2);
+                    gain.gain.setValueAtTime(0.15, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+                    osc.start(now);
+                    osc.stop(now + 0.25);
+                } else if (type === 'tap') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(440, now);
+                    gain.gain.setValueAtTime(0.08, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+                    osc.start(now);
+                    osc.stop(now + 0.05);
+                }
+            } catch (e) {}
+        }
+
+        // App State
+        let state = {
+            points: parseInt(localStorage.getItem('mm_points') || '0'),
+            games: parseInt(localStorage.getItem('mm_games') || '0'),
+            streak: parseInt(localStorage.getItem('mm_streak') || '1'),
+            script: localStorage.getItem('mm_script') || 'cirilica',
+            fontSize: 'normal',
+            isDailyWorkout: false,
+            workoutType: 'jutro',
+            dailyStep: 0
+        };
+
+        const competitorList = [
+            { name: "Baka Slavica", pts: 420, icon: "fa-user-nurse", color: "text-purple-500" },
+            { name: "Deda Jovan", pts: 280, icon: "fa-user-tie", color: "text-blue-500" },
+            { name: "Tetka Mirjana", pts: 190, icon: "fa-user-doctor", color: "text-teal-500" },
+            { name: "Ujak Milan", pts: 110, icon: "fa-user-gear", color: "text-amber-500" }
+        ];
+
+        document.addEventListener("DOMContentLoaded", () => {
+            updateDashboardStats();
+            applyScript();
+        });
+
+        function switchView(viewId) {
+            if (window.speechSynthesis) window.speechSynthesis.cancel();
+            const views = ['dashboard', 'slagalica', 'mojbroj', 'asocijacije', 'spojnice', 'koznazna', 'upoznajsrbiju', 'stats', 'settings', 'complete'];
+            views.forEach(v => {
+                const el = document.getElementById(`view-${v}`);
+                if (el) {
+                    if (v === viewId) el.classList.remove('hidden');
+                    else el.classList.add('hidden');
+                }
+            });
+            document.getElementById('appBody').scrollTop = 0;
+        }
+
+        function switchTab(tabName) {
+            const tabs = ['dashboard', 'games', 'stats', 'settings'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`tab-${t}`);
+                if (t === tabName) {
+                    btn.className = 'flex flex-col items-center justify-center w-16 py-1 rounded-xl text-emerald-600 dark:text-emerald-400 font-bold';
+                } else {
+                    btn.className = 'flex flex-col items-center justify-center w-16 py-1 rounded-xl text-slate-400 font-medium';
+                }
+            });
+
+            if (tabName === 'dashboard' || tabName === 'games') switchView('dashboard');
+            else if (tabName === 'stats') switchView('stats');
+            else if (tabName === 'settings') switchView('settings');
+        }
+
+        function updateDashboardStats() {
+            document.getElementById('dashPoints').innerText = state.points;
+            document.getElementById('dashGames').innerText = state.games;
+            document.getElementById('dashStreak').innerText = state.streak;
+
+            document.getElementById('tabPoints').innerText = state.points;
+            document.getElementById('tabGames').innerText = state.games;
+
+            let rank = 'Radoznali Um';
+            if (state.points >= 300) rank = 'Kviz Legenda';
+            else if (state.points >= 150) rank = 'Šampion Slagalice';
+            else if (state.points >= 50) rank = 'Majstor Mozgalica';
+
+            document.getElementById('dashRank').innerText = rank;
+            renderLeaderboard();
+        }
+
+        function renderLeaderboard() {
+            const allPlayers = [
+                ...competitorList,
+                { name: "Vi (Vaš Skor)", pts: state.points, isUser: true, icon: "fa-user-ninja", color: "text-emerald-500" }
+            ].sort((a, b) => b.pts - a.pts);
+
+            const userPos = allPlayers.findIndex(p => p.isUser) + 1;
+            const badge = document.getElementById('userRankBadge');
+            if (badge) badge.innerText = `#${userPos}`;
+
+            const fullContainer = document.getElementById('fullLeaderboard');
+            if (!fullContainer) return;
+
+            fullContainer.innerHTML = allPlayers.map((player, idx) => {
+                const medal = idx === 0 ? '🥇' : idx === 1 ? '🥈' : idx === 2 ? '🥉' : `#${idx+1}`;
+                const nameTxt = state.script === 'cirilica' ? toCyrillic(player.name) : player.name;
+                const bgStyle = player.isUser 
+                    ? 'bg-emerald-100 border-2 border-emerald-500 text-emerald-950 dark:bg-emerald-950/80 dark:text-emerald-100' 
+                    : 'bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200';
+
+                return `<div class="p-2.5 rounded-xl flex items-center justify-between ${bgStyle}">
+                    <div class="flex items-center gap-2">
+                        <span class="w-6 text-center font-black text-sm">${medal}</span>
+                        <i class="fa-solid ${player.icon} ${player.color}"></i>
+                        <span class="truncate">${nameTxt}</span>
+                    </div>
+                    <span class="font-extrabold ${player.isUser ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-600 dark:text-slate-300'}">${player.pts} bod</span>
+                </div>`;
+            }).join('');
+        }
+
+        function saveState() {
+            localStorage.setItem('mm_points', state.points);
+            localStorage.setItem('mm_games', state.games);
+            localStorage.setItem('mm_streak', state.streak);
+            localStorage.setItem('mm_script', state.script);
+            updateDashboardStats();
+        }
+
+        function toggleScript() {
+            state.script = state.script === 'cirilica' ? 'latinica' : 'cirilica';
+            saveState();
+            applyScript();
+        }
+
+        function applyScript() {
+            const label = document.getElementById('scriptLabel');
+            const settingsText = document.getElementById('settingsScriptText');
+            if (state.script === 'cirilica') {
+                if (label) label.innerText = 'ЋИР';
+                if (settingsText) settingsText.innerText = 'Ћирилица';
+            } else {
+                if (label) label.innerText = 'LAT';
+                if (settingsText) settingsText.innerText = 'Latinica';
+            }
+            renderLeaderboard();
+        }
+
+        function toggleFontSize() {
+            const fontLabel = document.getElementById('fontLabel');
+            const settingsText = document.getElementById('settingsFontText');
+            if (state.fontSize === 'normal') {
+                state.fontSize = 'large';
+                document.documentElement.style.fontSize = '18px';
+                fontLabel.innerText = '1.25x';
+                if (settingsText) settingsText.innerText = 'Uvećano (1.25x)';
+            } else if (state.fontSize === 'large') {
+                state.fontSize = 'xlarge';
+                document.documentElement.style.fontSize = '20px';
+                fontLabel.innerText = '1.5x';
+                if (settingsText) settingsText.innerText = 'Ekstra Veliko (1.5x)';
+            } else {
+                state.fontSize = 'normal';
+                document.documentElement.style.fontSize = '16px';
+                fontLabel.innerText = '1x';
+                if (settingsText) settingsText.innerText = 'Normalno (1x)';
+            }
+        }
+
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+        }
+
+        function toggleSound() {
+            isMuted = !isMuted;
+            const btn = document.getElementById('soundBtn');
+            btn.innerHTML = isMuted ? `<i class="fa-solid fa-volume-xmark text-slate-400"></i>` : `<i class="fa-solid fa-volume-high"></i>`;
+            playSound('tap');
+        }
+
+        function speakText(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const textToSpeak = state.script === 'cirilica' ? toCyrillic(text) : text;
+                const utterance = new SpeechSynthesisUtterance(textToSpeak);
+                utterance.lang = 'sr-RS';
+                utterance.rate = 0.85;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        // ================= GAME 1: SLAGALICA =================
+        const slagalicaPresets = [
+            { letters: ['A', 'K', 'O', 'M', 'U', 'N', 'I', 'K', 'A', 'C', 'I', 'J'], best: 'KOMUNIKACIJA', length: 12 },
+            { letters: ['S', 'L', 'A', 'G', 'A', 'L', 'I', 'C', 'A', 'M', 'O', 'Z'], best: 'SLAGALICA', length: 9 },
+            { letters: ['P', 'R', 'I', 'J', 'A', 'T', 'E', 'L', 'J', 'S', 'T', 'V'], best: 'PRIJATELJSTVO', length: 13 }
+        ];
+        let currentSlagalica = null;
+        let selectedSlagalicaLetters = [];
+
+        function startSlagalicaGame() {
+            currentSlagalica = slagalicaPresets[Math.floor(Math.random() * slagalicaPresets.length)];
+            selectedSlagalicaLetters = [];
+            switchView('slagalica');
+            renderSlagalica();
+        }
+
+        function renderSlagalica() {
+            const grid = document.getElementById('slagalicaTilesGrid');
+            grid.innerHTML = '';
+            currentSlagalica.letters.forEach((char, idx) => {
+                const btn = document.createElement('button');
+                const displayChar = state.script === 'cirilica' ? toCyrillic(char) : char;
+                btn.className = 'btn-touch min-h-[48px] aspect-square bg-emerald-700 text-white font-black text-lg rounded-xl shadow-md border-b-4 border-emerald-900 active:border-b-0 active:translate-y-1';
+                btn.innerText = displayChar;
+                btn.id = `slagalica-tile-${idx}`;
+                btn.onclick = () => selectSlagalicaLetter(idx, char);
+                grid.appendChild(btn);
+            });
+            updateSlagalicaBox();
+            document.getElementById('slagalicaResult').classList.add('hidden');
+        }
+
+        function selectSlagalicaLetter(idx, char) {
+            playSound('tap');
+            const tileBtn = document.getElementById(`slagalica-tile-${idx}`);
+            if (tileBtn.disabled) return;
+
+            tileBtn.disabled = true;
+            tileBtn.classList.add('opacity-30', 'bg-slate-400');
+            selectedSlagalicaLetters.push({ idx, char });
+            updateSlagalicaBox();
+        }
+
+        function updateSlagalicaBox() {
+            const box = document.getElementById('slagalicaAnswerBox');
+            box.innerHTML = '';
+            if (selectedSlagalicaLetters.length === 0) {
+                box.innerHTML = `<span class="text-xs text-slate-400 font-medium">Dodirnite slova ispod...</span>`;
+                return;
+            }
+            selectedSlagalicaLetters.forEach(item => {
+                const badge = document.createElement('span');
+                const displayChar = state.script === 'cirilica' ? toCyrillic(item.char) : item.char;
+                badge.className = 'px-3 py-1.5 bg-emerald-600 text-white font-black text-base rounded-xl shadow';
+                badge.innerText = displayChar;
+                box.appendChild(badge);
+            });
+        }
+
+        function clearSlagalica() {
+            playSound('tap');
+            selectedSlagalicaLetters.forEach(item => {
+                const tileBtn = document.getElementById(`slagalica-tile-${item.idx}`);
+                if (tileBtn) {
+                    tileBtn.disabled = false;
+                    tileBtn.classList.remove('opacity-30', 'bg-slate-400');
+                }
+            });
+            selectedSlagalicaLetters = [];
+            updateSlagalicaBox();
+        }
+
+        function submitSlagalica() {
+            const userWord = selectedSlagalicaLetters.map(i => i.char).join('');
+            const len = userWord.length;
+            const resBox = document.getElementById('slagalicaResult');
+            resBox.classList.remove('hidden');
+
+            if (len >= 4) {
+                playSound('correct');
+                const pts = len * 3;
+                state.points += pts; state.games += 1; saveState();
+                resBox.className = 'p-3 rounded-2xl border bg-emerald-50 text-emerald-900 border-emerald-300 text-xs font-bold space-y-1';
+                resBox.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-600"></i> Sjajno! Sastavili ste reč od ${len} slova (+${pts} poena)!`;
+                setTimeout(() => finishOrNextWorkout(), 2000);
+            } else {
+                playSound('wrong');
+                resBox.className = 'p-3 rounded-2xl border bg-amber-50 text-amber-900 border-amber-300 text-xs font-bold';
+                resBox.innerHTML = `<i class="fa-solid fa-triangle-exclamation text-amber-600"></i> Pokušajte da sastavite dužu reč (bar 4 slova).`;
+            }
+        }
+
+        // ================= GAME 2: MOJ BROJ =================
+        let mojBrojState = { target: 0, tiles: [], usedIndices: [], tokens: [] };
+
+        function startMojBrojGame() {
+            mojBrojState.target = Math.floor(Math.random() * 200) + 100;
+            mojBrojState.tiles = [
+                Math.floor(Math.random() * 9) + 1,
+                Math.floor(Math.random() * 9) + 1,
+                Math.floor(Math.random() * 9) + 1,
+                Math.floor(Math.random() * 9) + 1,
+                [10, 15, 20][Math.floor(Math.random() * 3)],
+                [25, 50, 75, 100][Math.floor(Math.random() * 4)]
+            ];
+            mojBrojState.usedIndices = [];
+            mojBrojState.tokens = [];
+            switchView('mojbroj');
+            renderMojBroj();
+        }
+
+        function renderMojBroj() {
+            document.getElementById('mojBrojTarget').innerText = mojBrojState.target;
+            const container = document.getElementById('mojBrojTiles');
+            container.innerHTML = '';
+
+            mojBrojState.tiles.forEach((val, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'btn-touch min-h-[46px] px-3.5 bg-sky-700 text-white font-black text-base rounded-xl shadow-md border-b-4 border-sky-900 active:border-b-0';
+                btn.innerText = val;
+                btn.id = `mb-tile-${idx}`;
+                btn.onclick = () => addMojBrojNum(idx, val);
+                container.appendChild(btn);
+            });
+
+            updateMojBrojDisplay();
+            document.getElementById('mojBrojResult').classList.add('hidden');
+        }
+
+        function addMojBrojNum(idx, val) {
+            if (mojBrojState.usedIndices.includes(idx)) return;
+            playSound('tap');
+            mojBrojState.usedIndices.push(idx);
+            mojBrojState.tokens.push({ type: 'num', val, idx });
+            document.getElementById(`mb-tile-${idx}`).classList.add('opacity-30', 'bg-slate-400');
+            updateMojBrojDisplay();
+        }
+
+        function addMojBrojOp(op) {
+            playSound('tap');
+            mojBrojState.tokens.push({ type: 'op', val: op });
+            updateMojBrojDisplay();
+        }
+
+        function updateMojBrojDisplay() {
+            const exprStr = mojBrojState.tokens.map(t => t.val).join(' ');
+            document.getElementById('mojBrojExpression').innerText = exprStr || '...';
+            
+            let val = 0;
+            try {
+                const evalResult = eval(exprStr.replace(/×/g, '*').replace(/÷/g, '/'));
+                if (!isNaN(evalResult) && isFinite(evalResult)) val = Math.round(evalResult);
+            } catch (e) {}
+
+            document.getElementById('mojBrojCurrentVal').innerText = `= ${val}`;
+        }
+
+        function resetMojBroj() {
+            playSound('tap');
+            mojBrojState.usedIndices.forEach(idx => {
+                const btn = document.getElementById(`mb-tile-${idx}`);
+                if (btn) btn.classList.remove('opacity-30', 'bg-slate-400');
+            });
+            mojBrojState.usedIndices = [];
+            mojBrojState.tokens = [];
+            updateMojBrojDisplay();
+        }
+
+        function submitMojBroj() {
+            let val = 0;
+            const exprStr = mojBrojState.tokens.map(t => t.val).join(' ');
+            try {
+                val = Math.round(eval(exprStr.replace(/×/g, '*').replace(/÷/g, '/')));
+            } catch (e) {}
+
+            const diff = Math.abs(val - mojBrojState.target);
+            const resBox = document.getElementById('mojBrojResult');
+            resBox.classList.remove('hidden');
+
+            if (diff === 0) {
+                playSound('correct');
+                state.points += 30; state.games += 1; saveState();
+                resBox.className = 'p-3 rounded-2xl border bg-emerald-50 text-emerald-900 border-emerald-300 text-xs font-bold';
+                resBox.innerHTML = `<i class="fa-solid fa-star text-amber-500"></i> FANTASTIČNO! Tačan broj! (+30 poena)`;
+                setTimeout(() => finishOrNextWorkout(), 2000);
+            } else if (diff <= 5) {
+                playSound('correct');
+                state.points += 20; state.games += 1; saveState();
+                resBox.className = 'p-3 rounded-2xl border bg-sky-50 text-sky-900 border-sky-300 text-xs font-bold';
+                resBox.innerHTML = `<i class="fa-solid fa-thumbs-up text-sky-600"></i> Odlično! Razlika je samo ${diff} (+20 poena).`;
+                setTimeout(() => finishOrNextWorkout(), 2000);
+            } else if (diff <= 10) {
+                playSound('correct');
+                state.points += 10; state.games += 1; saveState();
+                resBox.className = 'p-3 rounded-2xl border bg-sky-50 text-sky-900 border-sky-300 text-xs font-bold';
+                resBox.innerHTML = `<i class="fa-solid fa-thumbs-up text-sky-600"></i> Dobro! Razlika je ${diff} (+10 poena).`;
+                setTimeout(() => finishOrNextWorkout(), 2000);
+            } else {
+                playSound('correct');
+                state.points += 5; state.games += 1; saveState();
+                resBox.className = 'p-3 rounded-2xl border bg-amber-50 text-amber-900 border-amber-300 text-xs font-bold';
+                resBox.innerHTML = `Lepa vežba! Razlika je ${diff} (+5 poena za trud).`;
+                setTimeout(() => finishOrNextWorkout(), 2000);
+            }
+        }
+
+        // ================= GAME 3: ASOCIJACIJE =================
+        const assocData = {
+            A: { clues: ["Voda", "Brod", "Mreža", "Udice"], solution: "RIBA" },
+            B: { clues: ["Kruna", "Dvor", "Žezlo", "Presto"], solution: "KRALJ" },
+            C: { clues: ["Šuma", "Drvo", "Plod", "Kora"], solution: "HRAST" },
+            D: { clues: ["Igra", "Karta", "Stol", "Klub"], solution: "KARTE" },
+            final: "RIBOVOLOV"
+        };
+        let assocSolved = { A: false, B: false, C: false, D: false, final: false };
+
+        function startAsocijacijeGame() {
+            assocSolved = { A: false, B: false, C: false, D: false, final: false };
+            switchView('asocijacije');
+            renderAsocijacije();
+        }
+
+        function renderAsocijacije() {
+            ['A', 'B', 'C', 'D'].forEach(col => {
+                const container = document.getElementById(`col${col}-clues`);
+                container.innerHTML = '';
+                assocData[col].clues.forEach((clue, idx) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'w-full p-2 bg-amber-100 dark:bg-amber-950/60 border border-amber-300 text-amber-900 dark:text-amber-200 font-bold text-xs rounded-lg text-center';
+                    btn.innerText = `${col}${idx+1}: ???`;
+                    btn.onclick = () => {
+                        playSound('tap');
+                        const displayClue = state.script === 'cirilica' ? toCyrillic(clue) : clue;
+                        btn.innerText = `${col}${idx+1}: ${displayClue}`;
+                    };
+                    container.appendChild(btn);
+                });
+            });
+            document.getElementById('finalSolutionDisplay').classList.add('hidden');
+            document.getElementById('finalInputContainer').classList.remove('hidden');
+            document.getElementById('assocResultBox').classList.add('hidden');
+        }
+
+        function checkColSolution(col) {
+            if (assocSolved[col]) return;
+            const val = document.getElementById(`input${col}`).value.trim().toUpperCase();
+            if (val === assocData[col].solution) {
+                playSound('correct');
+                assocSolved[col] = true;
+                state.points += 10;
+                saveState();
+
+                const container = document.getElementById(`col${col}-clues`);
+                const solText = state.script === 'cirilica' ? toCyrillic(assocData[col].solution) : assocData[col].solution;
+                container.innerHTML = `<div class="p-2.5 bg-amber-500 text-white font-black text-xs text-center rounded-xl uppercase">${col}: ${solText} (+10b)</div>`;
+            } else {
+                playSound('wrong');
+            }
+        }
+
+        function revealColSolution(col) {
+            if (assocSolved[col]) return;
+            playSound('tap');
+            assocSolved[col] = true;
+            state.points += 5;
+            saveState();
+
+            const container = document.getElementById(`col${col}-clues`);
+            const solText = state.script === 'cirilica' ? toCyrillic(assocData[col].solution) : assocData[col].solution;
+            container.innerHTML = `<div class="p-2.5 bg-slate-600 text-white font-black text-xs text-center rounded-xl uppercase">${col}: ${solText} (+5b Pomoć)</div>`;
+            document.getElementById(`input${col}`).value = assocData[col].solution;
+        }
+
+        function checkFinalSolution() {
+            const val = document.getElementById('inputFinal').value.trim().toUpperCase();
+            if (val === assocData.final) {
+                playSound('correct');
+                state.points += 10; state.games += 1; saveState();
+                revealFinalSuccess('BRAVO! Otkrili ste konačnu asocijaciju! (+10 poena)');
+            } else {
+                playSound('wrong');
+            }
+        }
+
+        function giveUpAssoc() {
+            playSound('tap');
+            ['A', 'B', 'C', 'D'].forEach(col => {
+                if (!assocSolved[col]) revealColSolution(col);
+            });
+            revealFinalSuccess(`Konačno rešenje je: ${assocData.final}. Nastavite dalje bez brige!`);
+        }
+
+        function revealFinalSuccess(msgText) {
+            const solDisplay = document.getElementById('finalSolutionDisplay');
+            solDisplay.innerText = state.script === 'cirilica' ? toCyrillic(assocData.final) : assocData.final;
+            solDisplay.classList.remove('hidden');
+            document.getElementById('finalInputContainer').classList.add('hidden');
+
+            const resBox = document.getElementById('assocResultBox');
+            resBox.className = 'p-3 rounded-2xl border bg-amber-100 text-amber-900 border-amber-400 text-xs font-bold text-center';
+            resBox.innerText = msgText;
+            resBox.classList.remove('hidden');
+            setTimeout(() => finishOrNextWorkout(), 3000);
+        }
+
+        function speakCurrentAssoc() {
+            speakText('Otvarajte polja kolona A, B, C i D ili iskoristite dugme Pomoć ako se zaglavite.');
+        }
+
+        // ================= GAME 4: SPOJNICE =================
+        const spojniceRounds = [
+            [
+                { left: "Ivo Andrić", right: "Na Drini ćuprija" },
+                { left: "Meša Selimović", right: "Derviš i smrt" },
+                { left: "Miloš Crnjanski", right: "Seobe" },
+                { left: "Branko Ćopić", right: "Orlovi rano lete" },
+                { left: "Borislav Pekić", right: "Besnilo" }
+            ],
+            [
+                { left: "Dunav", right: "Crno More" },
+                { left: "Sava", right: "Beograd (Ušće)" },
+                { left: "Drina", right: "Tara i Piva" },
+                { left: "Morava", right: "Južna i Zapadna" },
+                { left: "Tisa", right: "Vojvodina" }
+            ]
+        ];
+        let spojniceRoundIdx = 0;
+        let selectedLeft = null;
+        let spojniceMatches = 0;
+
+        function startSpojniceGame() {
+            spojniceRoundIdx = 0;
+            selectedLeft = null;
+            spojniceMatches = 0;
+            switchView('spojnice');
+            renderSpojnice();
+        }
+
+        function renderSpojnice() {
+            const currentData = spojniceRounds[spojniceRoundIdx];
+            document.getElementById('spojniceCurrentRound').innerText = spojniceRoundIdx + 1;
+            const titleEl = document.getElementById('spojniceTitle');
+            titleEl.innerText = spojniceRoundIdx === 0 ? "Povežite Pisce i Dela (Runda 1)" : "Povežite Reke i Geografiju (Runda 2)";
+
+            const leftCol = document.getElementById('spojniceLeftCol');
+            const rightCol = document.getElementById('spojniceRightCol');
+            leftCol.innerHTML = ''; rightCol.innerHTML = '';
+
+            currentData.forEach((item, idx) => {
+                const btnL = document.createElement('button');
+                const txtL = state.script === 'cirilica' ? toCyrillic(item.left) : item.left;
+                btnL.className = 'btn-touch w-full p-2.5 bg-purple-50 dark:bg-purple-950/40 border border-purple-300 text-purple-900 dark:text-purple-200 font-bold text-xs rounded-xl text-left flex items-center justify-between';
+                btnL.innerText = txtL;
+                btnL.id = `spoj-left-${idx}`;
+                btnL.onclick = () => selectSpojniceLeft(idx);
+                leftCol.appendChild(btnL);
+            });
+
+            const shuffledRight = [...currentData].sort(() => Math.random() - 0.5);
+            shuffledRight.forEach((item, rIdx) => {
+                const btnR = document.createElement('button');
+                const txtR = state.script === 'cirilica' ? toCyrillic(item.right) : item.right;
+                btnR.className = 'btn-touch w-full p-2.5 bg-slate-50 dark:bg-slate-700 border border-slate-300 text-slate-800 dark:text-slate-100 font-bold text-xs rounded-xl text-left flex items-center justify-between';
+                btnR.innerText = txtR;
+                btnR.id = `spoj-right-${rIdx}`;
+                btnR.onclick = () => selectSpojniceRight(item.right, rIdx);
+                rightCol.appendChild(btnR);
+            });
+
+            document.getElementById('spojniceFeedback').classList.add('hidden');
+        }
+
+        function selectSpojniceLeft(idx) {
+            playSound('tap');
+            if (selectedLeft !== null) {
+                const prev = document.getElementById(`spoj-left-${selectedLeft}`);
+                if (prev && !prev.disabled) prev.classList.remove('ring-4', 'ring-purple-500');
+            }
+            selectedLeft = idx;
+            const current = document.getElementById(`spoj-left-${idx}`);
+            current.classList.add('ring-4', 'ring-purple-500');
+        }
+
+        function selectSpojniceRight(rightTarget, rIdx) {
+            if (selectedLeft === null) return;
+            playSound('tap');
+
+            const currentData = spojniceRounds[spojniceRoundIdx];
+            const correctRight = currentData[selectedLeft].right;
+            if (rightTarget === correctRight) {
+                playSound('correct');
+                const leftBtn = document.getElementById(`spoj-left-${selectedLeft}`);
+                const rightBtn = document.getElementById(`spoj-right-${rIdx}`);
+
+                const txtL = state.script === 'cirilica' ? toCyrillic(currentData[selectedLeft].left) : currentData[selectedLeft].left;
+                const txtR = state.script === 'cirilica' ? toCyrillic(rightTarget) : rightTarget;
+
+                leftBtn.className = 'btn-touch w-full p-2.5 bg-emerald-600 text-white font-extrabold text-xs rounded-xl text-left flex items-center justify-between shadow';
+                leftBtn.innerHTML = `<span>${txtL}</span><i class="fa-solid fa-check text-xs"></i>`;
+                leftBtn.disabled = true;
+
+                rightBtn.className = 'btn-touch w-full p-2.5 bg-emerald-600 text-white font-extrabold text-xs rounded-xl text-left flex items-center justify-between shadow';
+                rightBtn.innerHTML = `<span>${txtR}</span><i class="fa-solid fa-check text-xs"></i>`;
+                rightBtn.disabled = true;
+
+                selectedLeft = null;
+                spojniceMatches++;
+
+                if (spojniceMatches === currentData.length) {
+                    state.points += 15; state.games += 1; saveState();
+                    const fb = document.getElementById('spojniceFeedback');
+                    const msg = document.getElementById('spojniceFeedbackMsg');
+                    const nextBtn = document.getElementById('spojniceNextBtn');
+
+                    fb.className = 'p-3 rounded-2xl border bg-purple-100 text-purple-900 border-purple-300 text-xs font-bold text-center space-y-2';
+                    msg.innerText = spojniceRoundIdx === 0 ? 'Bravo! Završili ste 1. rundu Spojnica (+15 poena)!' : 'Fantastično! Spojili ste sve parove u obe runde (+15 poena)!';
+                    
+                    if (spojniceRoundIdx === 0) {
+                        nextBtn.innerText = 'Pređi na Rundu 2';
+                    } else {
+                        nextBtn.innerText = 'Nastavi dalje';
+                    }
+                    fb.classList.remove('hidden');
+                }
+            } else {
+                playSound('wrong');
+            }
+        }
+
+        function nextSpojniceRound() {
+            if (spojniceRoundIdx === 0) {
+                spojniceRoundIdx = 1;
+                selectedLeft = null;
+                spojniceMatches = 0;
+                renderSpojnice();
+            } else {
+                finishOrNextWorkout();
+            }
+        }
+
+        // ================= GAME 5: KO ZNA ZNA =================
+        const kzzQuestions = [
+            { cat: "Istorija & Kultura", q: "Koji srpski naučnik je izumeo naizmeničnu struju?", opts: ["Nikola Tesla", "Mihajlo Pupin", "Milutin Milanković", "Vuk Karadžić"], correct: 0, fact: "Nikola Tesla je imao preko 700 patenata širom sveta!" },
+            { cat: "Geografija", q: "Koja je najduža reka koja protiče kroz Srbiju?", opts: ["Sava", "Dunav", "Drina", "Morava"], correct: 1, fact: "Dunav je druga po dužini reka u Evropi i spaja 10 zemalja!" },
+            { cat: "Nostalgija & Film", q: "Koji legendarni glumac je tumačio lik Prleta u seriji 'Otpisani'?", opts: ["Pavle Vuisić", "Bata Živojinović", "Dragan Nikolić", "Ljubiša Samardžić"], correct: 2, fact: "Dragan Nikolić bio je jedan od najomiljenijih glumaca naše kinematografije!" },
+            { cat: "Književnost", q: "Ko je napisao roman 'Na Drini ćuprija'?", opts: ["Miloš Crnjanski", "Ivo Andrić", "Meša Selimović", "Bora Stanković"], correct: 1, fact: "Ivo Andrić je dobio Nobelovu nagradu za književnost 1961. godine!" },
+            { cat: "Tradicija", q: "Koji je tradicionalni srpski voćni brend i piće od šljive?", opts: ["Šljivovica", "Vinjak", "Pelinkovac", "Medača"], correct: 0, fact: "Srpska šljivovica je upisana na UNESCO listu nematerijalne kulturne baštine!" },
+            { cat: "Muzika", q: "Ko važi za 'Kralja narodne muzike' i izvođača pesme 'Žal'?", opts: ["Toma Zdravković", "Šaban Šaulić", "Tozovac", "Cune Gojković"], correct: 1, fact: "Šaban Šaulić je obeležio više od 50 godina narodne muzike." },
+            { cat: "Priroda", q: "Koja planina u Srbiji je poznata po Pančićevoj omorici?", opts: ["Kopaonik", "Zlatibor", "Tara", "Zlatar"], correct: 2, fact: "Pančićevu omoriku je otkrio botaničar Josif Pančić 1875. godine na Tari." },
+            { cat: "Sport", q: "Koji teniser iz Srbije je osvojio najveći broj Grend Slem titula?", opts: ["Janko Tipsarević", "Viktor Troicki", "Novak Đoković", "Nenad Zimonjić"], correct: 2, fact: "Novak Đoković je rekorder po broju osvojenih Grend Slem trofeja u istoriji tenisa!" },
+            { cat: "Jezik & Pismo", q: "Ko je sproveo reformu srpske ćirilice i pravopisa 'Piši kao što govoriš'?", opts: ["Vuk Stefanović Karadžić", "Dositej Obradović", "Đura Daničić", "Jovan Sterija Popović"], correct: 0, fact: "Vuk Karadžić je sastavio prvi Srpski rječnik 1818. godine!" },
+            { cat: "Nostalgija", q: "Koji grad je bio poznat po fabrici 'Zastava' i automobilu Fića?", opts: ["Kragujevac", "Niš", "Subotica", "Čačak"], correct: 0, fact: "Legendarni Fića (Zastava 750) proizvodio se u Kragujevcu punih 30 godina!" }
+        ];
+        let kzzIdx = 0, kzzScore = 0;
+
+        function startKoZnaZnaGame() {
+            kzzIdx = 0; kzzScore = 0;
+            switchView('koznazna');
+            renderKzzQuestion();
+        }
+
+        function renderKzzQuestion() {
+            const q = kzzQuestions[kzzIdx];
+            document.getElementById('kzzCurrentQ').innerText = kzzIdx + 1;
+            document.getElementById('kzzTotalQ').innerText = kzzQuestions.length;
+            
+            const catTxt = state.script === 'cirilica' ? toCyrillic(q.cat) : q.cat;
+            const qTxt = state.script === 'cirilica' ? toCyrillic(q.q) : q.q;
+
+            document.getElementById('kzzCategory').innerText = catTxt;
+            document.getElementById('kzzQuestionText').innerText = qTxt;
+            document.getElementById('kzzFeedbackBox').classList.add('hidden');
+
+            const container = document.getElementById('kzzOptionsContainer');
+            container.innerHTML = '';
+            q.opts.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                const optTxt = state.script === 'cirilica' ? toCyrillic(opt) : opt;
+                btn.className = 'btn-touch w-full p-3.5 text-left bg-slate-50 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 rounded-xl text-xs font-bold text-slate-800 dark:text-slate-100 flex items-center justify-between';
+                btn.innerHTML = `<span>${optTxt}</span><i class="fa-regular fa-circle text-slate-300"></i>`;
+                btn.onclick = () => selectKzzOption(idx);
+                container.appendChild(btn);
+            });
+        }
+
+        function selectKzzOption(selectedIdx) {
+            const q = kzzQuestions[kzzIdx];
+            const buttons = document.getElementById('kzzOptionsContainer').querySelectorAll('button');
+            buttons.forEach((btn, idx) => {
+                btn.disabled = true;
+                const optTxt = state.script === 'cirilica' ? toCyrillic(q.opts[idx]) : q.opts[idx];
+                if (idx === q.correct) {
+                    btn.className = 'btn-touch w-full p-3.5 text-left bg-emerald-100 dark:bg-emerald-950 border-2 border-emerald-500 rounded-xl text-xs font-extrabold text-emerald-900 dark:text-emerald-200 flex items-center justify-between';
+                    btn.innerHTML = `<span>${optTxt}</span><i class="fa-solid fa-circle-check text-emerald-600 text-base"></i>`;
+                } else if (idx === selectedIdx) {
+                    btn.className = 'btn-touch w-full p-3.5 text-left bg-rose-100 dark:bg-rose-950 border-2 border-rose-400 rounded-xl text-xs font-extrabold text-rose-900 dark:text-rose-200 flex items-center justify-between';
+                    btn.innerHTML = `<span>${optTxt}</span><i class="fa-solid fa-circle-xmark text-rose-500 text-base"></i>`;
+                }
+            });
+
+            const box = document.getElementById('kzzFeedbackBox');
+            if (selectedIdx === q.correct) {
+                playSound('correct'); kzzScore += 10;
+                box.className = 'p-3 rounded-2xl border bg-emerald-50 border-emerald-300 text-emerald-900 space-y-1';
+                document.getElementById('kzzFeedbackTitle').innerHTML = `<i class="fa-solid fa-circle-check text-emerald-600"></i> TAČNO! (+10 poena)`;
+            } else {
+                playSound('wrong');
+                box.className = 'p-3 rounded-2xl border bg-amber-50 border-amber-300 text-amber-900 space-y-1';
+                document.getElementById('kzzFeedbackTitle').innerHTML = `<i class="fa-solid fa-circle-info text-amber-600"></i> LEPA TRUD!`;
+            }
+            
+            const factTxt = state.script === 'cirilica' ? toCyrillic(q.fact) : q.fact;
+            document.getElementById('kzzFunFact').innerText = `Zanimljivost: ${factTxt}`;
+            box.classList.remove('hidden');
+        }
+
+        function nextKzzQuestion() {
+            kzzIdx++;
+            if (kzzIdx < kzzQuestions.length) renderKzzQuestion();
+            else {
+                state.points += kzzScore; state.games += 1; saveState();
+                finishOrNextWorkout();
+            }
+        }
+
+        function speakCurrentKzzQuestion() {
+            const q = kzzQuestions[kzzIdx];
+            speakText(`${q.q}. Ponuđeni odgovori: ${q.opts.join(', ')}`);
+        }
+
+        // ================= GAME 6: KOLIKO ZNAŠ SRBIJU? =================
+        const srbQuestions = [
+            {
+                cat: "Srpski Manastiri & Baština",
+                q: "U kom manastiru se nalazi čuvena freska Beli Anđeo?",
+                opts: ["Žiča", "Mileševa", "Studenica", "Gračanica"],
+                correct: 1,
+                fact: "Freska Beli Anđeo iz manastira Mileševa poslata je kao jedan od prvih kadrova u prvom satelitskom prenosu između Evrope i Amerike 1962. godine!"
+            },
+            {
+                cat: "Geografija & Priroda",
+                q: "Kojim kanjonom protiče najduža reka čiji je ceo tok u Srbiji?",
+                opts: ["Zapadna Morava", "Velika Morava", "Ibar", "Južna Morava"],
+                correct: 1,
+                fact: "Velika Morava nastaje spajanjem Južne i Zapadne Morave kod Stalaća i dugačka je 185 km!"
+            },
+            {
+                cat: "Istorijski Spomenici",
+                q: "Koji srpski knez je podigao Saborne crkve i prve škole u oslobođenoj Srbiji?",
+                opts: ["Knez Miloš Obrenović", "Knez Mihailo", "Karađorđe", "Kralj Petar"],
+                correct: 0,
+                fact: "Knez Miloš Obrenović je izvojevao autonomiju Srbije u Drugom srpskom ustanku 1815. godine!"
+            }
+        ];
+        let srbIdx = 0, srbScore = 0;
+
+        function startKolikoZnasSrbijuGame() {
+            srbIdx = 0; srbScore = 0;
+            switchView('upoznajsrbiju');
+            renderSrbQuestion();
+        }
+
+        function renderSrbQuestion() {
+            const q = srbQuestions[srbIdx];
+            document.getElementById('srbCurrentQ').innerText = srbIdx + 1;
+            
+            const catTxt = state.script === 'cirilica' ? toCyrillic(q.cat) : q.cat;
+            const qTxt = state.script === 'cirilica' ? toCyrillic(q.q) : q.q;
+
+            document.getElementById('srbCategory').innerText = catTxt;
+            document.getElementById('srbQuestionText').innerText = qTxt;
+            document.getElementById('srbFeedbackBox').classList.add('hidden');
+
+            const container = document.getElementById('srbOptionsContainer');
+            container.innerHTML = '';
+            q.opts.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                const optTxt = state.script === 'cirilica' ? toCyrillic(opt) : opt;
+                btn.className = 'btn-touch w-full p-3.5 text-left bg-red-50/50 dark:bg-slate-700/60 border border-red-200 dark:border-slate-600 rounded-xl text-xs font-bold text-slate-800 dark:text-slate-100 flex items-center justify-between';
+                btn.innerHTML = `<span>${optTxt}</span><i class="fa-regular fa-circle text-red-300"></i>`;
+                btn.onclick = () => selectSrbOption(idx);
+                container.appendChild(btn);
+            });
+        }
+
+        function selectSrbOption(selectedIdx) {
+            const q = srbQuestions[srbIdx];
+            const buttons = document.getElementById('srbOptionsContainer').querySelectorAll('button');
+            buttons.forEach((btn, idx) => {
+                btn.disabled = true;
+                const optTxt = state.script === 'cirilica' ? toCyrillic(q.opts[idx]) : q.opts[idx];
+                if (idx === q.correct) {
+                    btn.className = 'btn-touch w-full p-3.5 text-left bg-emerald-100 dark:bg-emerald-950 border-2 border-emerald-500 rounded-xl text-xs font-extrabold text-emerald-900 dark:text-emerald-200 flex items-center justify-between';
+                    btn.innerHTML = `<span>${optTxt}</span><i class="fa-solid fa-circle-check text-emerald-600 text-base"></i>`;
+                } else if (idx === selectedIdx) {
+                    btn.className = 'btn-touch w-full p-3.5 text-left bg-rose-100 dark:bg-rose-950 border-2 border-rose-400 rounded-xl text-xs font-extrabold text-rose-900 dark:text-rose-200 flex items-center justify-between';
+                    btn.innerHTML = `<span>${optTxt}</span><i class="fa-solid fa-circle-xmark text-rose-500 text-base"></i>`;
+                }
+            });
+
+            const box = document.getElementById('srbFeedbackBox');
+            if (selectedIdx === q.correct) {
+                playSound('correct'); srbScore += 15;
+                box.className = 'p-3 rounded-2xl border bg-emerald-50 border-emerald-300 text-emerald-900 space-y-1';
+                document.getElementById('srbFeedbackTitle').innerHTML = `<i class="fa-solid fa-circle-check text-emerald-600"></i> TAČNO! (+15 poena)`;
+            } else {
+                playSound('wrong');
+                box.className = 'p-3 rounded-2xl border bg-amber-50 border-amber-300 text-amber-900 space-y-1';
+                document.getElementById('srbFeedbackTitle').innerHTML = `<i class="fa-solid fa-circle-info text-amber-600"></i> LEPA TRUD!`;
+            }
+            
+            const factTxt = state.script === 'cirilica' ? toCyrillic(q.fact) : q.fact;
+            document.getElementById('srbFunFact').innerText = `O Srbiji: ${factTxt}`;
+            box.classList.remove('hidden');
+        }
+
+        function nextSrbQuestion() {
+            srbIdx++;
+            if (srbIdx < srbQuestions.length) renderSrbQuestion();
+            else {
+                state.points += srbScore; state.games += 1; saveState();
+                finishOrNextWorkout();
+            }
+        }
+
+        function speakCurrentSrbQuestion() {
+            const q = srbQuestions[srbIdx];
+            speakText(`${q.q}. Ponuđeni odgovori: ${q.opts.join(', ')}`);
+        }
+
+        // ================= WORKOUT FLOW =================
+        function startDailyWorkout(type) {
+            state.isDailyWorkout = true;
+            state.workoutType = type;
+            state.dailyStep = 1;
+            startSlagalicaGame();
+        }
+
+        function finishOrNextWorkout() {
+            if (state.isDailyWorkout) {
+                state.dailyStep++;
+                if (state.dailyStep === 2) startMojBrojGame();
+                else if (state.dailyStep === 3) startAsocijacijeGame();
+                else if (state.dailyStep === 4) startSpojniceGame();
+                else if (state.dailyStep === 5) startKoZnaZnaGame();
+                else if (state.dailyStep === 6) startKolikoZnasSrbijuGame();
+                else {
+                    state.isDailyWorkout = false;
+                    document.getElementById('completeTitle').innerText = state.workoutType === 'jutro' ? 'Jutarnji Trening Završen!' : 'Večernji Trening Završen!';
+                    document.getElementById('completeEarned').innerText = `+150 Poena`;
+                    document.getElementById('completeTotal').innerText = state.points;
+                    switchView('complete');
+                }
+            }
+        }
+    </script>
+</body>
+</html>

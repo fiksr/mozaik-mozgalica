@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-900">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SilverMinds - Mobile Cognitive Training for Seniors</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Readex Pro -->
+    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Readex Pro', 'sans-serif'],
+                    },
+                    colors: {
+                        mobileBg: '#F8FAFC',
+                        androidPrimary: '#15803D',
+                        androidPrimaryDark: '#166534',
+                        accentAmber: '#D97706',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Readex Pro', sans-serif;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        /* Smartphone Frame styling for desktop view */
+        .phone-frame {
+            width: 100%;
+            max-width: 420px;
+            height: 860px;
+            max-height: 94vh;
+            border-radius: 48px;
+            border: 12px solid #1E293B;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background-color: #F8FAFC;
+            transition: all 0.3s ease;
+        }
+
+        .phone-frame.full-screen {
+            max-width: 100% !important;
+            height: 100vh !important;
+            max-height: 100vh !important;
+            border-radius: 0 !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        /* Mobile Notch & Camera cutout */
+        .phone-notch {
+            width: 130px;
+            height: 24px;
+            background-color: #1E293B;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .camera-lens {
+            width: 10px;
+            height: 10px;
+            background-color: #0F172A;
+            border-radius: 50%;
+            border: 1px solid #334155;
+        }
+
+        .speaker-grille {
+            width: 36px;
+            height: 4px;
+            background-color: #334155;
+            border-radius: 2px;
+        }
+
+        /* Senior friendly touch targets */
+        .btn-touch {
+            min-height: 54px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.1s ease, background-color 0.15s ease;
+        }
+        .btn-touch:active {
+            transform: scale(0.97);
+        }
+
+        /* Accessible focus rings */
+        *:focus-visible {
+            outline: 4px solid #D97706 !important;
+            outline-offset: 2px;
+        }
+
+        /* Hide scrollbars for slick app feel */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="h-full w-full flex flex-col items-center justify-center bg-slate-950 p-0 sm:p-4 text-slate-800 dark:text-slate-100 overflow-hidden">
+
+    <!-- Mode Controls Header (Outside Phone Frame on desktop) -->
+    <div class="hidden sm:flex items-center gap-4 mb-3 text-white text-xs font-medium z-50">
+        <span class="flex items-center gap-2"><i class="fa-solid fa-mobile-screen text-emerald-400"></i> Mobile Android Simulator</span>
+        <button onclick="togglePhoneFrame()" id="frameToggleBtn" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-full border border-slate-700 flex items-center gap-2 transition-all">
+            <i class="fa-solid fa-expand"></i> <span id="frameToggleLabel">Switch to Full Screen</span>
+        </button>
+    </div>
+
+    <!-- MAIN PHONE FRAME -->
+    <div id="phoneWrapper" class="phone-frame dark:bg-slate-900">
+
+        <!-- Mobile Camera Notch (Visible in Phone View) -->
+        <div id="phoneNotch" class="phone-notch">
+            <div class="speaker-grille"></div>
+            <div class="camera-lens"></div>
+        </div>
+
+        <!-- Android Mobile Status Bar -->
+        <div class="w-full pt-2 px-6 pb-1 flex justify-between items-center text-[11px] font-semibold text-slate-700 dark:text-slate-300 z-40 bg-slate-100/90 dark:bg-slate-900/90 backdrop-blur-sm shrink-0">
+            <span id="mobileClock">10:42 AM</span>
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-signal text-xs"></i>
+                <i class="fa-solid fa-wifi text-xs"></i>
+                <i class="fa-solid fa-battery-full text-xs text-emerald-600 dark:text-emerald-400"></i>
+            </div>
+        </div>
+
+        <!-- Mobile App Top Bar -->
+        <header class="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 px-4 py-3 flex items-center justify-between shrink-0 shadow-sm z-30">
+            <div class="flex items-center gap-2.5 cursor-pointer" onclick="switchView('dashboard')">
+                <div class="w-10 h-10 bg-emerald-600 text-white rounded-2xl flex items-center justify-center shadow-md text-xl">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold text-slate-900 dark:text-white leading-tight">SilverMinds</h1>
+                    <p class="text-[10px] text-emerald-700 dark:text-emerald-400 font-bold uppercase tracking-wider">Cognitive Club</p>
+                </div>
+            </div>
+
+            <!-- Quick Mobile Utility Actions -->
+            <div class="flex items-center gap-1.5">
+                <button onclick="toggleFontSize()" title="Text Size" class="w-10 h-10 bg-slate-100 dark:bg-slate-700 rounded-xl flex items-center justify-center font-bold text-xs text-slate-700 dark:text-slate-200 active:bg-slate-200">
+                    <i class="fa-solid fa-font mr-0.5"></i><span id="fontLabel" class="text-[10px]">1x</span>
+                </button>
+                <button onclick="toggleSound()" id="soundBtn" title="Sound Effects" class="w-10 h-10 bg-slate-100 dark:bg-slate-700 rounded-xl flex items-center justify-center text-emerald-600 dark:text-emerald-400 active:bg-slate-200">
+                    <i class="fa-solid fa-volume-high text-base"></i>
+                </button>
+                <button onclick="toggleDarkMode()" title="High Contrast Mode" class="w-10 h-10 bg-slate-100 dark:bg-slate-700 rounded-xl flex items-center justify-center text-amber-600 dark:text-amber-400 active:bg-slate-200">
+                    <i class="fa-solid fa-moon text-base"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- SCROLLABLE MOBILE CONTENT BODY -->
+        <main id="appBody" class="flex-1 overflow-y-auto no-scrollbar p-4 space-y-5">
+
+            <!-- VIEW 1: HOME DASHBOARD -->
+            <section id="view-dashboard" class="space-y-4">
+                
+                <!-- Welcome Banner -->
+                <div class="bg-gradient-to-br from-emerald-700 via-emerald-800 to-teal-900 text-white rounded-3xl p-5 shadow-lg relative overflow-hidden">
+                    <div class="relative z-10 flex justify-between items-center">
+                        <div>
+                            <span class="inline-block px-2.5 py-0.5 bg-white/20 rounded-full text-[10px] font-bold tracking-wider uppercase text-emerald-100 mb-1">
+                                Daily Exercise
+                            </span>
+                            <h2 class="text-xl font-bold">Good Day!</h2>
+                            <p class="text-xs text-emerald-100 mt-0.5">Keep your brain active & happy today.</p>
+                        </div>
+                        <div class="bg-white/15 backdrop-blur-md border border-white/20 px-3 py-2 rounded-2xl text-center shrink-0">
+                            <div class="text-amber-300 text-xl font-black flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-fire animate-pulse text-amber-400"></i> <span id="streakCount">1</span>
+                            </div>
+                            <div class="text-[9px] uppercase tracking-wider text-emerald-100 font-bold">Day Streak</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Quick Grid -->
+                <div class="grid grid-cols-3 gap-2.5">
+                    <div class="bg-white dark:bg-slate-800 p-3 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 text-center">
+                        <div class="text-amber-500 text-lg mb-0.5"><i class="fa-solid fa-star"></i></div>
+                        <div class="text-lg font-bold text-slate-800 dark:text-slate-100" id="statScore">0</div>
+                        <div class="text-[10px] text-slate-500 dark:text-slate-400 font-medium">Points</div>
+                    </div>
+                    <div class="bg-white dark:bg-slate-800 p-3 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 text-center">
+                        <div class="text-blue-500 text-lg mb-0.5"><i class="fa-solid fa-circle-check"></i></div>
+                        <div class="text-lg font-bold text-slate-800 dark:text-slate-100" id="statPlayed">0</div>
+                        <div class="text-[10px] text-slate-500 dark:text-slate-400 font-medium">Games</div>
+                    </div>
+                    <div class="bg-white dark:bg-slate-800 p-3 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 text-center">
+                        <div class="text-purple-500 text-lg mb-0.5"><i class="fa-solid fa-award"></i></div>
+                        <div class="text-xs font-bold text-slate-800 dark:text-slate-100 truncate" id="statRank">Sharp</div>
+                        <div class="text-[10px] text-slate-500 dark:text-slate-400 font-medium">Level</div>
+                    </div>
+                </div>
+
+                <!-- Game Selection Cards -->
+                <div class="space-y-3">
+                    <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                        <i class="fa-solid fa-gamepad text-emerald-600"></i> Selected Exercises
+                    </h3>
+
+                    <!-- Trivia Game -->
+                    <button onclick="startTriviaGame()" class="btn-touch w-full bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-sm border-2 border-emerald-100 dark:border-slate-700 active:border-emerald-500 text-left flex items-center gap-3.5">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 flex items-center justify-center text-2xl shrink-0">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white truncate">Nostalgia Trivia</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 truncate">History, nature & general knowledge</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-slate-300 dark:text-slate-600 text-xs"></i>
+                    </button>
+
+                    <!-- Famous Figures -->
+                    <button onclick="startFamousGame()" class="btn-touch w-full bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-sm border-2 border-amber-100 dark:border-slate-700 active:border-amber-500 text-left flex items-center gap-3.5">
+                        <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300 flex items-center justify-center text-2xl shrink-0">
+                            <i class="fa-solid fa-user-astronaut"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white truncate">Guess Famous Figure</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 truncate">Read hints to name scientists & icons</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-slate-300 dark:text-slate-600 text-xs"></i>
+                    </button>
+
+                    <!-- Number Sequences -->
+                    <button onclick="startNumberGame()" class="btn-touch w-full bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-sm border-2 border-blue-100 dark:border-slate-700 active:border-blue-500 text-left flex items-center gap-3.5">
+                        <div class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 flex items-center justify-center text-2xl shrink-0">
+                            <i class="fa-solid fa-arrow-up-1-9"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white truncate">Number & Pattern Genius</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 truncate">Relaxed counting & math patterns</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-slate-300 dark:text-slate-600 text-xs"></i>
+                    </button>
+
+                    <!-- Memory Matching -->
+                    <button onclick="startMemoryGame()" class="btn-touch w-full bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-sm border-2 border-purple-100 dark:border-slate-700 active:border-purple-500 text-left flex items-center gap-3.5">
+                        <div class="w-12 h-12 rounded-xl bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 flex items-center justify-center text-2xl shrink-0">
+                            <i class="fa-solid fa-shapes"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white truncate">Memory Match Pairs</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 truncate">Vibrant visual pair matching</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-slate-300 dark:text-slate-600 text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Daily Health Tip Card -->
+                <div class="bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 rounded-2xl p-4 flex items-start gap-3">
+                    <div class="text-amber-600 dark:text-amber-400 text-xl mt-0.5 shrink-0">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-amber-900 dark:text-amber-200 text-xs">Daily Senior Health Tip</h4>
+                        <p class="text-xs text-amber-800 dark:text-amber-300/90 mt-1 leading-snug" id="dailyHealthTip">
+                            Taking a 10-minute morning walk and solving a gentle puzzle helps boost focus for the entire day!
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW 2: TRIVIA GAME -->
+            <section id="view-trivia" class="hidden space-y-4">
+                <div class="flex items-center justify-between">
+                    <button onclick="switchView('dashboard')" class="px-3 py-1.5 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-semibold">
+                        <i class="fa-solid fa-arrow-left mr-1"></i> Back
+                    </button>
+                    <div class="text-xs font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-3 py-1.5 rounded-xl">
+                        Question <span id="triviaCurrentQ">1</span> / <span id="triviaTotalQ">5</span>
+                    </div>
+                    <button onclick="speakCurrentQuestion('trivia')" class="px-3 py-1.5 bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 rounded-xl text-xs font-bold" title="Read Aloud">
+                        <i class="fa-solid fa-volume-high mr-1"></i> Speak
+                    </button>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="w-full bg-slate-200 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                    <div id="triviaProgressBar" class="bg-emerald-600 h-full w-0 transition-all duration-300"></div>
+                </div>
+
+                <!-- Question Box -->
+                <div class="bg-white dark:bg-slate-800 p-5 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 space-y-4">
+                    <div>
+                        <span id="triviaCategory" class="inline-block px-2.5 py-0.5 bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 rounded-full text-[10px] font-bold uppercase tracking-wide">
+                            General Knowledge
+                        </span>
+                        <h3 id="triviaQuestionText" class="text-base font-bold text-slate-900 dark:text-white mt-2 leading-relaxed">
+                            Loading question...
+                        </h3>
+                    </div>
+
+                    <!-- Dynamic Options -->
+                    <div id="triviaOptionsContainer" class="space-y-2.5"></div>
+
+                    <!-- Feedback Box -->
+                    <div id="triviaFeedbackBox" class="hidden p-4 rounded-2xl border space-y-2">
+                        <div class="flex items-center gap-2 font-bold text-sm" id="triviaFeedbackTitle"></div>
+                        <p class="text-xs text-slate-700 dark:text-slate-300 leading-normal" id="triviaFunFact"></p>
+                        <button id="triviaNextBtn" onclick="nextTriviaQuestion()" class="btn-touch w-full mt-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl">
+                            Next Question <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW 3: FAMOUS FIGURES -->
+            <section id="view-famous" class="hidden space-y-4">
+                <div class="flex items-center justify-between">
+                    <button onclick="switchView('dashboard')" class="px-3 py-1.5 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-semibold">
+                        <i class="fa-solid fa-arrow-left mr-1"></i> Back
+                    </button>
+                    <div class="text-xs font-bold text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 px-3 py-1.5 rounded-xl">
+                        Person <span id="famousCurrentIndex">1</span> / <span id="famousTotalCount">4</span>
+                    </div>
+                    <button onclick="speakCurrentQuestion('famous')" class="px-3 py-1.5 bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 rounded-xl text-xs font-bold">
+                        <i class="fa-solid fa-volume-high mr-1"></i> Speak
+                    </button>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 p-5 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 space-y-4">
+                    <div class="text-center">
+                        <div class="w-14 h-14 mx-auto bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 rounded-full flex items-center justify-center text-2xl mb-2">
+                            <i class="fa-solid fa-user-secret"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white">Who Am I?</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Read progressive clues to figure it out</p>
+                    </div>
+
+                    <!-- Clues List -->
+                    <div id="famousCluesList" class="space-y-2"></div>
+
+                    <!-- Clue Reveal Button -->
+                    <button id="famousMoreClueBtn" onclick="revealNextClue()" class="btn-touch w-full bg-amber-100 hover:bg-amber-200 dark:bg-amber-900/40 text-amber-800 dark:text-amber-200 font-bold text-xs rounded-xl border border-amber-300/50">
+                        <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Reveal Next Clue
+                    </button>
+
+                    <!-- Choice Grid -->
+                    <div id="famousOptionsContainer" class="grid grid-cols-2 gap-2 pt-1"></div>
+
+                    <!-- Feedback Box -->
+                    <div id="famousFeedbackBox" class="hidden p-4 rounded-2xl border space-y-2">
+                        <div class="flex items-center gap-2 font-bold text-sm" id="famousFeedbackTitle"></div>
+                        <p class="text-xs text-slate-700 dark:text-slate-300 leading-normal" id="famousBioText"></p>
+                        <button onclick="nextFamousPerson()" class="btn-touch w-full mt-2 bg-amber-600 hover:bg-amber-700 text-white font-bold text-sm rounded-xl">
+                            Next Figure <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW 4: NUMBER & LOGIC PATTERNS -->
+            <section id="view-number" class="hidden space-y-4">
+                <div class="flex items-center justify-between">
+                    <button onclick="switchView('dashboard')" class="px-3 py-1.5 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-semibold">
+                        <i class="fa-solid fa-arrow-left mr-1"></i> Back
+                    </button>
+                    <div class="text-xs font-bold text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-3 py-1.5 rounded-xl">
+                        Puzzle <span id="numberCurrentIdx">1</span> / 4
+                    </div>
+                    <button onclick="speakCurrentQuestion('number')" class="px-3 py-1.5 bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 rounded-xl text-xs font-bold">
+                        <i class="fa-solid fa-volume-high mr-1"></i> Speak
+                    </button>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 p-5 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 space-y-4">
+                    <div class="text-center">
+                        <span class="px-2 py-0.5 bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300 rounded-full text-[10px] font-bold uppercase">Pattern Logic</span>
+                        <h3 id="numberPuzzlePrompt" class="text-base font-bold text-slate-900 dark:text-white mt-2">
+                            What comes next in sequence?
+                        </h3>
+                    </div>
+
+                    <!-- Sequence Display -->
+                    <div id="numberSequenceBox" class="flex items-center justify-center gap-2 py-2"></div>
+
+                    <!-- Choice Options -->
+                    <div id="numberChoicesContainer" class="grid grid-cols-2 gap-2"></div>
+
+                    <!-- Feedback Box -->
+                    <div id="numberFeedbackBox" class="hidden p-4 rounded-2xl border space-y-2">
+                        <div class="flex items-center gap-2 font-bold text-sm" id="numberFeedbackTitle"></div>
+                        <p class="text-xs text-slate-700 dark:text-slate-300" id="numberExplanation"></p>
+                        <button onclick="nextNumberPuzzle()" class="btn-touch w-full mt-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-xl">
+                            Next Pattern <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW 5: MEMORY CARD MATCH -->
+            <section id="view-memory" class="hidden space-y-4">
+                <div class="flex items-center justify-between">
+                    <button onclick="switchView('dashboard')" class="px-3 py-1.5 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-semibold">
+                        <i class="fa-solid fa-arrow-left mr-1"></i> Back
+                    </button>
+                    <div class="text-xs font-bold text-purple-700 dark:text-purple-400 bg-purple-50 dark:bg-purple-950/60 px-3 py-1.5 rounded-xl">
+                        Matched: <span id="memoryMatchesCount">0</span> / <span id="memoryTotalPairs">6</span>
+                    </div>
+                    <button onclick="resetMemoryGame()" class="px-3 py-1.5 bg-purple-100 text-purple-800 dark:bg-purple-900/50 dark:text-purple-300 rounded-xl text-xs font-bold">
+                        <i class="fa-solid fa-rotate-right mr-1"></i> Restart
+                    </button>
+                </div>
+
+                <div id="memoryGrid" class="grid grid-cols-3 gap-2.5 max-w-xs mx-auto"></div>
+
+                <div id="memoryVictoryBox" class="hidden bg-purple-50 dark:bg-purple-950/40 border border-purple-300 dark:border-purple-800 p-5 rounded-2xl text-center space-y-3">
+                    <div class="text-3xl text-amber-500 animate-bounce"><i class="fa-solid fa-trophy"></i></div>
+                    <h3 class="text-lg font-bold text-purple-900 dark:text-purple-200">Great Memory!</h3>
+                    <p class="text-xs text-purple-800 dark:text-purple-300">Finished in <span id="memoryMoveCount" class="font-bold">0</span> moves!</p>
+                    <button onclick="resetMemoryGame()" class="btn-touch px-5 py-2.5 bg-purple-600 text-white text-xs font-bold rounded-xl">
+                        Play Again
+                    </button>
+                </div>
+            </section>
+
+            <!-- VIEW 6: STATS & PROGRESS -->
+            <section id="view-stats" class="hidden space-y-4">
+                <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <i class="fa-solid fa-chart-line text-emerald-600"></i> Cognitive Progress
+                </h3>
+                
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700 space-y-3">
+                    <div class="flex justify-between items-center text-xs">
+                        <span class="text-slate-500 dark:text-slate-400">Total Brain Points</span>
+                        <span id="tabStatPoints" class="font-bold text-emerald-600 text-sm">0</span>
+                    </div>
+                    <div class="flex justify-between items-center text-xs border-t border-slate-100 dark:border-slate-700 pt-2">
+                        <span class="text-slate-500 dark:text-slate-400">Activities Completed</span>
+                        <span id="tabStatGames" class="font-bold text-slate-800 dark:text-slate-200 text-sm">0</span>
+                    </div>
+                    <div class="flex justify-between items-center text-xs border-t border-slate-100 dark:border-slate-700 pt-2">
+                        <span class="text-slate-500 dark:text-slate-400">Active Streak</span>
+                        <span id="tabStatStreak" class="font-bold text-amber-500 text-sm">1 Day</span>
+                    </div>
+                </div>
+
+                <div class="bg-emerald-50 dark:bg-emerald-950/40 p-4 rounded-2xl border border-emerald-200 dark:border-emerald-800/50">
+                    <h4 class="text-xs font-bold text-emerald-900 dark:text-emerald-200 flex items-center gap-1.5">
+                        <i class="fa-solid fa-circle-check text-emerald-600"></i> Health Benefits
+                    </h4>
+                    <p class="text-xs text-emerald-800 dark:text-emerald-300 mt-1 leading-relaxed">
+                        Regular cognitive exercises improve memory recall, slow mental decline, and enhance daily decision-making confidence.
+                    </p>
+                </div>
+            </section>
+
+            <!-- VIEW 7: SETTINGS -->
+            <section id="view-settings" class="hidden space-y-4">
+                <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <i class="fa-solid fa-sliders text-emerald-600"></i> Senior Accessibility
+                </h3>
+
+                <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 divide-y divide-slate-100 dark:divide-slate-700">
+                    <div class="p-4 flex items-center justify-between">
+                        <div>
+                            <div class="text-xs font-bold text-slate-800 dark:text-slate-200">Text Size</div>
+                            <div class="text-[10px] text-slate-500 dark:text-slate-400">Increase reading size</div>
+                        </div>
+                        <button onclick="toggleFontSize()" class="px-3 py-1.5 bg-slate-100 dark:bg-slate-700 text-xs font-bold rounded-lg">
+                            <span id="settingsFontText">Normal</span>
+                        </button>
+                    </div>
+
+                    <div class="p-4 flex items-center justify-between">
+                        <div>
+                            <div class="text-xs font-bold text-slate-800 dark:text-slate-200">Dark / High Contrast</div>
+                            <div class="text-[10px] text-slate-500 dark:text-slate-400">Reduce eye strain</div>
+                        </div>
+                        <button onclick="toggleDarkMode()" class="px-3 py-1.5 bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 text-xs font-bold rounded-lg">
+                            Toggle Theme
+                        </button>
+                    </div>
+
+                    <div class="p-4 flex items-center justify-between">
+                        <div>
+                            <div class="text-xs font-bold text-slate-800 dark:text-slate-200">Sound Effects</div>
+                            <div class="text-[10px] text-slate-500 dark:text-slate-400">Chimes and audio clues</div>
+                        </div>
+                        <button onclick="toggleSound()" class="px-3 py-1.5 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-300 text-xs font-bold rounded-lg">
+                            Mute / Unmute
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW 8: GAME COMPLETED -->
+            <section id="view-complete" class="hidden text-center space-y-4 py-4">
+                <div class="w-16 h-16 mx-auto bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-300 rounded-full flex items-center justify-center text-3xl shadow-md">
+                    <i class="fa-solid fa-award"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white">Well Done!</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Great mental workout!</p>
+                </div>
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700 space-y-2">
+                    <div class="flex justify-between text-xs">
+                        <span class="text-slate-500">Earned Points:</span>
+                        <span id="completeEarnedPoints" class="font-bold text-emerald-600">+50 Points</span>
+                    </div>
+                    <div class="flex justify-between text-xs border-t pt-2 border-slate-100 dark:border-slate-700">
+                        <span class="text-slate-500">Total Brain Score:</span>
+                        <span id="completeTotalPoints" class="font-bold text-slate-800 dark:text-slate-200">150</span>
+                    </div>
+                </div>
+                <button onclick="switchView('dashboard')" class="btn-touch w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl">
+                    Return to Home
+                </button>
+            </section>
+
+        </main>
+
+        <!-- MOBILE BOTTOM TAB NAVIGATION BAR -->
+        <nav class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 px-2 py-2 flex justify-around items-center shrink-0 z-30 shadow-lg">
+            <button onclick="switchTab('dashboard')" id="tab-dashboard" class="flex flex-col items-center justify-center w-16 py-1 rounded-xl text-emerald-600 dark:text-emerald-400 font-bold transition-colors">
+                <i class="fa-solid fa-house text-lg"></i>
+                <span class="text-[10px] mt-0.5">Home</span>
+            </button>
+            <button onclick="switchTab('games')" id="tab-games" class="flex flex-col items-center justify-center w-16 py-1 rounded-xl text-slate-400 dark:text-slate-500 font-medium transition-colors">
+                <i class="fa-solid fa-gamepad text-lg"></i>
+                <span class="text-[10px] mt-0.5">Games</span>
+            </button>
+            <button onclick="switchTab('stats')" id="tab-stats" class="flex flex-col items-center justify-center w-16 py-1 rounded-xl text-slate-400 dark:text-slate-500 font-medium transition-colors">
+                <i class="fa-solid fa-chart-simple text-lg"></i>
+                <span class="text-[10px] mt-0.5">Stats</span>
+            </button>
+            <button onclick="switchTab('settings')" id="tab-settings" class="flex flex-col items-center justify-center w-16 py-1 rounded-xl text-slate-400 dark:text-slate-500 font-medium transition-colors">
+                <i class="fa-solid fa-gear text-lg"></i>
+                <span class="text-[10px] mt-0.5">Settings</span>
+            </button>
+        </nav>
+
+    </div>
+
+    <script>
+        // Web Audio Synthesizer
+        let audioCtx = null;
+        let isMuted = false;
+
+        function initAudio() {
+            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+
+        function playSound(type) {
+            if (isMuted) return;
+            try {
+                initAudio();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                const now = audioCtx.currentTime;
+
+                if (type === 'correct') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(523.25, now);
+                    osc.frequency.exponentialRampToValueAtTime(783.99, now + 0.2);
+                    gain.gain.setValueAtTime(0.15, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+                    osc.start(now);
+                    osc.stop(now + 0.35);
+                } else if (type === 'wrong') {
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(220, now);
+                    osc.frequency.exponentialRampToValueAtTime(160, now + 0.2);
+                    gain.gain.setValueAtTime(0.15, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+                    osc.start(now);
+                    osc.stop(now + 0.25);
+                } else if (type === 'flip') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(400, now);
+                    gain.gain.setValueAtTime(0.08, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
+                    osc.start(now);
+                    osc.stop(now + 0.06);
+                }
+            } catch (e) {}
+        }
+
+        // App State
+        let state = {
+            brainPoints: parseInt(localStorage.getItem('sm_points') || '0'),
+            gamesPlayed: parseInt(localStorage.getItem('sm_played') || '0'),
+            streak: parseInt(localStorage.getItem('sm_streak') || '1'),
+            fontSize: 'normal',
+            isFullScreen: false
+        };
+
+        // Initialize App
+        document.addEventListener("DOMContentLoaded", () => {
+            updateDashboardStats();
+            updateClock();
+            setInterval(updateClock, 30000);
+        });
+
+        function updateClock() {
+            const now = new Date();
+            let hours = now.getHours();
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12 || 12;
+            document.getElementById('mobileClock').innerText = `${hours}:${minutes} ${ampm}`;
+        }
+
+        // Phone frame toggle
+        function togglePhoneFrame() {
+            const wrapper = document.getElementById('phoneWrapper');
+            const notch = document.getElementById('phoneNotch');
+            const label = document.getElementById('frameToggleLabel');
+            state.isFullScreen = !state.isFullScreen;
+
+            if (state.isFullScreen) {
+                wrapper.classList.add('full-screen');
+                notch.classList.add('hidden');
+                label.innerText = 'Switch to Mobile Frame';
+            } else {
+                wrapper.classList.remove('full-screen');
+                notch.classList.remove('hidden');
+                label.innerText = 'Switch to Full Screen';
+            }
+        }
+
+        // Navigation
+        function switchView(viewId) {
+            if (window.speechSynthesis) window.speechSynthesis.cancel();
+            const views = ['dashboard', 'trivia', 'famous', 'number', 'memory', 'stats', 'settings', 'complete'];
+            views.forEach(v => {
+                const el = document.getElementById(`view-${v}`);
+                if (el) {
+                    if (v === viewId) el.classList.remove('hidden');
+                    else el.classList.add('hidden');
+                }
+            });
+            document.getElementById('appBody').scrollTop = 0;
+        }
+
+        function switchTab(tabName) {
+            const tabs = ['dashboard', 'games', 'stats', 'settings'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`tab-${t}`);
+                if (t === tabName) {
+                    btn.className = 'flex flex-col items-center justify-center w-16 py-1 rounded-xl text-emerald-600 dark:text-emerald-400 font-bold';
+                } else {
+                    btn.className = 'flex flex-col items-center justify-center w-16 py-1 rounded-xl text-slate-400 dark:text-slate-500 font-medium';
+                }
+            });
+
+            if (tabName === 'dashboard') switchView('dashboard');
+            else if (tabName === 'games') switchView('dashboard');
+            else if (tabName === 'stats') switchView('stats');
+            else if (tabName === 'settings') switchView('settings');
+        }
+
+        function updateDashboardStats() {
+            document.getElementById('statScore').innerText = state.brainPoints;
+            document.getElementById('statPlayed').innerText = state.gamesPlayed;
+            document.getElementById('streakCount').innerText = state.streak;
+
+            document.getElementById('tabStatPoints').innerText = state.brainPoints;
+            document.getElementById('tabStatGames').innerText = state.gamesPlayed;
+
+            let rank = 'Sharp Thinker';
+            if (state.brainPoints >= 300) rank = 'Master Mind';
+            else if (state.brainPoints >= 150) rank = 'Cognitive Pro';
+            else if (state.brainPoints >= 50) rank = 'Explorer';
+
+            document.getElementById('statRank').innerText = rank;
+        }
+
+        function saveState() {
+            localStorage.setItem('sm_points', state.brainPoints);
+            localStorage.setItem('sm_played', state.gamesPlayed);
+            localStorage.setItem('sm_streak', state.streak);
+            updateDashboardStats();
+        }
+
+        // Accessibility toggles
+        function toggleFontSize() {
+            const fontLabel = document.getElementById('fontLabel');
+            const settingsText = document.getElementById('settingsFontText');
+            if (state.fontSize === 'normal') {
+                state.fontSize = 'large';
+                document.documentElement.style.fontSize = '18px';
+                fontLabel.innerText = '1.2x';
+                if (settingsText) settingsText.innerText = 'Large (1.2x)';
+            } else if (state.fontSize === 'large') {
+                state.fontSize = 'xlarge';
+                document.documentElement.style.fontSize = '20px';
+                fontLabel.innerText = '1.4x';
+                if (settingsText) settingsText.innerText = 'Extra Large (1.4x)';
+            } else {
+                state.fontSize = 'normal';
+                document.documentElement.style.fontSize = '16px';
+                fontLabel.innerText = '1x';
+                if (settingsText) settingsText.innerText = 'Normal (1x)';
+            }
+        }
+
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+        }
+
+        function toggleSound() {
+            isMuted = !isMuted;
+            const btn = document.getElementById('soundBtn');
+            btn.innerHTML = isMuted ? `<i class="fa-solid fa-volume-xmark text-slate-400"></i>` : `<i class="fa-solid fa-volume-high"></i>`;
+            playSound('correct');
+        }
+
+        function speakText(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.rate = 0.9;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        // TRIVIA
+        const triviaQuestions = [
+            {
+                category: "History",
+                question: "Which iconic landmark in Paris was built for the 1889 World's Fair?",
+                options: ["Eiffel Tower", "Colosseum", "Big Ben", "Statue of Liberty"],
+                correct: 0,
+                fact: "The Eiffel Tower was originally intended to be taken down after 20 years!"
+            },
+            {
+                category: "Nature",
+                question: "Which of these animals is the largest mammal on Earth?",
+                options: ["Elephant", "Blue Whale", "Giraffe", "Hippo"],
+                correct: 1,
+                fact: "A Blue Whale's heart is about the size of a small car!"
+            },
+            {
+                category: "Music",
+                question: "Which composer wrote brilliant symphonies even after losing his hearing?",
+                options: ["Mozart", "Vivaldi", "Beethoven", "Chopin"],
+                correct: 2,
+                fact: "Ludwig van Beethoven wrote his 9th Symphony while completely deaf!"
+            }
+        ];
+
+        let triviaIndex = 0, triviaScore = 0;
+        function startTriviaGame() {
+            triviaIndex = 0; triviaScore = 0;
+            switchView('trivia');
+            renderTriviaQuestion();
+        }
+
+        function renderTriviaQuestion() {
+            const q = triviaQuestions[triviaIndex];
+            document.getElementById('triviaCurrentQ').innerText = triviaIndex + 1;
+            document.getElementById('triviaTotalQ').innerText = triviaQuestions.length;
+            document.getElementById('triviaProgressBar').style.width = `${((triviaIndex) / triviaQuestions.length) * 100}%`;
+            document.getElementById('triviaCategory').innerText = q.category;
+            document.getElementById('triviaQuestionText').innerText = q.question;
+            document.getElementById('triviaFeedbackBox').classList.add('hidden');
+
+            const container = document.getElementById('triviaOptionsContainer');
+            container.innerHTML = '';
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'btn-touch w-full p-3 text-left bg-slate-50 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-100 flex items-center justify-between';
+                btn.innerHTML = `<span>${opt}</span><i class="fa-regular fa-circle text-slate-300"></i>`;
+                btn.onclick = () => selectTriviaOption(idx);
+                container.appendChild(btn);
+            });
+        }
+
+        function selectTriviaOption(selectedIdx) {
+            const q = triviaQuestions[triviaIndex];
+            const buttons = document.getElementById('triviaOptionsContainer').querySelectorAll('button');
+            buttons.forEach((btn, idx) => {
+                btn.disabled = true;
+                if (idx === q.correct) {
+                    btn.className = 'btn-touch w-full p-3 text-left bg-emerald-100 dark:bg-emerald-950 border-2 border-emerald-500 rounded-xl text-xs font-bold text-emerald-900 dark:text-emerald-200 flex items-center justify-between';
+                    btn.innerHTML = `<span>${q.options[idx]}</span><i class="fa-solid fa-circle-check text-emerald-600 text-base"></i>`;
+                } else if (idx === selectedIdx) {
+                    btn.className = 'btn-touch w-full p-3 text-left bg-rose-100 dark:bg-rose-950 border-2 border-rose-400 rounded-xl text-xs font-bold text-rose-900 dark:text-rose-200 flex items-center justify-between';
+                    btn.innerHTML = `<span>${q.options[idx]}</span><i class="fa-solid fa-circle-xmark text-rose-500 text-base"></i>`;
+                }
+            });
+
+            const box = document.getElementById('triviaFeedbackBox');
+            if (selectedIdx === q.correct) {
+                playSound('correct'); triviaScore += 10;
+                box.className = 'p-3 rounded-2xl border bg-emerald-50 dark:bg-emerald-950/40 border-emerald-300 text-emerald-900 dark:text-emerald-200 space-y-1';
+                document.getElementById('triviaFeedbackTitle').innerHTML = `<i class="fa-solid fa-circle-check text-emerald-600"></i> Correct!`;
+            } else {
+                playSound('wrong');
+                box.className = 'p-3 rounded-2xl border bg-amber-50 dark:bg-amber-950/40 border-amber-300 text-amber-900 dark:text-amber-200 space-y-1';
+                document.getElementById('triviaFeedbackTitle').innerHTML = `<i class="fa-solid fa-circle-info text-amber-600"></i> Good Effort!`;
+            }
+            document.getElementById('triviaFunFact').innerText = `Fun Fact: ${q.fact}`;
+            box.classList.remove('hidden');
+        }
+
+        function nextTriviaQuestion() {
+            triviaIndex++;
+            if (triviaIndex < triviaQuestions.length) renderTriviaQuestion();
+            else finishGame(triviaScore);
+        }
+
+        // FAMOUS FIGURES
+        const famousPeople = [
+            {
+                name: "Albert Einstein",
+                clues: ["I was a theoretical physicist with wild iconic hair.", "I published the equation E = mc².", "I won the Nobel Prize in Physics."],
+                options: ["Isaac Newton", "Albert Einstein", "Galileo", "Tesla"],
+                correct: 1, bio: "Einstein revolutionized our understanding of space and time!"
+            },
+            {
+                name: "Marie Curie",
+                clues: ["I was a pioneer in radioactivity research.", "I won Nobel Prizes in two different scientific fields.", "I discovered Polonium and Radium."],
+                options: ["Nightingale", "Marie Curie", "Ada Lovelace", "Sally Ride"],
+                correct: 1, bio: "Marie Curie's research paved the way for modern X-rays!"
+            }
+        ];
+
+        let famousIndex = 0, famousClueStep = 1, famousScore = 0;
+        function startFamousGame() {
+            famousIndex = 0; famousScore = 0;
+            switchView('famous');
+            renderFamousPerson();
+        }
+
+        function renderFamousPerson() {
+            famousClueStep = 1;
+            const p = famousPeople[famousIndex];
+            document.getElementById('famousCurrentIndex').innerText = famousIndex + 1;
+            document.getElementById('famousTotalCount').innerText = famousPeople.length;
+            document.getElementById('famousFeedbackBox').classList.add('hidden');
+            document.getElementById('famousMoreClueBtn').classList.remove('hidden');
+
+            renderFamousClues();
+
+            const container = document.getElementById('famousOptionsContainer');
+            container.innerHTML = '';
+            p.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'btn-touch w-full p-3 bg-slate-50 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 rounded-xl text-xs font-bold text-slate-800 dark:text-slate-100';
+                btn.innerText = opt;
+                btn.onclick = () => selectFamousOption(idx);
+                container.appendChild(btn);
+            });
+        }
+
+        function renderFamousClues() {
+            const p = famousPeople[famousIndex];
+            const container = document.getElementById('famousCluesList');
+            container.innerHTML = '';
+            for (let i = 0; i < famousClueStep; i++) {
+                const div = document.createElement('div');
+                div.className = 'p-2.5 bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/50 rounded-xl text-xs font-medium flex items-center gap-2';
+                div.innerHTML = `<span class="w-5 h-5 rounded-full bg-amber-200 text-amber-900 text-[10px] font-bold flex items-center justify-center shrink-0">${i+1}</span><span>"${p.clues[i]}"</span>`;
+                container.appendChild(div);
+            }
+            if (famousClueStep >= p.clues.length) document.getElementById('famousMoreClueBtn').classList.add('hidden');
+        }
+
+        function revealNextClue() {
+            const p = famousPeople[famousIndex];
+            if (famousClueStep < p.clues.length) {
+                famousClueStep++; playSound('flip'); renderFamousClues();
+            }
+        }
+
+        function selectFamousOption(selectedIdx) {
+            const p = famousPeople[famousIndex];
+            const buttons = document.getElementById('famousOptionsContainer').querySelectorAll('button');
+            buttons.forEach((btn, idx) => {
+                btn.disabled = true;
+                if (idx === p.correct) btn.className = 'btn-touch w-full p-3 bg-amber-500 text-white font-bold rounded-xl text-xs';
+                else if (idx === selectedIdx) btn.className = 'btn-touch w-full p-3 bg-rose-100 text-rose-800 font-bold rounded-xl text-xs border border-rose-400';
+            });
+
+            document.getElementById('famousMoreClueBtn').classList.add('hidden');
+            const box = document.getElementById('famousFeedbackBox');
+            if (selectedIdx === p.correct) {
+                playSound('correct'); famousScore += 15;
+                box.className = 'p-3 rounded-2xl border bg-amber-50 dark:bg-amber-950/40 border-amber-300 text-amber-900 dark:text-amber-200 space-y-1';
+                document.getElementById('famousFeedbackTitle').innerHTML = `<i class="fa-solid fa-star text-amber-500"></i> Correct! That is ${p.name}`;
+            } else {
+                playSound('wrong');
+                box.className = 'p-3 rounded-2xl border bg-slate-100 dark:bg-slate-700/60 border-slate-300 text-slate-800 dark:text-slate-200 space-y-1';
+                document.getElementById('famousFeedbackTitle').innerHTML = `<i class="fa-solid fa-circle-info text-amber-600"></i> It was ${p.name}`;
+            }
+            document.getElementById('famousBioText').innerText = p.bio;
+            box.classList.remove('hidden');
+        }
+
+        function nextFamousPerson() {
+            famousIndex++;
+            if (famousIndex < famousPeople.length) renderFamousPerson();
+            else finishGame(famousScore);
+        }
+
+        // NUMBER LOGIC
+        const numberPuzzles = [
+            { prompt: "What number comes next?", sequence: [2, 4, 6, 8, "?"], options: [9, 10, 11, 12], correct: 1, explanation: "Pattern adds +2 each step! (8 + 2 = 10)" },
+            { prompt: "Counting up by 5s:", sequence: [5, 10, 15, "?", 25], options: [18, 20, 22, 24], correct: 1, explanation: "Pattern adds +5 each step! (15 + 5 = 20)" }
+        ];
+        let numberIdx = 0, numberScore = 0;
+        function startNumberGame() {
+            numberIdx = 0; numberScore = 0;
+            switchView('number'); renderNumberPuzzle();
+        }
+
+        function renderNumberPuzzle() {
+            const p = numberPuzzles[numberIdx];
+            document.getElementById('numberCurrentIdx').innerText = numberIdx + 1;
+            document.getElementById('numberPuzzlePrompt').innerText = p.prompt;
+            document.getElementById('numberFeedbackBox').classList.add('hidden');
+
+            const seqBox = document.getElementById('numberSequenceBox');
+            seqBox.innerHTML = '';
+            p.sequence.forEach(num => {
+                const card = document.createElement('div');
+                const isTarget = num === "?";
+                card.className = `w-10 h-12 flex items-center justify-center text-lg font-bold rounded-xl border ${
+                    isTarget ? 'bg-amber-100 border-amber-400 text-amber-700 animate-pulse' : 'bg-blue-50 border-blue-200 text-blue-900 dark:bg-blue-950 dark:text-blue-100'
+                }`;
+                card.innerText = num;
+                seqBox.appendChild(card);
+            });
+
+            const choicesBox = document.getElementById('numberChoicesContainer');
+            choicesBox.innerHTML = '';
+            p.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'btn-touch py-3 bg-slate-50 dark:bg-slate-700/60 border border-slate-200 dark:border-slate-600 rounded-xl text-sm font-bold text-slate-800 dark:text-slate-100';
+                btn.innerText = opt;
+                btn.onclick = () => selectNumberOption(idx);
+                choicesBox.appendChild(btn);
+            });
+        }
+
+        function selectNumberOption(selectedIdx) {
+            const p = numberPuzzles[numberIdx];
+            const buttons = document.getElementById('numberChoicesContainer').querySelectorAll('button');
+            buttons.forEach((btn, idx) => {
+                btn.disabled = true;
+                if (idx === p.correct) btn.className = 'btn-touch py-3 bg-blue-600 text-white font-bold rounded-xl text-sm';
+                else if (idx === selectedIdx) btn.className = 'btn-touch py-3 bg-rose-100 text-rose-800 font-bold rounded-xl text-sm border border-rose-400';
+            });
+
+            const box = document.getElementById('numberFeedbackBox');
+            if (selectedIdx === p.correct) {
+                playSound('correct'); numberScore += 10;
+                box.className = 'p-3 rounded-2xl border bg-blue-50 dark:bg-blue-950/40 border-blue-300 text-blue-900 dark:text-blue-200 space-y-1';
+                document.getElementById('numberFeedbackTitle').innerHTML = `<i class="fa-solid fa-circle-check text-blue-600"></i> Spot On!`;
+            } else {
+                playSound('wrong');
+                box.className = 'p-3 rounded-2xl border bg-slate-100 dark:bg-slate-700/60 border-slate-300 text-slate-800 dark:text-slate-200 space-y-1';
+                document.getElementById('numberFeedbackTitle').innerHTML = `<i class="fa-solid fa-circle-info text-blue-600"></i> Nice try!`;
+            }
+            document.getElementById('numberExplanation').innerText = p.explanation;
+            box.classList.remove('hidden');
+        }
+
+        function nextNumberPuzzle() {
+            numberIdx++;
+            if (numberIdx < numberPuzzles.length) renderNumberPuzzle();
+            else finishGame(numberScore);
+        }
+
+        // MEMORY PAIRS
+        const memoryIcons = [
+            { icon: 'fa-sun', color: 'text-amber-500' },
+            { icon: 'fa-tree', color: 'text-emerald-600' },
+            { icon: 'fa-heart', color: 'text-rose-500' },
+            { icon: 'fa-anchor', color: 'text-blue-600' },
+            { icon: 'fa-bell', color: 'text-purple-600' },
+            { icon: 'fa-feather', color: 'text-teal-600' }
+        ];
+        let memoryCards = [], flippedCards = [], matchedCount = 0, memoryMoveCount = 0;
+
+        function startMemoryGame() {
+            switchView('memory'); resetMemoryGame();
+        }
+
+        function resetMemoryGame() {
+            matchedCount = 0; memoryMoveCount = 0; flippedCards = [];
+            document.getElementById('memoryMatchesCount').innerText = '0';
+            document.getElementById('memoryTotalPairs').innerText = memoryIcons.length;
+            document.getElementById('memoryVictoryBox').classList.add('hidden');
+
+            let deck = [...memoryIcons, ...memoryIcons].sort(() => Math.random() - 0.5);
+            memoryCards = deck.map((item, id) => ({ id, icon: item.icon, color: item.color, isFlipped: false, isMatched: false }));
+            renderMemoryGrid();
+        }
+
+        function renderMemoryGrid() {
+            const grid = document.getElementById('memoryGrid');
+            grid.innerHTML = '';
+            memoryCards.forEach((card, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'w-full aspect-square rounded-2xl flex items-center justify-center text-2xl shadow-sm border-2 transition-all';
+                
+                if (card.isFlipped || card.isMatched) {
+                    btn.className += ` bg-white dark:bg-slate-800 ${card.isMatched ? 'border-emerald-500' : 'border-purple-400'} ${card.color}`;
+                    btn.innerHTML = `<i class="fa-solid ${card.icon}"></i>`;
+                } else {
+                    btn.className += ' bg-gradient-to-br from-purple-600 to-indigo-700 border-purple-400/30 text-white';
+                    btn.innerHTML = `<i class="fa-solid fa-brain opacity-60 text-lg"></i>`;
+                }
+
+                btn.onclick = () => handleCardClick(index);
+                grid.appendChild(btn);
+            });
+        }
+
+        function handleCardClick(index) {
+            const card = memoryCards[index];
+            if (card.isFlipped || card.isMatched || flippedCards.length >= 2) return;
+
+            playSound('flip');
+            card.isFlipped = true;
+            flippedCards.push(index);
+            renderMemoryGrid();
+
+            if (flippedCards.length === 2) {
+                memoryMoveCount++;
+                const [idx1, idx2] = flippedCards;
+
+                if (memoryCards[idx1].icon === memoryCards[idx2].icon) {
+                    setTimeout(() => {
+                        playSound('correct');
+                        memoryCards[idx1].isMatched = true;
+                        memoryCards[idx2].isMatched = true;
+                        flippedCards = [];
+                        matchedCount++;
+                        document.getElementById('memoryMatchesCount').innerText = matchedCount;
+                        renderMemoryGrid();
+
+                        if (matchedCount === memoryIcons.length) {
+                            setTimeout(() => {
+                                document.getElementById('memoryMoveCount').innerText = memoryMoveCount;
+                                document.getElementById('memoryVictoryBox').classList.remove('hidden');
+                                state.brainPoints += 25; saveState();
+                            }, 300);
+                        }
+                    }, 300);
+                } else {
+                    setTimeout(() => {
+                        playSound('wrong');
+                        memoryCards[idx1].isFlipped = false;
+                        memoryCards[idx2].isFlipped = false;
+                        flippedCards = [];
+                        renderMemoryGrid();
+                    }, 800);
+                }
+            }
+        }
+
+        function speakCurrentQuestion(gameType) {
+            if (gameType === 'trivia') {
+                const q = triviaQuestions[triviaIndex];
+                speakText(`${q.question}. Options: ${q.options.join(', ')}`);
+            } else if (gameType === 'famous') {
+                const p = famousPeople[famousIndex];
+                speakText(`Who am I? ${p.clues.slice(0, famousClueStep).join('. ')}`);
+            } else if (gameType === 'number') {
+                const p = numberPuzzles[numberIdx];
+                speakText(`${p.prompt} Sequence: ${p.sequence.join(', ')}`);
+            }
+        }
+
+        function finishGame(scoreEarned) {
+            playSound('correct');
+            state.brainPoints += scoreEarned;
+            state.gamesPlayed += 1;
+            saveState();
+
+            document.getElementById('completeEarnedPoints').innerText = `+${scoreEarned} Points`;
+            document.getElementById('completeTotalPoints').innerText = state.brainPoints;
+            switchView('complete');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1472 @@
+[
+  {
+    "id": 1,
+    "final": "RIBOLOV",
+    "cols": [
+      {
+        "sol": "REKA",
+        "clues": [
+          "Morava",
+          "Dunav",
+          "Sava",
+          "Drina"
+        ]
+      },
+      {
+        "sol": "RIBA",
+        "clues": [
+          "Udica",
+          "Mreža",
+          "Čamac",
+          "Som"
+        ]
+      },
+      {
+        "sol": "HRANA",
+        "clues": [
+          "Hleb",
+          "Ručak",
+          "Vazduh",
+          "Život"
+        ]
+      },
+      {
+        "sol": "VODA",
+        "clues": [
+          "More",
+          "Jezero",
+          "Bazen",
+          "So"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "final": "OLIMPIJADA",
+    "cols": [
+      {
+        "sol": "FUDBAL",
+        "clues": [
+          "Zvezda",
+          "Partizan",
+          "Lopta",
+          "Stadion"
+        ]
+      },
+      {
+        "sol": "SPORT",
+        "clues": [
+          "Tenis",
+          "Košarka",
+          "Trening",
+          "Teren"
+        ]
+      },
+      {
+        "sol": "ZLATO",
+        "clues": [
+          "Medalja",
+          "Pehar",
+          "Ruda",
+          "Nakit"
+        ]
+      },
+      {
+        "sol": "ATINA",
+        "clues": [
+          "Grčka",
+          "Akropolj",
+          "Bogovi",
+          "Grad"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "final": "KAFANA",
+    "cols": [
+      {
+        "sol": "MUZIKA",
+        "clues": [
+          "Pesma",
+          "Harmonika",
+          "Gitara",
+          "Pevač"
+        ]
+      },
+      {
+        "sol": "PIĆE",
+        "clues": [
+          "Rakija",
+          "Vino",
+          "Pivo",
+          "Čaša"
+        ]
+      },
+      {
+        "sol": "STO",
+        "clues": [
+          "Stolica",
+          "Karirani stolnjak",
+          "Noge",
+          "Drvo"
+        ]
+      },
+      {
+        "sol": "NOĆ",
+        "clues": [
+          "Mesec",
+          "Mrak",
+          "Svetlo",
+          "Zvezde"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "final": "ŠKOLA",
+    "cols": [
+      {
+        "sol": "ĐAK",
+        "clues": [
+          "Torba",
+          "Sveska",
+          "Olovka",
+          "Ocena"
+        ]
+      },
+      {
+        "sol": "ČAS",
+        "clues": [
+          "Zvono",
+          "Odmor",
+          "Dnevnik",
+          "Raspored"
+        ]
+      },
+      {
+        "sol": "TABLA",
+        "clues": [
+          "Kreda",
+          "Sunđer",
+          "Zid",
+          "Zelena"
+        ]
+      },
+      {
+        "sol": "ZNANJE",
+        "clues": [
+          "Učenje",
+          "Knjiga",
+          "Učitelj",
+          "Mozak"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "final": "MUZIKA",
+    "cols": [
+      {
+        "sol": "PESMA",
+        "clues": [
+          "Tekst",
+          "Stih",
+          "Hor",
+          "Rima"
+        ]
+      },
+      {
+        "sol": "NOTA",
+        "clues": [
+          "Ključ",
+          "Violina",
+          "Sveska",
+          "Linija"
+        ]
+      },
+      {
+        "sol": "KONCERT",
+        "clues": [
+          "Bina",
+          "Publika",
+          "Karta",
+          "Dvorana"
+        ]
+      },
+      {
+        "sol": "RADIO",
+        "clues": [
+          "Talas",
+          "Aparat",
+          "Emisija",
+          "Zvuk"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "final": "ZIMA",
+    "cols": [
+      {
+        "sol": "SNEG",
+        "clues": [
+          "Pahulja",
+          "Belo",
+          "Grudva",
+          "Sneško"
+        ]
+      },
+      {
+        "sol": "HLADNO",
+        "clues": [
+          "Mraz",
+          "Led",
+          "Minus",
+          "Temperatura"
+        ]
+      },
+      {
+        "sol": "KAPA",
+        "clues": [
+          "Šal",
+          "Rukavice",
+          "Vuna",
+          "Glava"
+        ]
+      },
+      {
+        "sol": "PLANINA",
+        "clues": [
+          "Skijanje",
+          "Sanke",
+          "Kopaonik",
+          "Zlatibor"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "final": "POZORIŠTE",
+    "cols": [
+      {
+        "sol": "GLUMAC",
+        "clues": [
+          "Uloga",
+          "Tekst",
+          "Komedija",
+          "Kostim"
+        ]
+      },
+      {
+        "sol": "SCENA",
+        "clues": [
+          "Daske",
+          "Zavesa",
+          "Svetlo",
+          "Bina"
+        ]
+      },
+      {
+        "sol": "APLAUZ",
+        "clues": [
+          "Dlanovi",
+          "Tapšanje",
+          "Bis",
+          "Bravura"
+        ]
+      },
+      {
+        "sol": "DRAMA",
+        "clues": [
+          "Tragedija",
+          "Pisac",
+          "Komad",
+          "Pozorišni"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "final": "ŠAH",
+    "cols": [
+      {
+        "sol": "KRALJ",
+        "clues": [
+          "Kruna",
+          "Mat",
+          "Monarh",
+          "Presto"
+        ]
+      },
+      {
+        "sol": "TABLA",
+        "clues": [
+          "Polja",
+          "Crno",
+          "Belo",
+          "64"
+        ]
+      },
+      {
+        "sol": "TOP",
+        "clues": [
+          "Kula",
+          "Rokada",
+          "Topovska",
+          "Figura"
+        ]
+      },
+      {
+        "sol": "POTEZ",
+        "clues": [
+          "Vreme",
+          "Partija",
+          "Skakač",
+          "Pešak"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "final": "PUTOVANJE",
+    "cols": [
+      {
+        "sol": "KOFER",
+        "clues": [
+          "Garderoba",
+          "Pakovanje",
+          "Točkići",
+          "Prtljag"
+        ]
+      },
+      {
+        "sol": "KARTA",
+        "clues": [
+          "Voz",
+          "Avion",
+          "Autobus",
+          "Jedan smer"
+        ]
+      },
+      {
+        "sol": "MORE",
+        "clues": [
+          "Plaža",
+          "Talas",
+          "Odmor",
+          "Leto"
+        ]
+      },
+      {
+        "sol": "HOTEL",
+        "clues": [
+          "Soba",
+          "Recepcija",
+          "Ključ",
+          "Doručak"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "final": "MORE",
+    "cols": [
+      {
+        "sol": "OBALA",
+        "clues": [
+          "Pesak",
+          "Školjka",
+          "Plaža",
+          "Stena"
+        ]
+      },
+      {
+        "sol": "TALAS",
+        "clues": [
+          "Voda",
+          "Vetar",
+          "Pena",
+          "Surfovanje"
+        ]
+      },
+      {
+        "sol": "BROD",
+        "clues": [
+          "Sidro",
+          "Kapetan",
+          "Luka",
+          "Paluba"
+        ]
+      },
+      {
+        "sol": "SUNCE",
+        "clues": [
+          "Toplota",
+          "Leto",
+          "Suncobran",
+          "Zrak"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "final": "SVADBA",
+    "cols": [
+      {
+        "sol": "MLADA",
+        "clues": [
+          "Venčanica",
+          "Bidermajer",
+          "Veo",
+          "Devojka"
+        ]
+      },
+      {
+        "sol": "KUM",
+        "clues": [
+          "Dugme",
+          "Svedok",
+          "Prijatelj",
+          "Kuma"
+        ]
+      },
+      {
+        "sol": "TORTA",
+        "clues": [
+          "Slatko",
+          "Spratovi",
+          "Sečenje",
+          "Svećice"
+        ]
+      },
+      {
+        "sol": "PRSTEN",
+        "clues": [
+          "Zlato",
+          "Burma",
+          "Ruka",
+          "Veridba"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "final": "VOJSKA",
+    "cols": [
+      {
+        "sol": "KASARNA",
+        "clues": [
+          "Krevet",
+          "Spavaona",
+          "Kapija",
+          "Straža"
+        ]
+      },
+      {
+        "sol": "UNIFORMA",
+        "clues": [
+          "Maskirna",
+          "Čizme",
+          "Šapka",
+          "Odelo"
+        ]
+      },
+      {
+        "sol": "ČIN",
+        "clues": [
+          "Kapetan",
+          "Major",
+          "Zvezdice",
+          "General"
+        ]
+      },
+      {
+        "sol": "ORUŽJE",
+        "clues": [
+          "Puška",
+          "Metak",
+          "Streljana",
+          "Nišan"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "final": "ZVEZDA",
+    "cols": [
+      {
+        "sol": "NEBO",
+        "clues": [
+          "Plavo",
+          "Oblaci",
+          "Visina",
+          "Beskraj"
+        ]
+      },
+      {
+        "sol": "NOĆ",
+        "clues": [
+          "Mrak",
+          "Mesec",
+          "San",
+          "Tmina"
+        ]
+      },
+      {
+        "sol": "SJAJ",
+        "clues": [
+          "Svetlost",
+          "Blistavost",
+          "Zlato",
+          "Oči"
+        ]
+      },
+      {
+        "sol": "REPADŽA",
+        "clues": [
+          "Kometa",
+          "Rep",
+          "Pojava",
+          "Padalica"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "final": "KNJIGA",
+    "cols": [
+      {
+        "sol": "PISAC",
+        "clues": [
+          "Autor",
+          "Roman",
+          "Pero",
+          "Delo"
+        ]
+      },
+      {
+        "sol": "STRANA",
+        "clues": [
+          "List",
+          "Broj",
+          "Margina",
+          "Tekst"
+        ]
+      },
+      {
+        "sol": "BIBLIOTEKA",
+        "clues": [
+          "Police",
+          "Članarina",
+          "Čitaonica",
+          "Mir"
+        ]
+      },
+      {
+        "sol": "KORICE",
+        "clues": [
+          "Povez",
+          "Naslov",
+          "Tvrde",
+          "Ilustracija"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "final": "LEKAR",
+    "cols": [
+      {
+        "sol": "BOLNICA",
+        "clues": [
+          "Ambulanta",
+          "Soba",
+          "Prijem",
+          "Odeljenje"
+        ]
+      },
+      {
+        "sol": "MANTIL",
+        "clues": [
+          "Beli",
+          "Uniforma",
+          "Džep",
+          "Odeća"
+        ]
+      },
+      {
+        "sol": "RECEPT",
+        "clues": [
+          "Apoteka",
+          "Lek",
+          "Uput",
+          "Potpis"
+        ]
+      },
+      {
+        "sol": "PREGLED",
+        "clues": [
+          "Stetoskop",
+          "Pritisak",
+          "Puls",
+          "Dijagnoza"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "final": "VOĆE",
+    "cols": [
+      {
+        "sol": "JABUKA",
+        "clues": [
+          "Crvena",
+          "Raj",
+          "Peteljka",
+          "Pita"
+        ]
+      },
+      {
+        "sol": "ŠLJIVA",
+        "clues": [
+          "Plava",
+          "Pekmez",
+          "Rakija",
+          "Požega"
+        ]
+      },
+      {
+        "sol": "DRVO",
+        "clues": [
+          "Krošnja",
+          "Grana",
+          "Koren",
+          "Voćnjak"
+        ]
+      },
+      {
+        "sol": "VITAMIN",
+        "clues": [
+          "Zdravlje",
+          "C",
+          "Sok",
+          "Minerali"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "final": "PROLEĆE",
+    "cols": [
+      {
+        "sol": "CVEĆE",
+        "clues": [
+          "Visibaba",
+          "Lala",
+          "Miris",
+          "Buket"
+        ]
+      },
+      {
+        "sol": "MART",
+        "clues": [
+          "Mesec",
+          "Početak",
+          "Kalendar",
+          "Doba"
+        ]
+      },
+      {
+        "sol": "LASTA",
+        "clues": [
+          "Ptica",
+          "Gnezdo",
+          "Jug",
+          "Krila"
+        ]
+      },
+      {
+        "sol": "BUĐENJE",
+        "clues": [
+          "Priroda",
+          "Zeleno",
+          "Sunce",
+          "Zora"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "final": "NOVAC",
+    "cols": [
+      {
+        "sol": "BANKA",
+        "clues": [
+          "Šalter",
+          "Kredit",
+          "Trezor",
+          "Račun"
+        ]
+      },
+      {
+        "sol": "DINAR",
+        "clues": [
+          "Valuta",
+          "Srbija",
+          "Para",
+          "Kovanica"
+        ]
+      },
+      {
+        "sol": "PLATA",
+        "clues": [
+          "Rad",
+          "Mesec",
+          "Posao",
+          "Zarada"
+        ]
+      },
+      {
+        "sol": "NOVČANIK",
+        "clues": [
+          "Džep",
+          "Koža",
+          "Kartice",
+          "Kusur"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "final": "JESEN",
+    "cols": [
+      {
+        "sol": "LIŠĆE",
+        "clues": [
+          "Žuto",
+          "Opadanje",
+          "Krošnja",
+          "Grane"
+        ]
+      },
+      {
+        "sol": "KIŠA",
+        "clues": [
+          "Kišobran",
+          "Kapi",
+          "Oblak",
+          "Bara"
+        ]
+      },
+      {
+        "sol": "OKTOBAR",
+        "clues": [
+          "Mesec",
+          "Zlatni",
+          "Studentski",
+          "Hladnije"
+        ]
+      },
+      {
+        "sol": "ZIMNICA",
+        "clues": [
+          "Ajvar",
+          "Turšija",
+          "Tegla",
+          "Špajz"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "final": "SAT",
+    "cols": [
+      {
+        "sol": "VREME",
+        "clues": [
+          "Minut",
+          "Sekund",
+          "Čas",
+          "Prolaznost"
+        ]
+      },
+      {
+        "sol": "KAZALJKA",
+        "clues": [
+          "Mala",
+          "Velika",
+          "Brojčanik",
+          "Tik-tak"
+        ]
+      },
+      {
+        "sol": "ZID",
+        "clues": [
+          "Kukavica",
+          "Sat sa klatnom",
+          "Soba",
+          "Kula"
+        ]
+      },
+      {
+        "sol": "BUDILNIK",
+        "clues": [
+          "Zvono",
+          "Jutro",
+          "Ustanak",
+          "San"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "final": "HLEB",
+    "cols": [
+      {
+        "sol": "PŠENICA",
+        "clues": [
+          "Klas",
+          "Polje",
+          "Žetva",
+          "Zrno"
+        ]
+      },
+      {
+        "sol": "PEKAR",
+        "clues": [
+          "Pekara",
+          "Rerna",
+          "Beli",
+          "Majstor"
+        ]
+      },
+      {
+        "sol": "KORA",
+        "clues": [
+          "Hrskava",
+          "Krajka",
+          "Sredina",
+          "Zapečena"
+        ]
+      },
+      {
+        "sol": "BRAŠNO",
+        "clues": [
+          "Belo",
+          "Mlin",
+          "Vreća",
+          "Testo"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "final": "PLANINA",
+    "cols": [
+      {
+        "sol": "VRH",
+        "clues": [
+          "Visina",
+          "Pančić",
+          "Oblaci",
+          "Vidikovac"
+        ]
+      },
+      {
+        "sol": "KOPAONIK",
+        "clues": [
+          "Srebrnac",
+          "Ski staza",
+          "Sunčani vrhovi",
+          "Nacionalni park"
+        ]
+      },
+      {
+        "sol": "SNEG",
+        "clues": [
+          "Skije",
+          "Pahulje",
+          "Zima",
+          "Žičara"
+        ]
+      },
+      {
+        "sol": "TARA",
+        "clues": [
+          "Zaovine",
+          "Omorika",
+          "Reka",
+          "Drina"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "final": "AUTO",
+    "cols": [
+      {
+        "sol": "VOLAN",
+        "clues": [
+          "Skretanje",
+          "Krug",
+          "Vozač",
+          "Ruke"
+        ]
+      },
+      {
+        "sol": "TOČAK",
+        "clues": [
+          "Guma",
+          "Felna",
+          "Rotacija",
+          "Četiri"
+        ]
+      },
+      {
+        "sol": "MOTOR",
+        "clues": [
+          "Benzin",
+          "Ulje",
+          "Konji",
+          "Hauba"
+        ]
+      },
+      {
+        "sol": "GARAŽA",
+        "clues": [
+          "Parking",
+          "Vrata",
+          "Ključ",
+          "Auto-mehaničar"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "final": "ŠUMA",
+    "cols": [
+      {
+        "sol": "DRVO",
+        "clues": [
+          "Stablo",
+          "Krošnja",
+          "List",
+          "Hladovina"
+        ]
+      },
+      {
+        "sol": "HRAST",
+        "clues": [
+          "Žir",
+          "Badnjak",
+          "Drvo",
+          "Kora"
+        ]
+      },
+      {
+        "sol": "VUK",
+        "clues": [
+          "Zver",
+          "Čopor",
+          "Zub",
+          "Šuma"
+        ]
+      },
+      {
+        "sol": "ZELENO",
+        "clues": [
+          "Boja",
+          "Trava",
+          "Lišće",
+          "Priroda"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "final": "TELEFON",
+    "cols": [
+      {
+        "sol": "BROJ",
+        "clues": [
+          "Poziv",
+          "Imenik",
+          "Cifre",
+          "Pozivni"
+        ]
+      },
+      {
+        "sol": "ZVONO",
+        "clues": [
+          "Melodija",
+          "Vibracija",
+          "Signal",
+          "Melodija"
+        ]
+      },
+      {
+        "sol": "PORUKA",
+        "clues": [
+          "SMS",
+          "Slovo",
+          "Pisanje",
+          "Viber"
+        ]
+      },
+      {
+        "sol": "EKRAN",
+        "clues": [
+          "Dodir",
+          "Slika",
+          "Svetlost",
+          "Baterija"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "final": "PTICA",
+    "cols": [
+      {
+        "sol": "KRILA",
+        "clues": [
+          "Letenje",
+          "Perje",
+          "Raspon",
+          "Vazduh"
+        ]
+      },
+      {
+        "sol": "GNEZDO",
+        "clues": [
+          "Grane",
+          "Jaje",
+          "Mladunci",
+          "Drvo"
+        ]
+      },
+      {
+        "sol": "KLJUN",
+        "clues": [
+          "Hrana",
+          "Znojenje",
+          "Zrno",
+          "Ptica"
+        ]
+      },
+      {
+        "sol": "PESMA",
+        "clues": [
+          "Cvrkut",
+          "Slavuj",
+          "Jutro",
+          "Glas"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "final": "GRAD",
+    "cols": [
+      {
+        "sol": "ULICA",
+        "clues": [
+          "Asfalt",
+          "Trotoar",
+          "Semafor",
+          "Broj"
+        ]
+      },
+      {
+        "sol": "TRG",
+        "clues": [
+          "Centar",
+          "Spomenik",
+          "Fontana",
+          "Šetači"
+        ]
+      },
+      {
+        "sol": "ZGRADA",
+        "clues": [
+          "Sprat",
+          "Lift",
+          "Stan",
+          "Soliter"
+        ]
+      },
+      {
+        "sol": "BEOGRAD",
+        "clues": [
+          "Kalemegdan",
+          "Prestonica",
+          "Knez Mihailova",
+          "Pobednik"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "final": "SELO",
+    "cols": [
+      {
+        "sol": "NJIVA",
+        "clues": [
+          "Oranje",
+          "Kukuruz",
+          "Zemlja",
+          "Prinos"
+        ]
+      },
+      {
+        "sol": "TRAKTOR",
+        "clues": [
+          "IMT",
+          "Priključak",
+          "Plug",
+          "Gorivo"
+        ]
+      },
+      {
+        "sol": "DVORIŠTE",
+        "clues": [
+          "Kuća",
+          "Bašta",
+          "Kokoške",
+          "Ograda"
+        ]
+      },
+      {
+        "sol": "MIR",
+        "clues": [
+          "Tišina",
+          "Priroda",
+          "Odmor",
+          "Čist vazduh"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "final": "ČAJ",
+    "cols": [
+      {
+        "sol": "KAMILICA",
+        "clues": [
+          "Cvet",
+          "Umiruje",
+          "Beli",
+          "Lekovito"
+        ]
+      },
+      {
+        "sol": "ŠOLJA",
+        "clues": [
+          "Vruće",
+          "Keramika",
+          "Drška",
+          "Tanjirić"
+        ]
+      },
+      {
+        "sol": "MED",
+        "clues": [
+          "Slatko",
+          "Kašika",
+          "Pčela",
+          "Tegla"
+        ]
+      },
+      {
+        "sol": "LIMUN",
+        "clues": [
+          "Kiseo",
+          "Žut",
+          "Kriška",
+          "Cedi se"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "final": "PČELA",
+    "cols": [
+      {
+        "sol": "MED",
+        "clues": [
+          "Saće",
+          "Slatko",
+          "Zlato",
+          "Hrana"
+        ]
+      },
+      {
+        "sol": "KOŠNICA",
+        "clues": [
+          "Pčelar",
+          "Ram",
+          "Dom",
+          "Roj"
+        ]
+      },
+      {
+        "sol": "CVET",
+        "clues": [
+          "Polen",
+          "Latica",
+          "Livada",
+          "Miris"
+        ]
+      },
+      {
+        "sol": "ŽAOKA",
+        "clues": [
+          "Ubod",
+          "Odbrana",
+          "Otrov",
+          "Bol"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "final": "VOZ",
+    "cols": [
+      {
+        "sol": "PRUGA",
+        "clues": [
+          "Šine",
+          "Pragovi",
+          "Gvožđe",
+          "Pravac"
+        ]
+      },
+      {
+        "sol": "STANICA",
+        "clues": [
+          "Peron",
+          "Otpremnik",
+          "Čekaonica",
+          "Raspored"
+        ]
+      },
+      {
+        "sol": "LOKOMOTIVA",
+        "clues": [
+          "Mašinovođa",
+          "Pogon",
+          "Para",
+          "Čelo"
+        ]
+      },
+      {
+        "sol": "VAGON",
+        "clues": [
+          "Kupe",
+          "Sedišta",
+          "Prozor",
+          "Putnici"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "final": "SLIKAR",
+    "cols": [
+      {
+        "sol": "ČETKICA",
+        "clues": [
+          "Dlake",
+          "Potez",
+          "Voda",
+          "Crtanje"
+        ]
+      },
+      {
+        "sol": "PLATNO",
+        "clues": [
+          "Štafelaj",
+          "Belo",
+          "Uramljeno",
+          "Ugljen"
+        ]
+      },
+      {
+        "sol": "BOJA",
+        "clues": [
+          "Paleta",
+          "Uljana",
+          "Akril",
+          "Mešanje"
+        ]
+      },
+      {
+        "sol": "IZLOŽBA",
+        "clues": [
+          "Galerija",
+          "Muzej",
+          "Posetioci",
+          "Katalog"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "final": "ZDRAVLJE",
+    "cols": [
+      {
+        "sol": "LEK",
+        "clues": [
+          "Apoteka",
+          "Tableta",
+          "Sirup",
+          "Ozdravljenje"
+        ]
+      },
+      {
+        "sol": "SPORT",
+        "clues": [
+          "Trening",
+          "Trčanje",
+          "Kondicija",
+          "Fizičko"
+        ]
+      },
+      {
+        "sol": "SAN",
+        "clues": [
+          "Spavanje",
+          "Krevet",
+          "Noć",
+          "Odmor"
+        ]
+      },
+      {
+        "sol": "DORUČAK",
+        "clues": [
+          "Obrok",
+          "Jutro",
+          "Energija",
+          "Hrana"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "final": "MORE",
+    "cols": [
+      {
+        "sol": "RIBOLOV",
+        "clues": [
+          "Mreža",
+          "Čamac",
+          "Ribar",
+          "Ulov"
+        ]
+      },
+      {
+        "sol": "SOL",
+        "clues": [
+          "Belo",
+          "More",
+          "Začin",
+          "So"
+        ]
+      },
+      {
+        "sol": "DUBINA",
+        "clues": [
+          "Ronjenje",
+          "Plavetnilo",
+          "Okean",
+          "Dno"
+        ]
+      },
+      {
+        "sol": "OSTRVO",
+        "clues": [
+          "Kopno",
+          "Svetionik",
+          "Palma",
+          "Robinzon"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "final": "FUDBAL",
+    "cols": [
+      {
+        "sol": "LOPTA",
+        "clues": [
+          "Okrugla",
+          "Koža",
+          "Bela",
+          "Kotrljanje"
+        ]
+      },
+      {
+        "sol": "GOL",
+        "clues": [
+          "Mreža",
+          "Stative",
+          "Golman",
+          "Radost"
+        ]
+      },
+      {
+        "sol": "SUDIJA",
+        "clues": [
+          "Pištaljka",
+          "Crveni karton",
+          "Žuti karton",
+          "Faul"
+        ]
+      },
+      {
+        "sol": "DERBI",
+        "clues": [
+          "Zvezda",
+          "Partizan",
+          "Rivali",
+          "Navijači"
+        ]
+      }
+    ]
+  }
+]

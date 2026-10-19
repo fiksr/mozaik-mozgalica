@@ -1,0 +1,28 @@
+# Gradle & Build
+.gradle/
+build/
+android/.gradle/
+android/build/
+android/app/build/
+*.apk.sha1
+*.apk
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+android/*.iml
+android/.idea/
+local.properties
+android/local.properties
+.DS_Store
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Google Services / Sensitive config
+# Keep google-services.json if desired, or ignore
+google-services.json
+android/app/google-services.json
+
+# Scratch & temporary dirs
+scratch/

@@ -1,0 +1,1628 @@
+[
+  {
+    "id": 1,
+    "category": "Film",
+    "question": "Ko je režirao kultni film 'Ko to tamo peva'?",
+    "options": [
+      "Goran Marković",
+      "Slobodan Šijan",
+      "Emir Kusturica",
+      "Goran Paskaljević"
+    ],
+    "correctIndex": 1,
+    "funFact": "Film je snimljen za samo 21 dan, a budžet je bio toliko mali da glumačka ekipa nije imala ni prave obroke tokom snimanja."
+  },
+  {
+    "id": 2,
+    "category": "Muzika",
+    "question": "Ko je otpevao čuvenu pesmu 'Devojko mala' iz filma 'Ljubav i moda'?",
+    "options": [
+      "Đorđe Marjanović",
+      "Leo Martin",
+      "Vlastimir Đuza Stojiljković",
+      "Dragan Stojnić"
+    ],
+    "correctIndex": 2,
+    "funFact": "Pesmu su kasnije proslavili i Idoli na svom albumu 'Visili smo na konopcu'."
+  },
+  {
+    "id": 3,
+    "category": "Opšte znanje",
+    "question": "Koji je glavni grad Australije?",
+    "options": [
+      "Sidnej",
+      "Melburn",
+      "Kanbera",
+      "Brizbejn"
+    ],
+    "correctIndex": 2,
+    "funFact": "Kanbera je izabrana za glavni grad 1908. godine kao kompromis između dva najveća grada, Sidneja i Melburna."
+  },
+  {
+    "id": 4,
+    "category": "Nauka",
+    "question": "Ko je otkrio penicilin 1928. godine?",
+    "options": [
+      "Luj Paster",
+      "Aleksandar Fleming",
+      "Robert Koh",
+      "Marija Kiri"
+    ],
+    "correctIndex": 1,
+    "funFact": "Fleming je penicilin otkrio slučajno, kada je primetio da je buđ uništila bakterije u jednoj od njegovih laboratorijskih posuda."
+  },
+  {
+    "id": 5,
+    "category": "Istorija",
+    "question": "Koje godine se dogodila Kosovska bitka?",
+    "options": [
+      "1371.",
+      "1389.",
+      "1459.",
+      "1346."
+    ],
+    "correctIndex": 1,
+    "funFact": "Kosovska bitka se odigrala na Vidovdan, 28. juna po starom (tada važećem) kalendaru."
+  },
+  {
+    "id": 6,
+    "category": "Film",
+    "question": "Ko igra glavnu ulogu u seriji 'Vruć vetar'?",
+    "options": [
+      "Ljubiša Samardžić",
+      "Velimir Bata Živojinović",
+      "Dragan Nikolić",
+      "Miodrag Petrović Čkalja"
+    ],
+    "correctIndex": 0,
+    "funFact": "Lik Borivoja Šurdilovića, poznatog kao Šurda, postao je jedan od najomiljenijih na prostorima bivše Jugoslavije."
+  },
+  {
+    "id": 7,
+    "category": "Nostalgija",
+    "question": "Koji je bio najpopularniji domaći automobil u SFRJ, koji se proizvodio u Kragujevcu?",
+    "options": [
+      "Yugo",
+      "Zastava 750 (Fića)",
+      "Zastava 101 (Stojadin)",
+      "Lada"
+    ],
+    "correctIndex": 1,
+    "funFact": "Proizvodnja Fiće počela je 1955. godine po licenci italijanskog Fijata, a do 1985. proizvedeno je preko 920.000 komada."
+  },
+  {
+    "id": 8,
+    "category": "Književnost",
+    "question": "Ko je autor romana 'Na Drini ćuprija'?",
+    "options": [
+      "Miloš Crnjanski",
+      "Dobrica Ćosić",
+      "Ivo Andrić",
+      "Meša Selimović"
+    ],
+    "correctIndex": 2,
+    "funFact": "Za ovo delo, kao i za celokupni književni opus, Ivo Andrić je dobio Nobelovu nagradu za književnost 1961. godine."
+  },
+  {
+    "id": 9,
+    "category": "Sport",
+    "question": "Koja reprezentacija je osvojila Svetsko prvenstvo u košarci 1970. u Ljubljani?",
+    "options": [
+      "SSSR",
+      "SAD",
+      "Jugoslavija",
+      "Brazil"
+    ],
+    "correctIndex": 2,
+    "funFact": "To je bila prva zlatna medalja za Jugoslaviju na svetskim prvenstvima u košarci."
+  },
+  {
+    "id": 10,
+    "category": "Muzika",
+    "question": "Koji pevač je poznat po pesmi 'Zvižduk u osam'?",
+    "options": [
+      "Đorđe Marjanović",
+      "Arsen Dedić",
+      "Zdravko Čolić",
+      "Miki Jevremović"
+    ],
+    "correctIndex": 0,
+    "funFact": "Đorđe Marjanović je bio prvi jugoslovenski pevač koji je tokom nastupa skidao mikrofon sa stalka i šetao po publici."
+  },
+  {
+    "id": 11,
+    "category": "Nauka",
+    "question": "Koja planeta u Sunčevom sistemu je najbliža Suncu?",
+    "options": [
+      "Venera",
+      "Mars",
+      "Merkur",
+      "Zemlja"
+    ],
+    "correctIndex": 2,
+    "funFact": "Iako je najbliži Suncu, Merkur nije najtoplija planeta. To je Venera, zbog guste atmosfere koja zadržava toplotu."
+  },
+  {
+    "id": 12,
+    "category": "Opšte znanje",
+    "question": "Kako se zove valuta koja se koristi u Japanu?",
+    "options": [
+      "Dolar",
+      "Jen",
+      "Juan",
+      "Vong"
+    ],
+    "correctIndex": 1,
+    "funFact": "Reč 'jen' doslovno znači 'okrugli objekat', a valuta je uvedena krajem 19. veka."
+  },
+  {
+    "id": 13,
+    "category": "Istorija",
+    "question": "Koji istraživač je otkrio Ameriku 1492. godine?",
+    "options": [
+      "Vasko da Gama",
+      "Fernando Magelan",
+      "Kristifor Kolumbo",
+      "Marko Polo"
+    ],
+    "correctIndex": 2,
+    "funFact": "Kolumbo do kraja svog života nije shvatio da je otkrio novi kontinent, već je mislio da je stigao u Aziju."
+  },
+  {
+    "id": 14,
+    "category": "Film",
+    "question": "Koji glumac izgovara čuvenu repliku 'I tata bi, sine' u filmu 'Ko to tamo peva'?",
+    "options": [
+      "Pavle Vuisić",
+      "Bata Stojković",
+      "Dragan Nikolić",
+      "Milivoje Mića Tomić"
+    ],
+    "correctIndex": 0,
+    "funFact": "Replika se odnosi na scenu kada putnici posmatraju dvoje mladih mladenaca kroz prozor autobusa."
+  },
+  {
+    "id": 15,
+    "category": "Muzika",
+    "question": "Koji kompozitor je napisao operu 'Karmen'?",
+    "options": [
+      "Đuzepe Verdi",
+      "Rihard Vagner",
+      "Žorž Bize",
+      "Volfgang Amadeus Mocart"
+    ],
+    "correctIndex": 2,
+    "funFact": "Opera 'Karmen' na premijeri u Parizu 1875. godine nije bila dobro prihvaćena, a Bize je preminuo ne dočekavši njenu svetsku slavu."
+  },
+  {
+    "id": 16,
+    "category": "Nostalgija",
+    "question": "Kako se zvala maskota Zimskih olimpijskih igara u Sarajevu 1984. godine?",
+    "options": [
+      "Zagi",
+      "Vučko",
+      "Pobednik",
+      "Lija"
+    ],
+    "correctIndex": 1,
+    "funFact": "Vučku je glas u reklamnim spotovima pozajmio pevač Zdravko Čolić."
+  },
+  {
+    "id": 17,
+    "category": "Književnost",
+    "question": "Koja pesnikinja je napisala 'Krvavu bajku'?",
+    "options": [
+      "Desanka Maksimović",
+      "Isidora Sekulić",
+      "Mira Alečković",
+      "Milenka Stanković"
+    ],
+    "correctIndex": 0,
+    "funFact": "Pesma je posvećena streljanju đaka u Kragujevcu 21. oktobra 1941. godine."
+  },
+  {
+    "id": 18,
+    "category": "Opšte znanje",
+    "question": "Kako se zove hemijski element sa simbolom Fe?",
+    "options": [
+      "Fosfor",
+      "Cink",
+      "Gvožđe",
+      "Fluor"
+    ],
+    "correctIndex": 2,
+    "funFact": "Gvožđe čini najveći deo mase Zemljinog jezgra, a naziv elementa potiče od latinske reči ferrum."
+  },
+  {
+    "id": 19,
+    "category": "Sport",
+    "question": "Koji naš teniser je prvi osvojio Vimbldon 2011. godine?",
+    "options": [
+      "Janko Tipsarević",
+      "Nenad Zimonjić",
+      "Viktor Troicki",
+      "Novak Đoković"
+    ],
+    "correctIndex": 3,
+    "funFact": "Nakon te pobede, Novak je po prvi put u karijeri postao broj 1 na svetskoj ATP listi."
+  },
+  {
+    "id": 20,
+    "category": "Istorija",
+    "question": "Koji drevni grad je uništen erupcijom vulkana Vezuv 79. godine n.e.?",
+    "options": [
+      "Rim",
+      "Kartagina",
+      "Pompeja",
+      "Atina"
+    ],
+    "correctIndex": 2,
+    "funFact": "Pepeo i vulkanski materijal su izuzetno dobro očuvali ostatke grada, omogućavajući današnjim arheolozima jedinstven uvid u život starog Rima."
+  },
+  {
+    "id": 21,
+    "category": "Film",
+    "question": "Kako se zove popularna domaća serija o životu članova porodice Popadić?",
+    "options": [
+      "Bolji život",
+      "Srećni ljudi",
+      "Porodično blago",
+      "Kamiondžije"
+    ],
+    "correctIndex": 0,
+    "funFact": "Serija 'Bolji život' emitovala se od 1987. do 1991. godine, a njena poslednja epizoda oborila je sve rekorde gledanosti u Jugoslaviji."
+  },
+  {
+    "id": 22,
+    "category": "Nauka",
+    "question": "Koliko srca ima hobotnica?",
+    "options": [
+      "Jedno",
+      "Dva",
+      "Tri",
+      "Četiri"
+    ],
+    "correctIndex": 2,
+    "funFact": "Dva srca služe za pumpanje krvi kroz škrge, dok treće pumpa krv kroz ostatak tela."
+  },
+  {
+    "id": 23,
+    "category": "Muzika",
+    "question": "Koji instrument je svirao slavni Luj Armstrong?",
+    "options": [
+      "Klavir",
+      "Saksofon",
+      "Gitaru",
+      "Trubu"
+    ],
+    "correctIndex": 3,
+    "funFact": "Armstrong, poznat i po nadimku Satchmo, bio je jedan od najuticajnijih džez muzičara 20. veka."
+  },
+  {
+    "id": 24,
+    "category": "Nostalgija",
+    "question": "Koji prašak za pecivo je bio najpoznatiji u vreme Jugoslavije sa slikom dečaka kuvara?",
+    "options": [
+      "Oetker",
+      "C",
+      "Fama",
+      "Bakin"
+    ],
+    "correctIndex": 1,
+    "funFact": "Prašak 'C' (Centroproizvod) je postao generički naziv i omiljeni sastojak domaćica, prepoznatljiv po crvenom logou i crtežu malog kuvara."
+  },
+  {
+    "id": 25,
+    "category": "Opšte znanje",
+    "question": "Najduža reka na svetu, koja teče kroz Afriku, je:",
+    "options": [
+      "Kongo",
+      "Niger",
+      "Zambezi",
+      "Nil"
+    ],
+    "correctIndex": 3,
+    "funFact": "Nil se smatra najdužom rekom, mada postoje naučnici koji tvrde da je Amazon nešto duži ako se uračunaju sve pritoke."
+  },
+  {
+    "id": 26,
+    "category": "Istorija",
+    "question": "Ko je bio prvi rimski car?",
+    "options": [
+      "Julije Cezar",
+      "Oktavijan Avgust",
+      "Neron",
+      "Trajan"
+    ],
+    "correctIndex": 1,
+    "funFact": "Iako je Cezar bio diktator, njegov usvojeni sin Oktavijan Avgust bio je zvanično prvi car Rima."
+  },
+  {
+    "id": 27,
+    "category": "Istorija",
+    "question": "Koje godine je počeo Prvi svetski rat?",
+    "options": [
+      "1912.",
+      "1914.",
+      "1918.",
+      "1939."
+    ],
+    "correctIndex": 1,
+    "funFact": "Rat je počeo napadom Austro-Ugarske na Kraljevinu Srbiju nakon Sarajevskog atentata 1914. godine."
+  },
+  {
+    "id": 28,
+    "category": "Istorija",
+    "question": "Kako se zvao vođa Prvog srpskog ustanka podignutog u Orašcu 1804. godine?",
+    "options": [
+      "Miloš Obrenović",
+      "Karađorđe Petrović",
+      "Ilija Birčanin",
+      "Vasa Čarapić"
+    ],
+    "correctIndex": 1,
+    "funFact": "Đorđe Petrović, poznatiji kao Karađorđe (Crni Đorđe), izabran je za vožda u Marićevića jaruzi."
+  },
+  {
+    "id": 29,
+    "category": "Istorija",
+    "question": "Koji je antički grad uništen erupcijom vulkana Vezuv 79. godine n.e.?",
+    "options": [
+      "Pompeja",
+      "Atina",
+      "Sparta",
+      "Kartagina"
+    ],
+    "correctIndex": 0,
+    "funFact": "Pompeja je ostala neverovatno očuvana pod debelim slojem vulkanskog pepela skoro dva milenijuma."
+  },
+  {
+    "id": 30,
+    "category": "Istorija",
+    "question": "Ko je bio kralj Francuske poznat kao 'Kralj Sunce'?",
+    "options": [
+      "Luj XIV",
+      "Luj XVI",
+      "Šarl Veliki",
+      "Napoleon Bonaparta"
+    ],
+    "correctIndex": 0,
+    "funFact": "Luj XIV je vladao Francuskom čak 72 godine i izgradio čuveni dvorac Versaj."
+  },
+  {
+    "id": 31,
+    "category": "Istorija",
+    "question": "Koje godine je pao Berlinski zid, označivši kraj Hladnog rata?",
+    "options": [
+      "1984.",
+      "1989.",
+      "1991.",
+      "1995."
+    ],
+    "correctIndex": 1,
+    "funFact": "Pad Berlinskog zida u novembru 1989. godine simbolizovao je pad Gvozdene zavese u Evropi."
+  },
+  {
+    "id": 32,
+    "category": "Istorija",
+    "question": "Koji moreplovac je prvi predvodio ekspediciju koja je oplovila Zemlju?",
+    "options": [
+      "Kristifor Kolumbo",
+      "Fernando Magelan",
+      "Vasko de Gama",
+      "Džejms Kuk"
+    ],
+    "correctIndex": 1,
+    "funFact": "Magelan je stradao na Filipinima, ali je njegov brod 'Viktorija' pod komandom Huana Sebastijana Elkana uspešno završio putovanje."
+  },
+  {
+    "id": 33,
+    "category": "Istorija",
+    "question": "Koja drevna civilizacija je izgradila čuvene piramide u Gizi?",
+    "options": [
+      "Rimljani",
+      "Stari Egipćani",
+      "Vavilonci",
+      "Persijanci"
+    ],
+    "correctIndex": 1,
+    "funFact": "Keopsova piramida je jedino od sedam svetskih čuda starog sveta koje i danas postoji."
+  },
+  {
+    "id": 34,
+    "category": "Istorija",
+    "question": "Ko je napisao čuvenu povelju o ljudskim pravima 'Magna Carta' 1215. godine?",
+    "options": [
+      "Engleski kralj Džon Bez Zemlje",
+      "Kralj Artur",
+      "Ričard Lavlje Srce",
+      "Henri VIII"
+    ],
+    "correctIndex": 0,
+    "funFact": "Magna Carta se smatra jednim od najvažnijih temelja savremene demokratije i ustavnog prava."
+  },
+  {
+    "id": 35,
+    "category": "Istorija",
+    "question": "Koje godine su održane prve moderne Olimpijske igre u Atini?",
+    "options": [
+      "1896.",
+      "1900.",
+      "1924.",
+      "1936."
+    ],
+    "correctIndex": 0,
+    "funFact": "Pjer de Kuberten je bio glavni pokretač obnove antičkih igara u modernom formatu."
+  },
+  {
+    "id": 36,
+    "category": "Geografija",
+    "question": "Koja je najduža reka na svetu?",
+    "options": [
+      "Amazon",
+      "Nil",
+      "Misisipi",
+      "Jangcekjang"
+    ],
+    "correctIndex": 0,
+    "funFact": "Iako su se naučnici decenijama sporili, novija satelitska merenja potvrdila su da je Amazon sa pritokama najduža i vodom najbogatija reka."
+  },
+  {
+    "id": 37,
+    "category": "Geografija",
+    "question": "Koji je najviši planinski vrh na planeti Zemlji?",
+    "options": [
+      "Mon Blan",
+      "K2",
+      "Mont Everest",
+      "Kilimandžaro"
+    ],
+    "correctIndex": 2,
+    "funFact": "Mont Everest na Himalajima visok je 8.848 metara nadmorske visine."
+  },
+  {
+    "id": 38,
+    "category": "Geografija",
+    "question": "Koji je glavni grad Portugala?",
+    "options": [
+      "Madrid",
+      "Lisabon",
+      "Porto",
+      "Barselona"
+    ],
+    "correctIndex": 1,
+    "funFact": "Lisabon je jedan od najstarijih gradova u zapadnoj Evropi, stariji čak i od Rima."
+  },
+  {
+    "id": 39,
+    "category": "Geografija",
+    "question": "Kroz koliko država protiče reka Dunav?",
+    "options": [
+      "6",
+      "8",
+      "10",
+      "12"
+    ],
+    "correctIndex": 2,
+    "funFact": "Dunav protiče kroz 10 evropskih zemalja, što ga čini najmeđunarodnijom rekom na planeti."
+  },
+  {
+    "id": 40,
+    "category": "Geografija",
+    "question": "Koja je najmanja država na svetu po površini i broju stanovnika?",
+    "options": [
+      "Monako",
+      "Vatikan",
+      "San Marino",
+      "Lihtenštajn"
+    ],
+    "correctIndex": 1,
+    "funFact": "Vatikan zauzima površinu od svega 0,44 kvadratna kilometra unutar grada Rima."
+  },
+  {
+    "id": 41,
+    "category": "Geografija",
+    "question": "U kojoj se državi nalazi čuveni Tadž Mahal?",
+    "options": [
+      "Indija",
+      "Pakistan",
+      "Turska",
+      "Egipat"
+    ],
+    "correctIndex": 0,
+    "funFact": "Tadž Mahal u Agri izgradio je mogulski car Šah Džahan kao mauzolej za svoju voljenu suprugu Mumtaz Mahal."
+  },
+  {
+    "id": 42,
+    "category": "Geografija",
+    "question": "Koje je najveće jezero na svetu po površini?",
+    "options": [
+      "Bajkalsko jezero",
+      "Kaspijsko jezero",
+      "Viktorijino jezero",
+      "Gornje jezero"
+    ],
+    "correctIndex": 1,
+    "funFact": "Iako se zove 'more' zbog svoje veličine i slankaste vode, Kaspijsko jezero je hidrološki zatvoreno jezero."
+  },
+  {
+    "id": 43,
+    "category": "Geografija",
+    "question": "Koji je glavni grad Kanade?",
+    "options": [
+      "Toronto",
+      "Vankuver",
+      "Montreal",
+      "Otava"
+    ],
+    "correctIndex": 3,
+    "funFact": "Kraljica Viktorija je 1857. godine izabrala Otawu za prestonicu jer se nalazila na granici engleskog i francuskog govornog područja."
+  },
+  {
+    "id": 44,
+    "category": "Geografija",
+    "question": "Koja pustinja je najveća topla pustinja na svetu?",
+    "options": [
+      "Gobi",
+      "Sahara",
+      "Kalahari",
+      "Atakama"
+    ],
+    "correctIndex": 1,
+    "funFact": "Sahara se prostire na više od 9 miliona kvadratnih kilometara i obuhvata teritoriju 11 afričkih zemalja."
+  },
+  {
+    "id": 45,
+    "category": "Geografija",
+    "question": "Koji moreuz razdvaja Evropu i Afriku?",
+    "options": [
+      "Bosfor",
+      "Gibraltar",
+      "Suecki kanal",
+      "Dardaneli"
+    ],
+    "correctIndex": 1,
+    "funFact": "Gibraltarski moreuz na najužem delu širok je samo 14 kilometara."
+  },
+  {
+    "id": 46,
+    "category": "Nauka",
+    "question": "Koja planeta je najbliža Suncu?",
+    "options": [
+      "Venera",
+      "Merkur",
+      "Mars",
+      "Zemlja"
+    ],
+    "correctIndex": 1,
+    "funFact": "Merkur obiđe oko Sunca za svega 88 zemaljskih dana."
+  },
+  {
+    "id": 47,
+    "category": "Nauka",
+    "question": "Koji hemijski element ima hemijski simbol 'Au'?",
+    "options": [
+      "Srebro",
+      "Aluminijum",
+      "Zlato",
+      "Bakar"
+    ],
+    "correctIndex": 2,
+    "funFact": "Simbol 'Au' potiče od latinske reči 'aurum', što znači sjajna zora."
+  },
+  {
+    "id": 48,
+    "category": "Nauka",
+    "question": "Kolika je približna brzina svetlosti u vakuumu?",
+    "options": [
+      "300.000 km/s",
+      "150.000 km/s",
+      "30.000 km/s",
+      "1.000.000 km/s"
+    ],
+    "correctIndex": 0,
+    "funFact": "Svetlost pređe razdaljinu od Zemlje do Meseca za nešto više od jedne sekunde."
+  },
+  {
+    "id": 49,
+    "category": "Nauka",
+    "question": "Koji naučnik je formulisao teoriju relativiteta?",
+    "options": [
+      "Isak Njutn",
+      "Albert Ajnštajn",
+      "Nikola Tesla",
+      "Galileo Galilej"
+    ],
+    "correctIndex": 1,
+    "funFact": "Ajnštajnova čuvena formula E = mc² opisuje ekvivalenciju mase i energije."
+  },
+  {
+    "id": 50,
+    "category": "Nauka",
+    "question": "Koji organ u ljudskom telu je zadužen za pumpanje krvi kroz krvotok?",
+    "options": [
+      "Pluća",
+      "Jetra",
+      "Srce",
+      "Bubreg"
+    ],
+    "correctIndex": 2,
+    "funFact": "Ljudsko srce u proseku otkuca oko 100.000 puta svakog dana."
+  },
+  {
+    "id": 51,
+    "category": "Nauka",
+    "question": "Koji gas biljke apsorbuju iz vazduha tokom procesa fotosinteze?",
+    "options": [
+      "Kiseonik",
+      "Ugljen-dioksid",
+      "Azot",
+      "Helijum"
+    ],
+    "correctIndex": 1,
+    "funFact": "Biljke koriste ugljen-dioksid i sunčevu svetlost da bi proizvele hranu i oslobodile kiseonik."
+  },
+  {
+    "id": 52,
+    "category": "Nauka",
+    "question": "Ko je konstruisao prvi funkcionalni električni transformator i indukcioni motor naizmenične struje?",
+    "options": [
+      "Tomas Edison",
+      "Nikola Tesla",
+      "Aleksandar Bel",
+      "Bendžamin Frenklin"
+    ],
+    "correctIndex": 1,
+    "funFact": "Tesla je svojim patentima naizmenične struje osvetlio svet i omogućio modernu elektroenergetiku."
+  },
+  {
+    "id": 53,
+    "category": "Nauka",
+    "question": "Koji je najtvrđi prirodni mineral poznat na Zemlji?",
+    "options": [
+      "Kvarc",
+      "Dijamant",
+      "Topaz",
+      "Granit"
+    ],
+    "correctIndex": 1,
+    "funFact": "Dijamant se nalazi na samom vrhu Mosove skale tvrdoće sa vrednošću 10."
+  },
+  {
+    "id": 54,
+    "category": "Nauka",
+    "question": "Koji prirodni satelit kruži oko planete Zemlje?",
+    "options": [
+      "Mesec",
+      "Fobos",
+      "Titan",
+      "Evropa"
+    ],
+    "correctIndex": 0,
+    "funFact": "Mesec je peti po veličini prirodni satelit u čitavom Sunčevom sistemu."
+  },
+  {
+    "id": 55,
+    "category": "Nauka",
+    "question": "Kako se naziva nauka koja proučava ptice?",
+    "options": [
+      "Entomologija",
+      "Ornitologija",
+      "Botanika",
+      "Ihtiologija"
+    ],
+    "correctIndex": 1,
+    "funFact": "Ornitologija potiče od grčke reči 'ornis' što znači ptica."
+  },
+  {
+    "id": 56,
+    "category": "Umetnost",
+    "question": "Ko je naslikao remek-delo 'Mona Liza'?",
+    "options": [
+      "Mikelanđelo",
+      "Leonardo da Vinči",
+      "Rafael",
+      "Rembrant"
+    ],
+    "correctIndex": 1,
+    "funFact": "Mona Liza se nalazi u muzeju Luvr u Parizu i čuva se iza neprobojnog stakla."
+  },
+  {
+    "id": 57,
+    "category": "Film",
+    "question": "Koji glumac je tumačio lik legendarnog Valtera u filmu 'Valter brani Sarajevo'?",
+    "options": [
+      "Bata Živojinović",
+      "Boris Dvornik",
+      "Ljubiša Samardžić",
+      "Pavle Vuisić"
+    ],
+    "correctIndex": 0,
+    "funFact": "Bata Živojinović je zahvaljujući ovom filmu stekao status nacionalnog heroja u Kini, gde je film pogledalo više od milijardu ljudi."
+  },
+  {
+    "id": 58,
+    "category": "Književnost",
+    "question": "Koji srpski pisac je 1961. godine dobio Nobelovu nagradu za književnost?",
+    "options": [
+      "Miloš Crnjanski",
+      "Ivo Andrić",
+      "Meša Selimović",
+      "Borislav Pekić"
+    ],
+    "correctIndex": 1,
+    "funFact": "Andrić je nagrađen za roman 'Na Drini ćuprija' i celokupan epski opus o istoriji i sudbini svog naroda."
+  },
+  {
+    "id": 59,
+    "category": "Film",
+    "question": "Koji film je režirao Dušan Kovačević u kom Danilo Bata Stojković glumi Iliju Čvorovića?",
+    "options": [
+      "Maratonci trče počasni krug",
+      "Balkanski špijun",
+      "Ko to tamo peva",
+      "Sabirni centar"
+    ],
+    "correctIndex": 1,
+    "funFact": "Rečenica 'Đura će ti oprostiti što te je tukao' postala je kultna fraza domaće kinematografije."
+  },
+  {
+    "id": 60,
+    "category": "Umetnost",
+    "question": "Ko je vajar čuvene skulpture 'David' isklesane od mermera?",
+    "options": [
+      "Donatelo",
+      "Mikelanđelo Buonaroti",
+      "Bernini",
+      "Rodin"
+    ],
+    "correctIndex": 1,
+    "funFact": "Mikelanđelo je završio Davida 1504. godine kada je imao samo 29 godina."
+  },
+  {
+    "id": 61,
+    "category": "Književnost",
+    "question": "Ko je napisao tragediju 'Romeo i Julija'?",
+    "options": [
+      "Vilijam Šekspir",
+      "Dante Aligijeri",
+      "Gete",
+      "Viktor Igo"
+    ],
+    "correctIndex": 0,
+    "funFact": "Radnja čuvene priče o zabranjenoj ljubavi odigrava se u italijanskom gradu Veroni."
+  },
+  {
+    "id": 62,
+    "category": "Muzika",
+    "question": "Koji kompozitor je komponovao čuvenu 'Devetu simfoniju' iako je bio potpuno gluv?",
+    "options": [
+      "Volfgang Amadeus Mocart",
+      "Ludvig van Betoven",
+      "Johan Sebastijan Bah",
+      "Frederik Šopen"
+    ],
+    "correctIndex": 1,
+    "funFact": "Betoven je dirigovao premijerom Devete simfonije 1824. godine u Beču iako nije mogao da čuje ovacije publike."
+  },
+  {
+    "id": 63,
+    "category": "Književnost",
+    "question": "Ko je napisao roman 'Zločin i kazna'?",
+    "options": [
+      "Lav Tolstoj",
+      "Fjodor Dostojevski",
+      "Anton Čehov",
+      "Ivan Turgenjev"
+    ],
+    "correctIndex": 1,
+    "funFact": "Glavni lik romana je siromašni student Rodion Raskoljnikov u Sankt Peterburgu."
+  },
+  {
+    "id": 64,
+    "category": "Film",
+    "question": "Koja glumica je igrala čuvenu ulogu u filmu 'Doručak kod Tifanija'?",
+    "options": [
+      "Merilin Monro",
+      "Odri Hepbern",
+      "Elizabet Tejlor",
+      "Grejs Keli"
+    ],
+    "correctIndex": 1,
+    "funFact": "Mala crna haljina koju je nosila Odri Hepbern u ovom filmu prodata je na aukciji za skoro milion dolara."
+  },
+  {
+    "id": 65,
+    "category": "Muzika",
+    "question": "Koja britanska rok grupa je objavila čuveni album 'Abbey Road'?",
+    "options": [
+      "Rolingstonsi",
+      "Kvin",
+      "Bitlsi",
+      "Pink Flojd"
+    ],
+    "correctIndex": 2,
+    "funFact": "Čuvena fotografija Bitlsa kako prelaze pešački prelaz ispred studija Abbey Road postala je ikona pop-kulture."
+  },
+  {
+    "id": 66,
+    "category": "Muzika",
+    "question": "Koji pevač je poznat kao 'Kralj pop muzike'?",
+    "options": [
+      "Majkl Džekson",
+      "Elvis Prisli",
+      "Princ",
+      "Fredi Merkjuri"
+    ],
+    "correctIndex": 0,
+    "funFact": "Album 'Thriller' Majkla Džeksona iz 1982. godine najprodavaniji je muzički album svih vremena."
+  },
+  {
+    "id": 67,
+    "category": "Muzika",
+    "question": "Ko je otpevao čuvenu baladu 'Stanica Podlugovi'?",
+    "options": [
+      "Oliver Dragojević",
+      "Zdravko Čolić",
+      "Kemal Monteno",
+      "Željko Bebek"
+    ],
+    "correctIndex": 1,
+    "funFact": "Pesmu je komponovao Kornelije Kovač na tekst Vlade Dijaka, a Zdravko Čolić ju je proslavio 1983. godine."
+  },
+  {
+    "id": 68,
+    "category": "Film",
+    "question": "Ko je glumio ulogu Terminatora u istoimenom filmu iz 1984. godine?",
+    "options": [
+      "Silvester Stalone",
+      "Arnold Švarceneger",
+      "Brus Vilis",
+      "Žan-Klod Van Dam"
+    ],
+    "correctIndex": 1,
+    "funFact": "Kultna rečenica 'I'll be back' postala je jedna od najprepoznatljivijih filmskih replika u istoriji."
+  },
+  {
+    "id": 69,
+    "category": "Muzika",
+    "question": "Koja domaća rok grupa je snimila hit pesmu 'Lipe cvatu'?",
+    "options": [
+      "Riblja Čorba",
+      "Bijelo Dugme",
+      "Parni Valjak",
+      "Prljavo Kazalište"
+    ],
+    "correctIndex": 1,
+    "funFact": "Bijelo Dugme je ovu pesmu objavilo 1984. godine sa Mladenom Vojičićem Tifom kao pevačem."
+  },
+  {
+    "id": 70,
+    "category": "Pop-kultura",
+    "question": "Kako se zove čuveni fiktivni tajni agent 007?",
+    "options": [
+      "Džejson Born",
+      "Džejms Bond",
+      "Itan Hant",
+      "Džon Vik"
+    ],
+    "correctIndex": 1,
+    "funFact": "Lik britanskog agenta Džejmsa Bonda stvorio je pisac Ijan Fleming 1953. godine."
+  },
+  {
+    "id": 71,
+    "category": "Film",
+    "question": "Koji domaći glumac je glumio legendarnog 'Popaja' u seriji 'Kamiondžije'?",
+    "options": [
+      "Pavle Vuisić",
+      "Miodrag Petrović Čkalja",
+      "Bata Stojković",
+      "Taško Načić"
+    ],
+    "correctIndex": 1,
+    "funFact": "Čkalja i Pavle Vuisić (Jare i Paja) činili su najvoljeniji komičarski tandem televizije u SFRJ."
+  },
+  {
+    "id": 72,
+    "category": "Muzika",
+    "question": "Koja pevačica je pobedila na Evroviziji 2007. godine sa pesmom 'Molitva'?",
+    "options": [
+      "Marija Šerifović",
+      "Jelena Tomašević",
+      "Zorica Brunclik",
+      "Ana Bekuta"
+    ],
+    "correctIndex": 0,
+    "funFact": "To je bila prva i do danas jedina samostalna pobeda Srbije na Pesmi Evrovizije."
+  },
+  {
+    "id": 73,
+    "category": "Film",
+    "question": "Ko glumi inspektora Kluzoa u originalnim filmovima 'Pink Panter'?",
+    "options": [
+      "Piter Selers",
+      "Čarli Čaplin",
+      "Baster Kiton",
+      "Luj de Fines"
+    ],
+    "correctIndex": 0,
+    "funFact": "Piter Selers je svojom improvizacijom i naglaskom učinio inspektora Kluzoa večnim likom filmske komedije."
+  },
+  {
+    "id": 74,
+    "category": "Muzika",
+    "question": "Ko je autor i izvođač pesme 'Kao kakao'?",
+    "options": [
+      "Leb i Sol",
+      "Smak",
+      "EKV",
+      "Indexi"
+    ],
+    "correctIndex": 0,
+    "funFact": "Grupa Leb i Sol na čelu sa Vlatkom Stefanovskim objavila je album 'Kao kakao' 1987. godine."
+  },
+  {
+    "id": 75,
+    "category": "Film",
+    "question": "Koji film je osvojio Zlatnu palmu u Kanu 1985. godine u režiji Emira Kusturice?",
+    "options": [
+      "Otac na službenom putu",
+      "Podzemlje",
+      "Crna mačka",
+      "beli mačor",
+      "Dom za vešanje"
+    ],
+    "correctIndex": 0,
+    "funFact": "Scenario za film napisao je Abdulah Sidran, a film je bio nominovan i za nagradu Oskar."
+  },
+  {
+    "id": 76,
+    "category": "Sport",
+    "question": "Koliko igrača ima jedna vaterpolo ekipa u bazenu tokom utakmice?",
+    "options": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "correctIndex": 2,
+    "funFact": "Vaterpolo tim se sastoji od 6 igrača u polju i jednog golmana (ukupno 7)."
+  },
+  {
+    "id": 77,
+    "category": "Sport",
+    "question": "Koji srpski teniser drži rekord po broju osvojenih Grend slem titula?",
+    "options": [
+      "Nenad Zimonjić",
+      "Janko Tipsarević",
+      "Novak Đoković",
+      "Viktor Troicki"
+    ],
+    "correctIndex": 2,
+    "funFact": "Novak Đoković je sa preko 24 Grend slem titule najtrofejniji teniser u istoriji muškog singla."
+  },
+  {
+    "id": 78,
+    "category": "Sport",
+    "question": "Koliko minuta traje regularni deo jedne košarkaške četvrtine po FIBA pravilima?",
+    "options": [
+      "8 minuta",
+      "10 minuta",
+      "12 minuta",
+      "15 minuta"
+    ],
+    "correctIndex": 1,
+    "funFact": "Po evropskim FIBA pravilima četvrtina traje 10 minuta, dok u NBA ligi traje 12 minuta."
+  },
+  {
+    "id": 79,
+    "category": "Sport",
+    "question": "U kom gradu su održane Zimske olimpijske igre 1984. godine?",
+    "options": [
+      "Sarajevo",
+      "Beograd",
+      "Zagreb",
+      "Ljubljana"
+    ],
+    "correctIndex": 0,
+    "funFact": "Maskota ZOI 84 u Sarajevu bio je simpatični vuk Vučko, kome je glas pozajmio Zdravko Čolić."
+  },
+  {
+    "id": 80,
+    "category": "Sport",
+    "question": "Koji fudbalski klub je osvojio titulu prvaka Evrope u Bariju 1991. godine?",
+    "options": [
+      "Partizan",
+      "Crvena zvezda",
+      "Hajduk Split",
+      "Dinamo Zagreb"
+    ],
+    "correctIndex": 1,
+    "funFact": "Crvena zvezda je 29. maja 1991. u Bariju savladala Olimpik iz Marselja nakon izvođenja penala."
+  },
+  {
+    "id": 81,
+    "category": "Sport",
+    "question": "Koliko krugova na olimpijskoj zastavi simbolizuje kontinente sveta?",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "correctIndex": 1,
+    "funFact": "Pet isprepletanih krugova plave, žute, crne, zelene i crvene boje predstavljaju univerzalno jedinstvo kontinenata."
+  },
+  {
+    "id": 82,
+    "category": "Sport",
+    "question": "Koja zemlja je postala svetski prvak u fudbalu najviše puta u istoriji?",
+    "options": [
+      "Nemačka",
+      "Italija",
+      "Brazil",
+      "Argentina"
+    ],
+    "correctIndex": 2,
+    "funFact": "Fudbalska reprezentacija Brazila je osvojila čak pet titula prvaka sveta (1958, 1962, 1970, 1994, 2002)."
+  },
+  {
+    "id": 83,
+    "category": "Sport",
+    "question": "Kojim sportom se profesionalno bavio legendarni Mate Parlov?",
+    "options": [
+      "Rvanje",
+      "Boks",
+      "Džudo",
+      "Karate"
+    ],
+    "correctIndex": 1,
+    "funFact": "Mate Parlov je bio olimpijski, svetski i evropski prvak u boksu i jedan od najvećih sportista bivše Jugoslavije."
+  },
+  {
+    "id": 84,
+    "category": "Sport",
+    "question": "Koliko poena vredi pogodak van linije 6,75m u modernoj evropskoj košarci?",
+    "options": [
+      "1 poen",
+      "2 poena",
+      "3 poena",
+      "4 poena"
+    ],
+    "correctIndex": 2,
+    "funFact": "Šut iza linije donosi 3 poena, a linija je na 6,75 metara udaljena od koša."
+  },
+  {
+    "id": 85,
+    "category": "Tradicija",
+    "question": "Koja krsna slava se u narodu slavi 19. decembra i važi za najčešću slavu u Srbiji?",
+    "options": [
+      "Sveti Đorđe (Đurđevdan)",
+      "Sveti Nikola",
+      "Sveti Jovan",
+      "Sveti Sava"
+    ],
+    "correctIndex": 1,
+    "funFact": "U narodu se često kaže da na Nikoljdan 'pola Srbije slavi, a druga polovina ide u goste'."
+  },
+  {
+    "id": 86,
+    "category": "Zanimljivosti",
+    "question": "Koliko nogu ima pauk?",
+    "options": [
+      "6",
+      "8",
+      "10",
+      "12"
+    ],
+    "correctIndex": 1,
+    "funFact": "Za razliku od insekata koji imaju 6 nogu, pauci spadaju u arahnide i svi imaju 8 nogu."
+  },
+  {
+    "id": 87,
+    "category": "Gastronomija",
+    "question": "Koji sir sa zaštićenim geografskim poreklom potiče sa planine u jugozapadnoj Srbiji?",
+    "options": [
+      "Sjenički sir",
+      "Mocarela",
+      "Feta",
+      "Guda"
+    ],
+    "correctIndex": 0,
+    "funFact": "Sjenički sir se tradicionalno pravi od punomasnog ovčijeg ili kravljeg mleka na Pešterskoj visoravni."
+  },
+  {
+    "id": 88,
+    "category": "Zanimljivosti",
+    "question": "Koji je najveći sisar na planeti Zemlji?",
+    "options": [
+      "Afrički slon",
+      "Plavi kit",
+      "Žirafa",
+      "Morž"
+    ],
+    "correctIndex": 1,
+    "funFact": "Plavi kit može da dostigne dužinu od preko 30 metara i težinu od čak 180 tona."
+  },
+  {
+    "id": 89,
+    "category": "Gastronomija",
+    "question": "Od kog voća se tradicionalno pravi slatko od šumskih plodova popularno u Srbiji?",
+    "options": [
+      "Šumska jagoda",
+      "Kivi",
+      "Banana",
+      "Ananas"
+    ],
+    "correctIndex": 0,
+    "funFact": "Slatko od divljih šumskih jagoda važi za jedno od najcenjenijih i najaromatičnijih tradicionalnih posluženja."
+  },
+  {
+    "id": 90,
+    "category": "Zanimljivosti",
+    "question": "Koja ptica ne može da leti ali je zato najbrži trkač na dve noge?",
+    "options": [
+      "Noj",
+      "Pingvin",
+      "Kivi",
+      "Flamingo"
+    ],
+    "correctIndex": 0,
+    "funFact": "Noj može da trči brzinom i do 70 kilometara na čas."
+  },
+  {
+    "id": 91,
+    "category": "Zanimljivosti",
+    "question": "Koliko zuba ima odrasla zdrava osoba bez umnjaka?",
+    "options": [
+      "24",
+      "28",
+      "32",
+      "36"
+    ],
+    "correctIndex": 1,
+    "funFact": "Odrasla osoba sa svim izraslim umnjacima ima 32 zuba, a bez umnjaka tačno 28."
+  },
+  {
+    "id": 92,
+    "category": "Zanimljivosti",
+    "question": "Koji metal je tečan na sobnoj temperaturi?",
+    "options": [
+      "Olovo",
+      "Živa",
+      "Gvožđe",
+      "Cink"
+    ],
+    "correctIndex": 1,
+    "funFact": "Živa ima tačku topljenja na čak minus 38,8 stepeni Celzijusa."
+  },
+  {
+    "id": 93,
+    "category": "Zanimljivosti",
+    "question": "Koja je najduža kost u ljudskom telu?",
+    "options": [
+      "Rebro",
+      "Butna kost (femur)",
+      "Lakatna kost",
+      "Ključna kost"
+    ],
+    "correctIndex": 1,
+    "funFact": "Butna kost je ne samo najduža, već i najjača kost u celokupnom ljudskom skeletu."
+  },
+  {
+    "id": 94,
+    "category": "Gastronomija",
+    "question": "Kako se zove tradicionalno piće koje se dobija fermentacijom i pečenjem fermentisane šljive?",
+    "options": [
+      "Pelinovac",
+      "Šljivovica",
+      "Lozovača",
+      "Vinjak"
+    ],
+    "correctIndex": 1,
+    "funFact": "Srpska šljivovica je 2022. godine uvrštena na UNESCO reprezentativnu listu nematerijalnog kulturnog nasleđa čovečanstva."
+  },
+  {
+    "id": 95,
+    "category": "Zanimljivosti",
+    "question": "Koji je jedini kontinent na svetu na kome nema nijednog stalnog ljudskog naselja?",
+    "options": [
+      "Australija",
+      "Antarktik",
+      "Južna Amerika",
+      "Afrika"
+    ],
+    "correctIndex": 1,
+    "funFact": "Antarktik je najhladniji i najvetrovitiji kontinent, a na njemu borave isključivo naučnici u istraživačkim stanicama."
+  },
+  {
+    "id": 96,
+    "category": "Geografija",
+    "question": "Koji okean je najveći i najdublji na planeti Zemlji?",
+    "options": [
+      "Atlantski okean",
+      "Tihi okean (Pacifik)",
+      "Indijski okean",
+      "Severni ledeni okean"
+    ],
+    "correctIndex": 1,
+    "funFact": "Tihi okean pokriva više od 30% ukupne površine planete Zemlje."
+  },
+  {
+    "id": 97,
+    "category": "Istorija",
+    "question": "Ko je bio osnivač dinastije Nemanjića u srednjovekovnoj Srbiji?",
+    "options": [
+      "Stefan Prvovenčani",
+      "Stefan Nemanja",
+      "Car Dušan",
+      "Kralj Milutin"
+    ],
+    "correctIndex": 1,
+    "funFact": "Stefan Nemanja se zamonašio i uzeo monaško ime Simeon, a sahranjen je u manastiru Studenica."
+  },
+  {
+    "id": 98,
+    "category": "Film",
+    "question": "Koji glumac igra lik legendarnog Dimitrija Pantića u filmskom serijalu 'Tesna koža'?",
+    "options": [
+      "Nikola Simić",
+      "Milan Gutović",
+      "Voja Brajović",
+      "Petar Kralj"
+    ],
+    "correctIndex": 0,
+    "funFact": "Replike mlađeg referenta Dimitrija Mite Pantića i Srećka Šojića postale su antologijski deo domaće kulture."
+  },
+  {
+    "id": 99,
+    "category": "Muzika",
+    "question": "Koji instrument svira slavni muzičar Jovan Kolundžija?",
+    "options": [
+      "Klavir",
+      "Violina",
+      "Čelo",
+      "Flauta"
+    ],
+    "correctIndex": 1,
+    "funFact": "Jovan Kolundžija je jedan od najpriznatijih srpskih violinista i osnivač centra lepih umetnosti 'Gvarnerijus'."
+  },
+  {
+    "id": 100,
+    "category": "Književnost",
+    "question": "Ko je autor epskog romana 'Seobe'?",
+    "options": [
+      "Miloš Crnjanski",
+      "Danilo Kiš",
+      "Branko Ćopić",
+      "Jovan Dučić"
+    ],
+    "correctIndex": 0,
+    "funFact": "Roman 'Seobe' prati sudbinu srpskog puka pod komandom Vuka Isakoviča u ratovima 18. veka."
+  },
+  {
+    "id": 101,
+    "category": "Nauka",
+    "question": "Koji organ kod čoveka proizvodi hormon insulin?",
+    "options": [
+      "Želudac",
+      "Pankreas (gušterača)",
+      "Štitna žlezda",
+      "Slezina"
+    ],
+    "correctIndex": 1,
+    "funFact": "Insulin reguliše nivo glukoze (šećera) u krvi, a njegovo lučenje otkrili su Banting i Best 1921. godine."
+  },
+  {
+    "id": 102,
+    "category": "Sport",
+    "question": "U kom sportu je slavni Dragan Džajić ostvario svetsku slavu?",
+    "options": [
+      "Košarka",
+      "Fudbal",
+      "Rukomet",
+      "Vaterpolo"
+    ],
+    "correctIndex": 1,
+    "funFact": "Dragan Džajić se smatra jednim od najboljih levih krila u celokupnoj istoriji svetskog fudbala."
+  },
+  {
+    "id": 103,
+    "category": "Film",
+    "question": "Koji glumac tumači lik Flojda u kultnom filmu 'Nacionalna klasa'?",
+    "options": [
+      "Dragan Nikolić",
+      "Bogdan Diklić",
+      "Bora Todorović",
+      "Aleksandar Berček"
+    ],
+    "correctIndex": 0,
+    "funFact": "Čuveni 'fića' koji vozi Flojd i muzika Dade Topića i Olivera Mandića obeležili su film Gorana Markovića."
+  },
+  {
+    "id": 104,
+    "category": "Gastronomija",
+    "question": "Od kog povrća se tradicionalno priprema jelo prebranac?",
+    "options": [
+      "Grašak",
+      "Pasulj",
+      "Sočivo",
+      "Krompir"
+    ],
+    "correctIndex": 1,
+    "funFact": "Prebranac se tradicionalno peče u rerni sa puno crnog luka i lovorovim listom."
+  },
+  {
+    "id": 105,
+    "category": "Geografija",
+    "question": "Koji je glavni grad Italije?",
+    "options": [
+      "Milano",
+      "Rim",
+      "Napulj",
+      "Firenca"
+    ],
+    "correctIndex": 1,
+    "funFact": "Rim je poznat kao 'Večni grad' i nekada je bio prestonica moćnog Rimskog carstva."
+  },
+  {
+    "id": 106,
+    "category": "Književnost",
+    "question": "Ko je napisao zbirku pesama 'Tražim pomilovanje'?",
+    "options": [
+      "Desanka Maksimović",
+      "Mira Alečković",
+      "Isidora Sekulić",
+      "Milica Stojadinović"
+    ],
+    "correctIndex": 0,
+    "funFact": "Zbirka predstavlja pesnički lirski dijalog sa Dušanovim zakonikom."
+  },
+  {
+    "id": 107,
+    "category": "Nauka",
+    "question": "Koja je osnovna jedinica za merenje jačine električne struje u SI sistemu?",
+    "options": [
+      "Volt",
+      "Amper",
+      "Om",
+      "Vat"
+    ],
+    "correctIndex": 1,
+    "funFact": "Amper je dobio ime po francuskom fizičaru Andre-Mari Amperu."
+  },
+  {
+    "id": 108,
+    "category": "Istorija",
+    "question": "Koje godine je Srbija donela čuveni Sretenjski ustav, jedan od najmodernijih u tadašnjoj Evropi?",
+    "options": [
+      "1804.",
+      "1835.",
+      "1878.",
+      "1903."
+    ],
+    "correctIndex": 1,
+    "funFact": "Ustav je napisao Dimitrije Davidović, a ukinut je ubrzo pod pritiskom velikih feudalnih sila."
+  },
+  {
+    "id": 109,
+    "category": "Muzika",
+    "question": "Koji čuveni srpski kompozitor je komponovao 15 'Rukoveti'?",
+    "options": [
+      "Stanislav Binički",
+      "Stevan Stojanović Mokranjac",
+      "Kornelije Stanković",
+      "Petar Konjović"
+    ],
+    "correctIndex": 1,
+    "funFact": "Mokranjac je u 'Rukovetima' pretočio izvorno narodno muzičko blago u vrhunsku horsku umetnost."
+  },
+  {
+    "id": 110,
+    "category": "Pop-kultura",
+    "question": "Kako se zvao fiktivni grad u kome živi porodica Kremenko (Flinstons)?",
+    "options": [
+      "Bedrok",
+      "Springfild",
+      "Gotam",
+      "Kripton"
+    ],
+    "correctIndex": 0,
+    "funFact": "Porodica Kremenko je jedna od najpopularnijih animiranih serija studija Hana-Barbera."
+  },
+  {
+    "id": 111,
+    "category": "Sport",
+    "question": "Koja domaća atletičarka je osvojila svetske i evropske medalje u skoku udalj?",
+    "options": [
+      "Ivana Španović (Vuleta)",
+      "Olivera Jevtić",
+      "Snežana Pajkić",
+      "Amela Terzić"
+    ],
+    "correctIndex": 0,
+    "funFact": "Ivana je višestruka evropska i svetska šampionka i rekorderka Srbije u skoku udalj."
+  },
+  {
+    "id": 112,
+    "category": "Geografija",
+    "question": "Koja reka protiče kroz grad Pariz?",
+    "options": [
+      "Temza",
+      "Sena",
+      "Rajna",
+      "Po"
+    ],
+    "correctIndex": 1,
+    "funFact": "Sena deli Pariz na čuvenu levu i desnu obalu i uliva se u Lamanš."
+  },
+  {
+    "id": 113,
+    "category": "Nauka",
+    "question": "Koja krvna grupa se smatra univerzalnim davaocem za sve ostale grupe?",
+    "options": [
+      "A pozitivna",
+      "B pozitivna",
+      "AB pozitivna",
+      "0 negativna"
+    ],
+    "correctIndex": 3,
+    "funFact": "Eritrociti nulte negativne krvne grupe nemaju A, B niti Rh antigene na svojoj površini."
+  },
+  {
+    "id": 114,
+    "category": "Umetnost",
+    "question": "U kom gradu se nalazi čuveni muzej Ermitaž?",
+    "options": [
+      "Moskva",
+      "Sankt Peterburg",
+      "Kazanj",
+      "Novosibirsk"
+    ],
+    "correctIndex": 1,
+    "funFact": "Ermitaž je osnovala carica Katarina Velika 1764. godine i čuva preko 3 miliona umetničkih dela."
+  },
+  {
+    "id": 115,
+    "category": "Film",
+    "question": "Koji glumac glumi šerifa u kultnom vesternu 'Tačno u podne' (High Noon)?",
+    "options": [
+      "Džon Vejn",
+      "Gari Kuper",
+      "Klint Istvud",
+      "Henri Fonda"
+    ],
+    "correctIndex": 1,
+    "funFact": "Gari Kuper je za ovu ulogu osvojio prestižnu nagradu Oskar za najboljeg glumca."
+  },
+  {
+    "id": 116,
+    "category": "Književnost",
+    "question": "Kako se zove glavni junak romana 'Mali princ' Antoana de Sent Egziperija?",
+    "options": [
+      "Mali princ",
+      "Pilot",
+      "Lisica",
+      "Kralj"
+    ],
+    "correctIndex": 0,
+    "funFact": "Rečenica 'Čovek samo srcem dobro vidi, suština se očima ne može videti' postala je univerzalna životna mudrost."
+  },
+  {
+    "id": 117,
+    "category": "Gastronomija",
+    "question": "Koji začin daje karakterističnu žutu boju pirinču i kariju?",
+    "options": [
+      "Biber",
+      "Kurkuma",
+      "Origano",
+      "Menta"
+    ],
+    "correctIndex": 1,
+    "funFact": "Kurkuma se u tradicionalnoj indijskoj medicini koristi hiljadama godina zbog svojih antioksidativnih svojstava."
+  },
+  {
+    "id": 118,
+    "category": "Zanimljivosti",
+    "question": "Koliko sekundi ima jedan pun sat?",
+    "options": [
+      "600",
+      "1.800",
+      "3.600",
+      "7.200"
+    ],
+    "correctIndex": 2,
+    "funFact": "Jedan sat ima 60 minuta, a svaki minut 60 sekundi (60 x 60 = 3.600)."
+  },
+  {
+    "id": 119,
+    "category": "Sport",
+    "question": "Koji je najstariji i najprestižniji teniski turnir na travi na svetu?",
+    "options": [
+      "Rolan Garos",
+      "Vimbldon",
+      "US Open",
+      "Australijan Open"
+    ],
+    "correctIndex": 1,
+    "funFact": "Prvi turnir u Vimbldonu održan je u Londonu davne 1877. godine."
+  },
+  {
+    "id": 120,
+    "category": "Film",
+    "question": "Ko glumi čuvenog inspektora Renea u britanskoj humorističkoj seriji 'Alo, alo!'?",
+    "options": [
+      "Gorden Kej",
+      "Džon Kliz",
+      "Rovan Atkinson",
+      "Beni Hil"
+    ],
+    "correctIndex": 0,
+    "funFact": "Rene Artoa, vlasnik malog kafea u okupiranoj Francuskoj, bio je centralna figura serije."
+  },
+  {
+    "id": 121,
+    "category": "Geografija",
+    "question": "Koja zemlja na svetu ima oblik 'čizme' na mapi Evrope?",
+    "options": [
+      "Španija",
+      "Italija",
+      "Grčka",
+      "Hrvatska"
+    ],
+    "correctIndex": 1,
+    "funFact": "Apeninsko poluostrvo jasno podseća na visoku čizmu koja 'šutira' ostrvo Siciliju."
+  },
+  {
+    "id": 122,
+    "category": "Nauka",
+    "question": "Kako se naziva proces prelaska vode iz tečnog u gasovito stanje?",
+    "options": [
+      "Kondenzacija",
+      "Isparavanje",
+      "Zamrzavanje",
+      "Sublimacija"
+    ],
+    "correctIndex": 1,
+    "funFact": "Isparavanje se događa na površini tečnosti i ključan je deo kruženja vode u prirodi."
+  },
+  {
+    "id": 123,
+    "category": "Muzika",
+    "question": "Koji instrument ima 88 dirki (crnih i belih)?",
+    "options": [
+      "Harmonika",
+      "Klavir",
+      "Orgulje",
+      "Sintisajzer"
+    ],
+    "correctIndex": 1,
+    "funFact": "Standardni klavir ima 52 bele i 36 crnih dirki raspoređenih u 7 oktava."
+  },
+  {
+    "id": 124,
+    "category": "Istorija",
+    "question": "Ko je bio predsednik SFRJ od kraja Drugog svetskog rata do svoje smrti 1980. godine?",
+    "options": [
+      "Josip Broz Tito",
+      "Aleksandar Ranković",
+      "Edvard Kardelj",
+      "Milovan Đilas"
+    ],
+    "correctIndex": 0,
+    "funFact": "Titova sahrana u Beogradu 1980. godine okupila je najveći broj državnika i delegacija u modernoj istoriji."
+  },
+  {
+    "id": 125,
+    "category": "Sport",
+    "question": "U kom sportu se takmiče ekipe u igri zvanoj 'karling'?",
+    "options": [
+      "Na ledu sa teškim kamenjem",
+      "Na pesku",
+      "U bazenu",
+      "Na travi sa konjima"
+    ],
+    "correctIndex": 0,
+    "funFact": "Karling je zimski olimpijski sport u kom se granitni kamen gura po ledu ka ciljnim krugovima."
+  }
+]
