@@ -106,9 +106,6 @@ Monetizacija je prilagođena starijim osobama i njihovoj deci/unucima:
 2. **🔑 Jednokratna Doživotna Licenca (One-Time Lifetime Unlock ~ 299 RSD / ~2.5 €)**:
    * Jednokratna simbolična kupovina preko Google Play In-App Billing-a. Otključava **neograničeno igranje pojedinačnih kvizova** bez dnevnog limita. Deca i unuci je rado kupuju penzionerima kao trajni poklon.
 
-3. **📚 Tematski Paketi (99 RSD po paketu)**:
-   * Prodaja specijalizovanih dodataka: *Ex-Yu Film & Serije*, *Starogradska Muzika*, *Srpski Vladari & Bitke*.
-
 ---
 
 ## 🛠️ Kompletan Tehnološki Stak (Tech Stack)
