@@ -120,9 +120,9 @@ Monetizacija je prilagođena starijim osobama i njihovoj deci/unucima:
 * **Lokalna Baza**: **Room Database (SQLite)** – čuva pitanja, rezultate i aktivni niz na samom telefonu (Offline-First).
 * **Audio & Speech**: Android `TextToSpeech` (Locale `"sr", "RS"`) & `MediaPlayer` za zvučne efekte.
 
-### **Cloud & Server (Hibridni Back-End)**
-* **Baza u Oblaku**: **Google Firebase Cloud Firestore** (Besplatan za početne hiljade korisnika).
-* **Sinhronizacija**: Automatsko i neprimetno preuzimanje novih paketa pitanja kada je telefon povezan na Wi-Fi.
+### **Cloud & Sinhronizacija**
+* **Sinhronizacija Sadržaja**: Automatsko preuzimanje novih paketa pitanja i asocijacija u pozadini.
+* **Rang Lista**: Prikaz rezultata i bodova u realnom vremenu uz očuvanje offline-first funkcionalnosti.
 * **Kupovina**: Google Play In-App Billing Library v6+.
 
 ---
@@ -132,16 +132,15 @@ Monetizacija je prilagođena starijim osobama i njihovoj deci/unucima:
 ```mermaid
 graph TD
     A[Jetpack Compose UI] --> B[Workout ViewModel]
-    B --> C[Room Local SQLite DB - Offline First]
-    B --> D[Firebase Cloud Firestore - Silent Sync]
+    B --> C[Lokalna Baza - Offline First]
+    B --> D[Cloud Sinhronizacija]
     C --> E[Algoritam Pametne Rotacije Pitanja]
 ```
 
 ### 🔄 Računica Trajanja Baze & Pametna Rotacija
 * **Dnevna potrošnja (2 Treninga)**: 2 Asocijacije, 4 Runde Spojnica, 20 Pitanja Opšte Kulture.
-* **Početni paket u aplikaciji**: 600 Pitanja, 60 Asocijacija, 120 Spojnica.
-* **Trajanje bez ijednog ponavljanja**: **30 do 50 DANA**!
-* **Sistem Pametne Rotacije**: Nakon 30 dana, pitanja se ponovo vraćaju u krug. Ponavljanje posle mesec dana deluje sveže i predstavlja **izvanrednu vežbu za obnavljanje dugoročne memorije**.
+* **Početni paket u aplikaciji**: Pitanja, Asocijacije i Spojnice sa redovnim dopunama.
+* **Sistem Pametne Rotacije**: Pitanja se ciklično rotiraju kako bi sadržaj uvek bio svež i predstavljao izvanrednu vežbu za dugoročnu memoriju.
 
 ---
 
@@ -151,70 +150,7 @@ graph TD
 - [x] **Faza 2: Inicijalizacija Android Kotlin Projekta** u Jetpack Compose-u – *Završeno!*
 - [x] **Faza 3: Implementacija Zvaničnog Srpskog Leksikona i Igara** – *Završeno!*
 - [x] **Faza 4: Integracija Srpske Glasovne Sinteze (TTS) i Preklopnika Pisma** – *Završeno!*
-- [x] **Faza 5: Firebase Cloud Firestore Sinhronizacija i Rang Lista** – *Završeno!*
+- [x] **Faza 5: Dinamička Sinhronizacija Sadržaja i Rang Lista** – *Završeno!*
 - [ ] **Faza 6: Objavljivanje na Google Play Prodavnici**.
 
----
-
-## ☁️ Firebase Cloud Firestore - Uputstvo za Dodavanje Novih Pitanja i Asocijacija
-
-Kada želite da iz oblaka dodate nova pitanja ili Asocijacije bez izdavanja nove verzije aplikacije na Play Store-u, pratite ovo uputstvo:
-
-### 1. Pristup Bazi
-1. Otvorite sajt [console.firebase.google.com](https://console.firebase.google.com/)
-2. Izaberite vaš projekat **Mozaik Mozgalica**.
-3. U levom meniju idite na **Databases & Storage** $\rightarrow$ **Firestore Database**.
-
----
-
-### 2. Dodavanje Novih Asocijacija (`asocijacije_sr`)
-
-U Firestore bazi izaberite kolekciju **`asocijacije_sr`** (ili kliknite `+ Start collection` ako prvi put dodajete).
-
-Kliknite na **`+ Add document`** (izaberite *Auto-ID*) i popunite sledeća polja:
-
-```json
-{
-  "id": 1,
-  "final": "RIBOLOV",
-  "colASolution": "REKA",
-  "colAClues": ["Morava", "Dunav", "Sava", "Drina"],
-  "colBSolution": "RIBA",
-  "colBClues": ["Udica", "Mreža", "Čamac", "Som"],
-  "colCSolution": "HRANA",
-  "colCClues": ["Hleb", "Ručak", "Vazduh", "Život"],
-  "colDSolution": "VODA",
-  "colDClues": ["More", "Jezero", "Bazen", "So"]
-}
-```
-
-* **Napomena**: Polja `colAClues`, `colBClues`, `colCClues` i `colDClues` moraju biti tipa `array` i sadržati tačno 4 reči.
-
----
-
-### 3. Dodavanje Novih Pitanja za Kvizove (`questions_sr`)
-
-U Firestore bazi izaberite kolekciju **`questions_sr`**.
-
-Kliknite na **`+ Add document`** (izaberite *Auto-ID*) i popunite polja za kvizove *Ko Zna Zna* ili *Koliko Znaš Srbiju?*:
-
-```json
-{
-  "id": 101,
-  "gameType": "srbija",
-  "category": "Srpski Manastiri & Baština",
-  "question": "U kom manastiru se nalazi čuvena freska Beli Anđeo?",
-  "options": ["Žiča", "Mileševa", "Studenica", "Gračanica"],
-  "correctIndex": 1,
-  "funFact": "Freska Beli Anđeo poslata je u prvom satelitskom prenosu 1962. godine!"
-}
-```
-
-* **Vrednost `gameType`**: Može biti `"srbija"` za kviz o Srbiji ili `"koznazna"` za opštu kulturu.
-* **Vrednost `correctIndex`**: Redni broj tačnog odgovora u nizu `options` (0 za 1. opciju, 1 za 2. opciju, 2 za 3. opciju, 3 za 4. opciju).
-
----
-
-### 🔄 Kako Igrači Dobijaju Nova Pitanja?
-Čim kliknete **Save** u Firebase konzoli, aplikacija kod svih penzionera i igrača u Srbiji pri prvom sledećem otvaranju kviza automatski i tiho povlači ova nova pitanja iz oblaka!
 
